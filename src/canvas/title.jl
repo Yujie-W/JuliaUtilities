@@ -15,10 +15,11 @@ Set titles for the axes, given
 """
 function set_titles!(
             axes::Array;
-            labels::Array{String,1} = [],
+            labels::Array{String,1} = String[],
             paren::Bool = true,
             capital::Bool = false,
-            fontsize::Number = 16
+            fontsize::Number = 16,
+            loc::String = "center"
 )
     letters = ["a", "b", "c", "d", "e", "f", "g",
                "h", "i", "j", "k", "l", "m", "n",
@@ -37,7 +38,7 @@ function set_titles!(
 
         length(labels)>0 ? _title *= " " * labels[indx] : nothing;
 
-        axes[indx].set_title(_title, fontsize=fontsize);
+        axes[indx].set_title(_title, fontsize=fontsize, loc=loc);
     end
 
     return nothing

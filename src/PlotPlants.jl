@@ -15,6 +15,7 @@ export create_canvas,
        latex_unit,
        line_regress,
        plot_line_regress,
+       set_titles!,
        use_serif_tex
 
 
