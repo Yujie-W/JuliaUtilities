@@ -4,7 +4,7 @@
 #
 ###############################################################################
 """
-    set_titles!(axes::Array; labels::Array{String,1}, paren::Bool, capital::Bool, fontsize::Number)
+    set_titles!(axes::Array; labels::Array{String,1}, paren::Bool, capital::Bool, fontsize::Number, loc::String)
 
 Set titles for the axes, given
 - `axes` An array of axes
@@ -12,6 +12,7 @@ Set titles for the axes, given
 - `paren` Optional: if true, use format like `(a)`
 - `capital` Optional: if true, use capital letters like `(A)`
 - `fontsize` Optional: fontsize of the title
+- `loc` Optional: location of the title
 """
 function set_titles!(
             axes::Array;
