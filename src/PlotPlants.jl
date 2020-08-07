@@ -5,6 +5,7 @@ using DocStringExtensions
 using GLM
 using PyPlot
 using Revise
+using Statistics
 
 
 
@@ -14,6 +15,11 @@ export create_canvas,
        latex_symbol,
        latex_unit,
        line_regress,
+       line_regress_test_slope,
+       mae,
+       mape,
+       nanmean,
+       nanstd,
        plot_line_regress,
        set_titles!,
        use_serif_tex
@@ -29,6 +35,7 @@ include("canvas/title.jl"        )
 include("font/serif_tex.jl")
 
 include("statistics/line_regress.jl")
+include("statistics/mae.jl"         )
 
 include("string/symbols.jl")
 include("string/units.jl"  )

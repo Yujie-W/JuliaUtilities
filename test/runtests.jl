@@ -1,19 +1,44 @@
+using GLM
 using PlotPlants
 using Test
 
-@testset "PlotPlants --- Test" begin
-    # create data to plot
-    xx = collect(Float64,1:100) .+ rand(100) ./ 2;
-    yy = 0.3 .* xx .+ rand(100) ./ 10;
 
-    # use all the functions in the project
-    use_serif_tex();
-    fig,axes = create_canvas("1", ncol=2, nrow=2, ax_ind=[1,3,4]);
-    axes[1].scatter(xx, yy);
-    plot_line_regress(axes[2], xx, yy, interval=false);
-    plot_line_regress(axes[3], xx, yy, interval=true);
-    set_titles!(axes);
-    axes[1].set_xlabel( latex_symbol("H", sub="aha") * " " * latex_unit("A") );
-    axes[1].set_ylabel( latex_symbol("H", sup="aha") * " " * latex_unit("G") );
-    @test true;
+
+
+# Test the variable NaN recursively
+function recursive_NaN_test(para)
+    # if the type is Number
+    if typeof(para) <: Number
+        try
+            @test !isnan(para)
+        catch e
+            println("The not NaN test failed for", para)
+        end
+    # if the type is array
+    elseif typeof(para) <: AbstractArray
+        for ele in para
+            recursive_NaN_test(ele)
+        end
+    # if the type is Dict
+    elseif typeof(para) <: Dict
+        nothing
+    # if the type is StatisticalModel
+    elseif typeof(para) <: StatisticalModel
+        nothing
+    else
+        # try if the parameter is a struct
+        try
+            for fn in fieldnames( typeof(para) )
+                recursive_NaN_test( getfield(para, fn) )
+            end
+        catch e
+            println(typeof(para), "is not supprted by recursive_NaN_test.")
+        end
+    end
 end
+
+
+
+
+include("test_plot.jl" )
+include("test_stats.jl")
