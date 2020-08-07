@@ -43,6 +43,15 @@ An customized funtion [`create_canvas`](@ref) is provided to genrate figure and
 create_canvas
 ```
 
+## Shapes
+A few customized shapes can be added to the canvas very conveniently, for
+    example, stoma and ellipse. These shortcut functions include
+
+```@docs
+plot_ellipse
+plot_stoma
+```
+
 ## Add titles
 Function [`set_titles!`](@ref) will add panel titles like `(a)` to all the
     panels, and if `labels` options is given, the labels will be added after
@@ -69,4 +78,23 @@ The function will filter out the NaN from the given data, make linear
 ```@docs
 line_regress
 LinearRegressionResult
+```
+
+Further, the PlotPlants module provides a quick tool to test whether the slope
+    differs from a given value, see
+
+```@docs
+line_regress_test_slope
+```
+
+## Statistical tools
+In many cases, displaying mean absolute (precentage) error make the figure look
+    much better. Thus, the PlotPlants function provides these convenient
+    functions.
+
+```@docs
+mae
+mape
+nanmean
+nanstd
 ```

@@ -3,6 +3,7 @@ module PlotPlants
 using DataFrames
 using DocStringExtensions
 using GLM
+using PyCall
 using PyPlot
 using Revise
 using Statistics
@@ -20,7 +21,9 @@ export create_canvas,
        mape,
        nanmean,
        nanstd,
+       plot_ellipse,
        plot_line_regress,
+       plot_stoma,
        set_titles!,
        use_serif_tex
 
@@ -29,10 +32,14 @@ export create_canvas,
 
 # include the files
 include("canvas/create_canvas.jl")
-include("canvas/line_regress.jl" )
 include("canvas/title.jl"        )
 
+include("fitting/line_regress.jl")
+
 include("font/serif_tex.jl")
+
+include("shape/ellipse.jl")
+include("shape/stoma.jl"  )
 
 include("statistics/line_regress.jl")
 include("statistics/mae.jl"         )

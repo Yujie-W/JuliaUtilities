@@ -170,9 +170,9 @@ uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [[LoweredCodeUtils]]
 deps = ["JuliaInterpreter"]
-git-tree-sha1 = "1b632dc108106101a9909db7be8f8b32ed8d02f7"
+git-tree-sha1 = "5bca4f43cb522596be4496d849de670090af3a55"
 uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "0.4.6"
+version = "0.4.7"
 
 [[MacroTools]]
 deps = ["Markdown", "Random"]
@@ -221,7 +221,7 @@ deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "R
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [[PlotPlants]]
-deps = ["DataFrames", "DocStringExtensions", "GLM", "PyPlot", "Revise", "Test"]
+deps = ["DataFrames", "DocStringExtensions", "GLM", "PyCall", "PyPlot", "Revise", "Statistics", "Test"]
 path = ".."
 uuid = "62700b34-1872-4917-b6af-4f42ae699f38"
 version = "0.0.1"

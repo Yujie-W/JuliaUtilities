@@ -14,5 +14,7 @@ println("\nTest the plotting functions...");
     set_titles!(axes);
     axes[1].set_xlabel( latex_symbol("H", sub="aha") * " " * latex_unit("A") );
     axes[1].set_ylabel( latex_symbol("H", sup="aha") * " " * latex_unit("G") );
+    plot_ellipse(axes[2], (1,1));
+    plot_stoma(axes[3], (1,1));
     @test true;
 end
