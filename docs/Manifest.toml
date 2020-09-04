@@ -102,9 +102,9 @@ uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
-git-tree-sha1 = "de92384c0952e13b394cd08200b5091b288a6704"
+git-tree-sha1 = "9a457808000939be5f052291cbed7de409c2839d"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.9.1"
+version = "0.9.4"
 
 [[FixedPointNumbers]]
 deps = ["Statistics"]

@@ -43,6 +43,25 @@ end
 #
 ###############################################################################
 """
+    linear_df_xy(df::DataFrame, intercept::Bool)
+
+Linear fit the X and Y in a given DataFrame, given
+- `df` DataFrame that use `X` and `Y` to store values
+- `intercept` Whether using intercept when making the regression
+"""
+function linear_df_xy(df::DataFrame, intercept::Bool)
+    # run the fitting
+    if intercept
+        lr = lm(@formula(Y ~ X), df);
+    else
+        lr = lm(@formula(Y ~ 0 + X), df);
+    end
+
+    return lr
+end
+
+
+"""
     line_regress(list_x::Array, list_y::Array; intercept::Bool, sorting::Bool)
 
 Make linear regression and return the fitted results, given
@@ -72,11 +91,7 @@ function line_regress(
     sorting ? sort!(df) : nothing;
 
     # run the fitting
-    if intercept
-        lr = lm(@formula(Y ~ X), df);
-    else
-        lr = lm(@formula(Y ~ 0 + X), df);
-    end
+    lr = linear_df_xy(df, intercept);
 
     # create items for the struct
     if intercept
@@ -97,9 +112,9 @@ function line_regress(
 
     # calculate the predictions
     if intercept
-        mt = [ones(length(df.X)) df.X];
+        mt = [ones(length((df).X)) (df).X];
     else
-        mt = df.X[:,:];
+        mt = (df).X[:,:];
     end
     pred = predict(lr, mt, interval=:confidence);
     df[!,"predY" ] = pred.prediction;
@@ -160,11 +175,7 @@ function line_regress_test_slope(
     df = DataFrame(X=new_x, Y=new_y);
 
     # run the fitting
-    if intercept
-        lr = lm(@formula(Y ~ X), df);
-    else
-        lr = lm(@formula(Y ~ 0 + X), df);
-    end
+    lr = linear_df_xy(df, intercept);
 
     # calculate the p value
     if intercept
