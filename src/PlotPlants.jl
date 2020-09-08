@@ -21,21 +21,37 @@ export create_canvas,
        mape,
        nanmean,
        nanstd,
-       plot_ellipse,
        plot_line_regress,
-       plot_stoma,
-       set_titles!,
-       set_xlabels!,
-       set_xylabels!,
-       set_ylabels!,
        use_serif_tex
+
+# export functions to plot shapes
+export plot_ellipse,
+       plot_stoma
+
+# export functions that iterate throught array of axis
+export set_titles!,
+       set_xlabels!,
+       set_xlims!,
+       set_xticklabels!,
+       set_xticks!,
+       set_xylabels!,
+       set_xylims!,
+       set_xyticklabels!,
+       set_xyticks!,
+       set_ylabels!,
+       set_ylims!,
+       set_yticklabels!,
+       set_yticks!
 
 
 
 
 # include the files
 include("canvas/create_canvas.jl")
-include("canvas/title_label.jl"  )
+include("canvas/titles.jl"       )
+include("canvas/xylabels.jl"     )
+include("canvas/xylims.jl"       )
+include("canvas/xyticks.jl"      )
 
 include("fitting/line_regress.jl")
 

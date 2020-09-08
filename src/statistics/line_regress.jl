@@ -61,6 +61,8 @@ function linear_df_xy(df::DataFrame, intercept::Bool)
 end
 
 
+
+
 """
     line_regress(list_x::Array, list_y::Array; intercept::Bool, sorting::Bool)
 

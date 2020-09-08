@@ -52,13 +52,31 @@ plot_ellipse
 plot_stoma
 ```
 
-## Add titles
+## Set titles, lims, ticks, and ticklabels
 Function [`set_titles!`](@ref) will add panel titles like `(a)` to all the
     panels, and if `labels` options is given, the labels will be added after
     the letter (e.g., `(a) label`).
 
 ```@docs
 set_titles!
+```
+
+Similarly, the package provides shortcuts to set the X-axis and Y-axis labels,
+    limits, ticks, and tick labels.
+
+```@docs
+set_xlabels!
+set_ylabels!
+set_xylabels!
+set_xlims!
+set_ylims!
+set_xylims!
+set_xticks!
+set_yticks!
+set_xyticks!
+set_xticklabels!
+set_yticklabels!
+set_xyticklabels!
 ```
 
 ## Add regression
