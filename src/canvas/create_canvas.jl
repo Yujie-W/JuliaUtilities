@@ -4,7 +4,14 @@
 #
 ###############################################################################
 """
-    create_canvas(id; ncol::Int, nrow::Int, ax_ind::Array{Int,1}, figsize::Tuple{Number,Number}, dpi::Number)
+    create_canvas(
+                id;
+                ncol::Int,
+                nrow::Int,
+                ax_ind::Array{Int,1},
+                figsize::Tuple{Number,Number},
+                dpi::Number
+    )
 
 Create a canvas, given
 - `id` ID of the figure
@@ -31,11 +38,11 @@ function create_canvas(
     end
 
     # create axes
-    axes = [];
+    array_ax = [];
     for indx in ax_ind
         ax = subplot(nrow, ncol, indx);
-        push!(axes, ax);
+        push!(array_ax, ax);
     end
 
-    return fig,axes
+    return fig,array_ax
 end

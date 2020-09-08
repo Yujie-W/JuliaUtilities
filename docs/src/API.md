@@ -32,7 +32,7 @@ latex_unit
 
 ## Create canvas
 An customized funtion [`create_canvas`](@ref) is provided to genrate figure and
-    axes from a few keywords. For example,
+    an array of axis from a few keywords. For example,
 
 - `create_canvas(fig_id)` returns a figure with one axis;
 - `create_canvas(fig_id, nrow=2, ncol=2)` returns a figure will four subplots;

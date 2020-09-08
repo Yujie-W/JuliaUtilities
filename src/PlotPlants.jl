@@ -25,6 +25,9 @@ export create_canvas,
        plot_line_regress,
        plot_stoma,
        set_titles!,
+       set_xlabels!,
+       set_xylabels!,
+       set_ylabels!,
        use_serif_tex
 
 
@@ -32,7 +35,7 @@ export create_canvas,
 
 # include the files
 include("canvas/create_canvas.jl")
-include("canvas/title.jl"        )
+include("canvas/title_label.jl"  )
 
 include("fitting/line_regress.jl")
 
