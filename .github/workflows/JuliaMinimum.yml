@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  version-minimum:
+  version-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -15,5 +15,5 @@ jobs:
       - name: Set up Julia
         uses: julia-actions/setup-julia@v1
         with:
-          version: '1.3'
+          version: "1.3"
       - run: julia --project -e 'using Pkg; Pkg.test();'

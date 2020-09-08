@@ -13,8 +13,8 @@
 [st-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/JuliaStable/badge.svg?branch=master
 [st-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"master"++workflow%3A"JuliaStable"
 
-[v13-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/Julia-1.0/badge.svg?branch=master
-[v13-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"master"++workflow%3A"Julia-1.0"
+[v13-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/Julia-1.3/badge.svg?branch=master
+[v13-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"master"++workflow%3A"Julia-1.3"
 
 
 ## About
