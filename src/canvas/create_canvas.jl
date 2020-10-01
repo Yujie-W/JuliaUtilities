@@ -4,14 +4,12 @@
 #
 ###############################################################################
 """
-    create_canvas(
-                id;
-                ncol::Int,
-                nrow::Int,
-                ax_ind::Array{Int,1},
-                figsize::Tuple{Number,Number},
-                dpi::Number
-    )
+    create_canvas(id;
+                  ncol::Int,
+                  nrow::Int,
+                  ax_ind::Array{Int,1},
+                  figsize::Tuple{Number,Number},
+                  dpi::Number)
 
 Create a canvas, given
 - `id` ID of the figure

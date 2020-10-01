@@ -57,20 +57,35 @@ const MOLE_H2O = "H" * SUB_P2 * "O"
 #
 ###############################################################################
 """
-    latex_unit(id::String; paren::Bool)
+    latex_unit(id::String; paren::Bool, squared::Bool, space::Bool)
 
 Return the unit, given
 - `id` Identifier of the unit (if not in libary, use id as unit)
 - `paren` Optional: if true, include parenthesis
 - `squared` Optional: if true, use `[]`, otherwise, use `()`
+- `space` Optional: if true, add a SPACE at the beginning
+
+The predefined units include
+- `A` μmol CO₂ m⁻² s⁻¹
+- `E` mol H₂O m⁻² s⁻¹
+- `E_MMOL` mmol H₂O m⁻² s⁻¹
+- `G` mol m⁻² s⁻¹
+- `PAR` μmol m⁻² s⁻¹
+- `T` °C
+- `WUE` μmol mol⁻¹
 """
 function latex_unit(
             id::String;
             paren::Bool=true,
-            squared::Bool=false
+            squared::Bool=false,
+            space::Bool=true
 )
     # initialize with an empty String
-    unit_string = "";
+    if space
+        unit_string = " ";
+    else
+        unit_string = "";
+    end
 
     # add parenthesis
     if squared
@@ -90,6 +105,10 @@ function latex_unit(
         _unit = MOL_P1 * " " * M_N2 * " " * S_N1;
     elseif id=="PAR"
         _unit = UMOL_P1 * " " * M_N2 * " " * S_N1;
+    elseif id=="T"
+        _unit = CELCIUS;
+    elseif id=="WUE"
+        _unit = UMOL_P1 * " " * MOL_N1;
     else
         _unit = id;
     end

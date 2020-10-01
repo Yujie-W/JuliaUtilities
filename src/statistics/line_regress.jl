@@ -148,7 +148,10 @@ end
 #
 ###############################################################################
 """
-    line_regress_test_slope(list_x::Array, list_y::Array; slope::Number, intercept::Bool)
+    line_regress_test_slope(list_x::Array,
+                            list_y::Array;
+                            slope::Number,
+                            intercept::Bool)
 
 Make linear regression and return the p value of whether the regression slope
     differs from the given slope, given

@@ -47,7 +47,6 @@ println("\nTest the plotting functions...");
     yy = 0.3 .* xx .+ rand(100) ./ 10;
 
     # use all the functions in the project
-    use_serif_tex();
     fig,array_ax = create_canvas("1", ncol=2, nrow=2, ax_ind=[1,3,4]);
     array_ax[1].scatter(xx, yy);
     plot_line_regress(array_ax[2], xx, yy, interval=false);
@@ -61,6 +60,7 @@ println("\nTest the plotting functions...");
     array_ax[1].set_ylabel( latex_symbol("H", sup="aha") * " " * latex_unit("G") );
     plot_ellipse(array_ax[2], (1,1));
     plot_stoma(array_ax[3], (1,1));
+    use_serif_tex();
     @test true;
 end
 

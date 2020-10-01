@@ -4,7 +4,12 @@
 #
 ###############################################################################
 """
-    plot_stoma(ax, xy::Tuple{Number,Number}; width::Number, height::Number, stoma::Number, angle::Number)
+    plot_stoma(ax,
+               xy::Tuple{Number,Number};
+               width::Number,
+               height::Number,
+               stoma::Number,
+               angle::Number)
 
 Plot a stoma on the axis, given
 - `ax` Axis to plot on

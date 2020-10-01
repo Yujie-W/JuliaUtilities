@@ -4,7 +4,15 @@
 #
 ###############################################################################
 """
-    plot_ellipse(ax, xy::Tuple{Number,Number}; width::Number, height::Number, angle::Number, color::String, edgecolor::String, facecolor::String, alpha::Number = 0.5)
+    plot_ellipse(ax,
+                 xy::Tuple{Number,Number};
+                 width::Number,
+                 height::Number,
+                 angle::Number,
+                 color::String,
+                 edgecolor::String,
+                 facecolor::String,
+                 alpha::Number)
 
 Plot an ellipse on axis, given
 - `ax` Axis to plot on

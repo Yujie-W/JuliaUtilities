@@ -5,7 +5,6 @@ using DocStringExtensions
 using GLM
 using PyCall
 using PyPlot
-using Revise
 using Statistics
 
 

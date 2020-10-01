@@ -37,7 +37,6 @@
 | GLM                 | 1.3.10 + | Julia 1.0 +  |
 | PyCall              | 1.91.4 + | Julia 0.7 +  |
 | PyPlot              | 2.9.0 +  | Julia 1.0 +  |
-| Revise              | 2.7.3 +  | Julia 1.0 +  |
 | SpecialFunctions*   | 0.10.3+  | Julia 1.3 +  |
 
 

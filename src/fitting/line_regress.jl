@@ -4,7 +4,13 @@
 #
 ###############################################################################
 """
-    plot_line_regress(ax, list_x::Array, list_y::Array; intercept::Bool, interval::Bool, color::String, alpha::Number)
+    plot_line_regress(ax,
+                      list_x::Array,
+                      list_y::Array;
+                      intercept::Bool,
+                      interval::Bool,
+                      color::String,
+                      alpha::Number)
 
 Plor linear regression and confidence interval on the axis, given
 - `ax` Given axis

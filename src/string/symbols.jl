@@ -4,7 +4,11 @@
 #
 ###############################################################################
 """
-    latex_symbol(mid::String; sub::String, sup::String, presub::String, presup::String)
+    latex_symbol(mid::String;
+                 sub::String,
+                 sup::String,
+                 presub::String,
+                 presup::String)
 
 Return the latex symbol string, given
 - `mid` Center symbol, italic only when length>1

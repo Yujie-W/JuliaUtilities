@@ -16,4 +16,9 @@ jobs:
         uses: julia-actions/setup-julia@v1
         with:
           version: "1.5"
-      - run: julia --project -e 'using Pkg; Pkg.test();'
+      - name: Test the package
+        run: julia --project -e 'using Pkg; Pkg.test(coverage=true);'
+      - name: Upload code coverage
+        run: julia --project -e 'using Pkg; Pkg.instantiate(); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder());'
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
