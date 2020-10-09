@@ -34,13 +34,11 @@ using Test
     @inline function _surf_func(x::Array{FT,1}) where {FT<:AbstractFloat}
         return -(x[1]-2)^2 - (x[2]-3)^2
     end
-
     lr = [1, 1, 5, 1, 0, 1];
     lf = [_f0, _f1, _f2, _f3, _f4, _f5];
 
+    # testing the BisectionMethod and ReduceStepMethod
     for FT in [Float32, Float64]
-        # Bisection method
-        # ReduceStep method
         ms_bis = BisectionMethod{FT}(x_min=0, x_max=5);
         ms_rst = ReduceStepMethod{FT}(0, 5, 1+rand(FT), 1);
         st = SolutionTolerance{FT}(1e-3, 50);
@@ -54,12 +52,14 @@ using Test
         end
     end
 
+    # testing the NelderMeadMethod and ReduceStepMethodND
     for FT in [Float32, Float64]
-        # NelderMeadMethod method
-        # ReduceStepND method
-        ms_sim = NelderMeadMethod{FT}(
+        ms_nm1 = NelderMeadMethod{FT}(
                         N = 2,
                         x_inis = FT[rand(FT)+1, rand(FT)+2, 0]);
+        ms_nm2 = NelderMeadMethod{FT}(
+                        N = 2,
+                        x_inis = FT[0.1, 0.1, 0]);
         ms_rst = ReduceStepMethodND{FT}(
                         x_mins = FT[0,0],
                         x_maxs = FT[5,5],
@@ -67,8 +67,10 @@ using Test
                         Δ_inis = FT[1,1]);
         rt = ResidualTolerance{FT}(1e-5, 50);
         st = SolutionToleranceND{FT}(FT[1e-3, 1e-3], 50);
-        for sol in [ find_peak(_surf_func, ms_sim, rt),
-                     find_peak(_surf_func, ms_sim, st),
+        for sol in [ find_peak(_surf_func, ms_nm1, rt),
+                     find_peak(_surf_func, ms_nm1, st),
+                     find_peak(_surf_func, ms_nm2, rt),
+                     find_peak(_surf_func, ms_nm2, st),
                      find_peak(_surf_func, ms_rst, st) ]
             @test all( .!isnan.(sol) );
             @test eltype(sol) == FT;
