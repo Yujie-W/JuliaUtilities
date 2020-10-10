@@ -10,11 +10,11 @@
 [rel-img]: https://img.shields.io/badge/docs-stable-blue.svg
 [rel-url]: https://Yujie-W.github.io/PlotPlants.jl/stable/
 
-[st-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/JuliaStable/badge.svg?branch=master
-[st-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"master"++workflow%3A"JuliaStable"
+[st-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/JuliaStable/badge.svg?branch=main
+[st-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"main"++workflow%3A"JuliaStable"
 
-[v13-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/Julia-1.3/badge.svg?branch=master
-[v13-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"master"++workflow%3A"Julia-1.3"
+[v13-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/Julia-1.3/badge.svg?branch=main
+[v13-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"main"++workflow%3A"Julia-1.3"
 
 
 ## About
