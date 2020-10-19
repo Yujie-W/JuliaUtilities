@@ -3,6 +3,8 @@ module PlotPlants
 using DataFrames
 using DocStringExtensions
 using GLM
+using KernelDensity
+using ProgressMeter
 using PyCall
 using PyPlot
 using Statistics
@@ -24,7 +26,8 @@ export create_canvas,
        use_serif_tex
 
 # export functions to plot shapes
-export plot_ellipse,
+export plot_density,
+       plot_ellipse,
        plot_stoma
 
 # export functions that iterate throught array of axis
@@ -55,6 +58,8 @@ include("canvas/xyticks.jl"      )
 include("fitting/line_regress.jl")
 
 include("font/serif_tex.jl")
+
+include("plots/density.jl")
 
 include("shape/ellipse.jl")
 include("shape/stoma.jl"  )
