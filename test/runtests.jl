@@ -60,6 +60,10 @@ println("\nTest the plotting functions...");
     array_ax[1].set_ylabel( latex_symbol("H", sup="aha") * " " * latex_unit("G") );
     plot_ellipse(array_ax[2], (1,1));
     plot_stoma(array_ax[3], (1,1));
+    x = rand(1002);
+    y = rand(1002)*0.1 .+ x*0.5;
+    plot_density(array_ax[2], xx, yy, markersize=8);
+    plot_density(array_ax[3], x, y, markersize=8);
     use_serif_tex();
     @test true;
 end

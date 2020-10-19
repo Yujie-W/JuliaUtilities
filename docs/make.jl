@@ -23,7 +23,6 @@ format = Documenter.HTML(
 makedocs(
     sitename = "PlotPlants",
     format = format,
-
     clean = false,
     modules = [PlotPlants],
     pages = pages,
@@ -32,5 +31,6 @@ makedocs(
 deploydocs(
     repo = "github.com/Yujie-W/PlotPlants.jl.git",
     target = "build",
+    devbranch = "main",
     push_preview = true,
 )

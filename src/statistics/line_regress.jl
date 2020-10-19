@@ -70,7 +70,7 @@ Make linear regression and return the fitted results, given
 - `list_x` Array of x, can be NaN
 - `list_y` Array of y, can be NaN
 - `intercept` Optional: if true use intercept in the fitting
-- `sorting` Optional: if true, fort the values
+- `sorting` Optional: if true, sort the values
 """
 function line_regress(
             list_x::Array,
