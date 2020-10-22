@@ -4,6 +4,7 @@ using DataFrames
 using DocStringExtensions
 using GLM
 using KernelDensity
+using NetCDF
 using ProgressMeter
 using PyCall
 using PyPlot
@@ -12,26 +13,21 @@ using Statistics
 
 
 
-# export public functions
-export create_canvas,
-       latex_symbol,
-       latex_unit,
-       line_regress,
-       line_regress_test_slope,
-       mae,
-       mape,
-       nanmean,
-       nanstd,
-       plot_line_regress,
-       use_serif_tex
+# export public types
+export AbstractFormat,
+       FormatNC,
+       FormatTIFF
 
-# export functions to plot shapes
+# export functions related to plotting
 export plot_density,
        plot_ellipse,
-       plot_stoma
+       plot_line_regress,
+       plot_stoma,
+       preview_dataset
 
-# export functions that iterate throught array of axis
-export set_titles!,
+# export canvas related functions
+export create_canvas,
+       set_titles!,
        set_xlabels!,
        set_xlims!,
        set_xticklabels!,
@@ -45,10 +41,25 @@ export set_titles!,
        set_yticklabels!,
        set_yticks!
 
+# statistics related function
+export line_regress,
+       line_regress_test_slope,
+       mae,
+       mape,
+       nanmean,
+       nanstd
+
+# utilities
+export latex_symbol,
+       latex_unit,
+       use_serif_tex
+
 
 
 
 # include the files
+include("types/file_format.jl")
+
 include("canvas/create_canvas.jl")
 include("canvas/titles.jl"       )
 include("canvas/xylabels.jl"     )
@@ -60,6 +71,7 @@ include("fitting/line_regress.jl")
 include("font/serif_tex.jl")
 
 include("plots/density.jl")
+include("plots/preview.jl")
 
 include("shape/ellipse.jl")
 include("shape/stoma.jl"  )
