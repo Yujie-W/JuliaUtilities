@@ -27,7 +27,6 @@ format = Documenter.HTML(
 makedocs(
     sitename = "ConstrainedRootSolvers.jl",
     format = format,
-
     clean = false,
     modules = [ConstrainedRootSolvers],
     pages = pages,
@@ -36,5 +35,6 @@ makedocs(
 deploydocs(
     repo = "github.com/Yujie-W/ConstrainedRootSolvers.jl.git",
     target = "build",
+    devbranch = "main",
     push_preview = true,
 )
