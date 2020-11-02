@@ -1,6 +1,7 @@
 module PlotPlants
 
 using DataFrames
+using Distributed
 using DocStringExtensions
 using GLM
 using KernelDensity
@@ -8,6 +9,7 @@ using NetCDF
 using ProgressMeter
 using PyCall
 using PyPlot
+using SharedArrays
 using Statistics
 
 
@@ -42,7 +44,8 @@ export create_canvas,
        set_yticks!
 
 # statistics related function
-export line_regress,
+export calculate_density,
+       line_regress,
        line_regress_test_slope,
        mae,
        mape,

@@ -50,7 +50,7 @@ end
 #
 ###############################################################################
 """
-    mae(x::Array)
+    mae(y::Array, pred::Array)
 
 Return the mean absolute error by ommiting the NaN, given
 - `y` Array of numbers, can be NaN
@@ -73,7 +73,7 @@ end
 #
 ###############################################################################
 """
-    mae(x::Array)
+    mape(y::Array, pred::Array)
 
 Return the mean absolute percentage error by ommiting the NaN, given
 - `y` Array of numbers, can be NaN

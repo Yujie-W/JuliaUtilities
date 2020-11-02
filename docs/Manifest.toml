@@ -47,9 +47,9 @@ version = "0.12.4"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
-git-tree-sha1 = "b4f242d5e9f65648d438a03d245a9fdc6e38d728"
+git-tree-sha1 = "a706ff10f1cd8dab94f59fd09c0e657db8e77ff0"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "3.22.0"
+version = "3.23.0"
 
 [[CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -59,9 +59,9 @@ version = "0.3.4+0"
 
 [[Conda]]
 deps = ["JSON", "VersionParsing"]
-git-tree-sha1 = "7a58bb32ce5d85f8bf7559aa7c2842f9aecf52fc"
+git-tree-sha1 = "c0647249d785f1d5139c0cc96db8f6b32f7ec416"
 uuid = "8f4d0f93-b110-5947-807f-2305c1781a2d"
-version = "1.4.1"
+version = "1.5.0"
 
 [[CondaBinDeps]]
 deps = ["BinDeps", "Conda"]
@@ -70,9 +70,9 @@ uuid = "a9693cdc-2bc8-5703-a9cd-1da358117377"
 version = "0.2.0"
 
 [[DataAPI]]
-git-tree-sha1 = "176e23402d80e7743fc26c19c681bfb11246af32"
+git-tree-sha1 = "ad84f52c0b8f05aa20839484dbaf01690b41ff84"
 uuid = "9a962f9c-6df0-11e9-0e5d-c546b8b5ee8a"
-version = "1.3.0"
+version = "1.4.0"
 
 [[DataFrames]]
 deps = ["CategoricalArrays", "Compat", "DataAPI", "Future", "InvertedIndices", "IteratorInterfaceExtensions", "Missings", "PooledArrays", "Printf", "REPL", "Reexport", "SortingAlgorithms", "Statistics", "TableTraits", "Tables", "Unicode"]
@@ -82,9 +82,9 @@ version = "0.21.8"
 
 [[DataStructures]]
 deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
-git-tree-sha1 = "db07bb22795762895b60e44d62b34b16c982a687"
+git-tree-sha1 = "fb0aa371da91c1ff9dc7fbed6122d3e411420b9c"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-version = "0.18.7"
+version = "0.18.8"
 
 [[DataValueInterfaces]]
 git-tree-sha1 = "bfc1187b79289637fa0ef6d4436ebdfe6905cbd6"
@@ -110,9 +110,9 @@ uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[Distributions]]
 deps = ["FillArrays", "LinearAlgebra", "PDMats", "Printf", "QuadGK", "Random", "SparseArrays", "SpecialFunctions", "StaticArrays", "Statistics", "StatsBase", "StatsFuns"]
-git-tree-sha1 = "a5ae8f6469cd4f259f4729d3b12be966f453b938"
+git-tree-sha1 = "3d7de87478311db793bd265fe988be2a9c774c9b"
 uuid = "31c24e10-a181-5473-b8eb-7969acd0382f"
-version = "0.24.1"
+version = "0.24.2"
 
 [[DocStringExtensions]]
 deps = ["LibGit2", "Markdown", "Pkg", "Test"]
@@ -121,10 +121,10 @@ uuid = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 version = "0.8.3"
 
 [[Documenter]]
-deps = ["Base64", "Dates", "DocStringExtensions", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
-git-tree-sha1 = "fb1ff838470573adc15c71ba79f8d31328f035da"
+deps = ["Base64", "Dates", "DocStringExtensions", "IOCapture", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "REPL", "Test", "Unicode"]
+git-tree-sha1 = "71e35e069daa9969b8af06cef595a1add76e0a11"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-version = "0.25.2"
+version = "0.25.3"
 
 [[FFTW]]
 deps = ["AbstractFFTs", "FFTW_jll", "IntelOpenMP_jll", "Libdl", "LinearAlgebra", "MKL_jll", "Reexport"]
@@ -140,9 +140,9 @@ version = "3.3.9+6"
 
 [[FillArrays]]
 deps = ["LinearAlgebra", "Random", "SparseArrays"]
-git-tree-sha1 = "502b3de6039d5b78c76118423858d981349f3823"
+git-tree-sha1 = "0c667e0749e6b67cc03a1fe705d80a6d737109e6"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
-version = "0.9.7"
+version = "0.10.0"
 
 [[FixedPointNumbers]]
 deps = ["Statistics"]
@@ -166,6 +166,12 @@ git-tree-sha1 = "0482be613c44fbc4620c0f06b78d8988444a0fab"
 uuid = "38e38edf-8417-5370-95a0-9cbb8c7f171a"
 version = "1.3.11"
 
+[[IOCapture]]
+deps = ["Logging"]
+git-tree-sha1 = "377252859f740c217b936cebcd918a44f9b53b59"
+uuid = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
+version = "0.1.1"
+
 [[IntelOpenMP_jll]]
 deps = ["Libdl", "Pkg"]
 git-tree-sha1 = "fb8e1c7a5594ba56f9011310790e03b5384998d6"
@@ -178,9 +184,9 @@ uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
 
 [[Interpolations]]
 deps = ["AxisAlgorithms", "LinearAlgebra", "OffsetArrays", "Random", "Ratios", "SharedArrays", "SparseArrays", "StaticArrays", "WoodburyMatrices"]
-git-tree-sha1 = "2b7d4e9be8b74f03115e64cf36ed2f48ae83d946"
+git-tree-sha1 = "d2ff0813f0f110918db2537201686575fcf8d345"
 uuid = "a98d9a8b-a2ab-59e6-89dd-64a1c18fca59"
-version = "0.12.10"
+version = "0.13.0"
 
 [[InvertedIndices]]
 deps = ["Test"]
@@ -194,9 +200,9 @@ uuid = "82899510-4779-5014-852e-03e436cf321d"
 version = "1.0.0"
 
 [[JLLWrappers]]
-git-tree-sha1 = "7cec881362e5b4e367ff0279dd99a06526d51a55"
+git-tree-sha1 = "c70593677bbf2c3ccab4f7500d0f4dacfff7b75c"
 uuid = "692b3bcd-3c85-4b1f-b108-f13ce0eb3210"
-version = "1.1.2"
+version = "1.1.3"
 
 [[JSON]]
 deps = ["Dates", "Mmap", "Parsers", "Unicode"]
@@ -206,9 +212,9 @@ version = "0.21.1"
 
 [[KernelDensity]]
 deps = ["Distributions", "DocStringExtensions", "FFTW", "Interpolations", "StatsBase"]
-git-tree-sha1 = "2fdea3992af1bd7a90535d2937555d7b69d5e5ee"
+git-tree-sha1 = "09aeec87bdc9c1fa70d0b508dfa94a21acd280d9"
 uuid = "5ab0869b-81aa-558d-bb23-cbf5423bbe9b"
-version = "0.6.1"
+version = "0.6.2"
 
 [[LaTeXStrings]]
 git-tree-sha1 = "c7aebfecb1a60d59c0fe023a68ec947a208b1e6b"
@@ -272,9 +278,9 @@ uuid = "efe28fd5-8261-553b-a9e1-b2916fc3738e"
 version = "0.5.3+4"
 
 [[OrderedCollections]]
-git-tree-sha1 = "16c08bf5dba06609fe45e30860092d6fa41fde7b"
+git-tree-sha1 = "cf59cfed2e2c12e8a2ff0a4f1e9b2cd8650da6db"
 uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
-version = "1.3.1"
+version = "1.3.2"
 
 [[PDMats]]
 deps = ["LinearAlgebra", "SparseArrays", "SuiteSparse", "Test"]
@@ -293,7 +299,7 @@ deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "R
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [[PlotPlants]]
-deps = ["DataFrames", "DocStringExtensions", "GLM", "KernelDensity", "NetCDF", "Pkg", "ProgressMeter", "PyCall", "PyPlot", "Statistics", "Test"]
+deps = ["DataFrames", "Distributed", "DocStringExtensions", "GLM", "KernelDensity", "NetCDF", "Pkg", "ProgressMeter", "PyCall", "PyPlot", "SharedArrays", "Statistics", "Test"]
 path = ".."
 uuid = "62700b34-1872-4917-b6af-4f42ae699f38"
 version = "0.1.3"
@@ -399,9 +405,9 @@ version = "0.10.3"
 
 [[StaticArrays]]
 deps = ["LinearAlgebra", "Random", "Statistics"]
-git-tree-sha1 = "016d1e1a00fabc556473b07161da3d39726ded35"
+git-tree-sha1 = "da4cf579416c81994afd6322365d00916c79b8ae"
 uuid = "90137ffa-7385-5640-81b9-e52037218182"
-version = "0.12.4"
+version = "0.12.5"
 
 [[Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]
@@ -471,6 +477,6 @@ version = "1.2.0"
 
 [[WoodburyMatrices]]
 deps = ["LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "28ffe06d28b1ba8fdb2f36ec7bb079fac81bac0d"
+git-tree-sha1 = "59e2ad8fd1591ea019a5259bd012d7aee15f995c"
 uuid = "efce3f68-66dc-5838-9240-27a6d6f5f9b6"
-version = "0.5.2"
+version = "0.5.3"

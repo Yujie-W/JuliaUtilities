@@ -65,6 +65,8 @@ println("\nTest the plotting functions...");
     y = rand(1002)*0.1 .+ x*0.5;
     plot_density(array_ax[2], xx, yy, markersize=8);
     plot_density(array_ax[3], x, y, markersize=8);
+    calculate_density(xx,yy,2);
+    calculate_density(x,y,2);
     preview_dataset(artifact"leaf_area_index_4X_1M" * "/leaf_area_index_4X_1M.nc", "LAI");
     preview_dataset(artifact"canopy_height_20X_1Y" * "/canopy_height_20X_1Y.nc", "Band1");
     println("Expecting a warning here!")

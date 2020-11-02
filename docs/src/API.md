@@ -129,6 +129,7 @@ nanstd
 ## Density plot
 
 ```@docs
+calculate_density
 plot_density
 ```
 

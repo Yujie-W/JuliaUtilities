@@ -5,6 +5,7 @@
 ###############################################################################
 """
     preview_dataset(filename::String, label)
+    preview_dataset(filename::String, label::String, format::FormatNC)
 
 Preview dataset, given
 - `filename` Dataset file to preview

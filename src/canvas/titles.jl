@@ -4,8 +4,7 @@
 #
 ###############################################################################
 """
-    set_titles!(
-                array_ax::Array;
+    set_titles!(array_ax::Array;
                 labels::Array{String,1},
                 paren::Bool,
                 capital::Bool,
