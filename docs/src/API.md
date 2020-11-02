@@ -1,9 +1,11 @@
 # PlotPlants
+
 ```@meta
 CurrentModule = PlotPlants
 ```
 
 ## Set global font
+
 The PyPlot package of Julia uses sans font by default, by my favorite font is
     serif type. Also, some fonts do not have normal greek letters in their
     library, like the Times only have italic greek letters. To change the
@@ -16,6 +18,7 @@ use_serif_tex
 ```
 
 ## Symbols and units
+
 To facilitate the use of LaTeX packages, functions [`latex_symbol`](@ref) and
     [`latex_unit`](@ref) are provided to rapidly generate equation symbols and
     units. By default,
@@ -31,6 +34,7 @@ latex_unit
 ```
 
 ## Create canvas
+
 An customized funtion [`create_canvas`](@ref) is provided to genrate figure and
     an array of axis from a few keywords. For example,
 
@@ -44,6 +48,7 @@ create_canvas
 ```
 
 ## Shapes
+
 A few customized shapes can be added to the canvas very conveniently, for
     example, stoma and ellipse. These shortcut functions include
 
@@ -53,6 +58,7 @@ plot_stoma
 ```
 
 ## Set titles, lims, ticks, and ticklabels
+
 Function [`set_titles!`](@ref) will add panel titles like `(a)` to all the
     panels, and if `labels` options is given, the labels will be added after
     the letter (e.g., `(a) label`).
@@ -80,6 +86,7 @@ set_xyticklabels!
 ```
 
 ## Add regression
+
 To quickly plot the regression lines, users may use
 
 ```@docs
@@ -94,6 +101,7 @@ The function will filter out the NaN from the given data, make linear
     also plot the confidence intervals of the predicted y.
 
 ```@docs
+linear_df_xy
 line_regress
 LinearRegressionResult
 ```
@@ -106,6 +114,7 @@ line_regress_test_slope
 ```
 
 ## Statistical tools
+
 In many cases, displaying mean absolute (precentage) error make the figure look
     much better. Thus, the PlotPlants function provides these convenient
     functions.
@@ -115,4 +124,20 @@ mae
 mape
 nanmean
 nanstd
+```
+
+## Density plot
+
+```@docs
+calculate_density
+plot_density
+```
+
+## Preview dataset
+
+```@docs
+preview_dataset
+AbstractFormat
+FormatNC
+FormatTIFF
 ```

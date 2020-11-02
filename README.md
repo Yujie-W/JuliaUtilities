@@ -13,31 +13,19 @@
 [st-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/JuliaStable/badge.svg?branch=main
 [st-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"main"++workflow%3A"JuliaStable"
 
-[v13-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/Julia-1.3/badge.svg?branch=main
-[v13-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"main"++workflow%3A"Julia-1.3"
+[min-img]: https://github.com/Yujie-W/PlotPlants.jl/workflows/Julia-1.3/badge.svg?branch=main
+[min-url]: https://github.com/Yujie-W/PlotPlants.jl/actions?query=branch%3A"main"++workflow%3A"Julia-1.3"
 
+[cov-img]: https://codecov.io/gh/Yujie-W/PlotPlants.jl/branch/main/graph/badge.svg
+[cov-url]: https://codecov.io/gh/Yujie-W/PlotPlants.jl
 
 ## About
 
-[`PlotPlants.jl`][pp-url] includes a collection of customized plotting utilities to aid the plotting using PyPlot package. Due to the dependency on [`SpecialFunctions`], this package only supports Julia 1.3 and above.
+[`PlotPlants.jl`][pp-url] includes a collection of customized plotting utilities to aid the plotting using PyPlot package. This package only supports Julia 1.3 and above.
 
-| Documentation                                   | CI Status             | Compatibility           |
-|:-----------------------------------------------:|:---------------------:|:------------------------|
-| [![][dev-img]][dev-url] [![][rel-img]][rel-url] | [![][st-img]][st-url] | [![][v13-img]][v13-url] |
-
-
-
-
-## Dependencies
-
-| Dependency          | Version  | Requirements |
-|:--------------------|:---------|:-------------|
-| DataFrames          | 0.21.6 + | Julia 1.0 +  |
-| DocStringExtensions | 0.8.2 +  | Julia 0.7 +  |
-| GLM                 | 1.3.10 + | Julia 1.0 +  |
-| PyCall              | 1.91.4 + | Julia 0.7 +  |
-| PyPlot              | 2.9.0 +  | Julia 1.0 +  |
-| SpecialFunctions*   | 0.10.3+  | Julia 1.3 +  |
+| Documentation                                   | CI Status             | Compatibility           | Code Coverage           |
+|:-----------------------------------------------:|:---------------------:|:------------------------|:------------------------|
+| [![][dev-img]][dev-url] [![][rel-img]][rel-url] | [![][st-img]][st-url] | [![][min-img]][min-url] | [![][cov-img]][cov-url] |
 
 
 
