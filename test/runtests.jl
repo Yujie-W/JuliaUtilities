@@ -6,37 +6,7 @@ using Test
 
 
 
-# Test the variable NaN recursively
-function recursive_NaN_test(para)
-    # if the type is Number
-    if typeof(para) <: Number
-        try
-            @test !isnan(para)
-        catch e
-            println("The not NaN test failed for", para)
-        end
-    # if the type is array
-    elseif typeof(para) <: AbstractArray
-        for ele in para
-            recursive_NaN_test(ele)
-        end
-    # if the type is Dict
-    elseif typeof(para) <: Dict
-        nothing
-    # if the type is StatisticalModel
-    elseif typeof(para) <: StatisticalModel
-        nothing
-    else
-        # try if the parameter is a struct
-        try
-            for fn in fieldnames( typeof(para) )
-                recursive_NaN_test( getfield(para, fn) )
-            end
-        catch e
-            println(typeof(para), "is not supprted by recursive_NaN_test.")
-        end
-    end
-end
+include("recursive.jl")
 
 
 
@@ -45,7 +15,7 @@ println("\nTest the plotting functions...");
 @testset "PlotPlants --- Plotting" begin
     # create data to plot
     xx = collect(Float64,1:100) .+ rand(100) ./ 2;
-    yy = 0.3 .* xx .+ rand(100) ./ 10;
+    yy = 0.3 .* xx;
 
     # use all the functions in the project
     fig,array_ax = create_canvas("1", ncol=2, nrow=2, ax_ind=[1,3,4]);
@@ -82,13 +52,13 @@ println("\nTest the statistics functions...");
 @testset "PlotPlants --- Statistics" begin
     # linear regression
     xx = collect(Float64,1:100) .+ rand(100) ./ 2;
-    yy = 0.8 .* xx .+ rand(100) ./ 10;
+    yy = 0.8 .* xx;
     xx[10] = NaN;
     yy[20] = NaN;
     lr_0 = line_regress(xx, yy, intercept=false);
     lr_1 = line_regress(xx, yy, intercept=true );
     for lr in [lr_0, lr_1]
-        recursive_NaN_test(lr);
+        @test NaN_test(lr.df);
     end
     @test lr_1.slope ≈ 0.8 atol=0.01;
 
@@ -96,13 +66,16 @@ println("\nTest the statistics functions...");
     ts_0 = line_regress_test_slope(xx, yy, slope=0.0);
     ts_1 = line_regress_test_slope(xx, yy, slope=0.8);
     @test ts_0 < 0.05;
-    @test ts_1 > 0.05;
+    @test !(ts_1 < 0.05);
 
     # absolute error
-    for result in [ nanmean(xx),
+    for result in [ nanmax(xx),
+                    nanmean(xx),
+                    nanmin(xx),
                     nanstd(xx),
                     mae(lr_0.df.Y, lr_0.df.predY),
-                    mape(lr_0.df.Y, lr_0.df.predY) ]
-        @test !isnan(result);
+                    mape(lr_0.df.Y, lr_0.df.predY),
+                    rsme(lr_0.df.Y, lr_0.df.predY) ]
+        @test NaN_test(result);
     end
 end

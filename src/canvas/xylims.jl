@@ -38,7 +38,7 @@ function set_ylims!(
 )
     # set Y-axis limit for each panel
     for indx in eachindex(array_ax)
-        array_ax[indx].set_xlim(array_yl[indx]);
+        array_ax[indx].set_ylim(array_yl[indx]);
     end
 
     return nothing
