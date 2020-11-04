@@ -85,13 +85,15 @@ end
                 ax,
                 xs::Array,
                 ys::Array;
-                cmap::String="viridis",
-                markersize::Number=8)
+                cmap::String,
+                markersize::Number,
+                dmax::Number)
     plot_density(
                 ax,
                 df::DataFrame;
-                cmap::String="viridis",
-                markersize::Number=8)
+                cmap::String,
+                markersize::Number
+                dmax::Number)
 
 Plot density plot on axis, given
 - `ax` Axis to plot on
