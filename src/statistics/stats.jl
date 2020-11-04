@@ -1,8 +1,21 @@
 ###############################################################################
 #
-# nanmean
+# nanmean, nanstd, nanmax, nanmin
 #
 ###############################################################################
+"""
+    nanmax(x::Array)
+
+Return the maximum of array ommiting the NaN, given
+- `x` Array of numbers, can be NaN
+"""
+function nanmax(x::Array)
+    return maximum( x[.!isnan.(x)] )
+end
+
+
+
+
 """
     nanmean(x::Array)
 
@@ -10,22 +23,25 @@ Return the mean of array by ommiting the NaN, given
 - `x` Array of numbers, can be NaN
 """
 function nanmean(x::Array)
-    mask = .!isnan.(x);
-    return mean( x[mask] )
+    return mean( x[.!isnan.(x)] )
 end
 
 
 
 
+"""
+    nanmin(x::Array)
+
+Return the maximum of array ommiting the NaN, given
+- `x` Array of numbers, can be NaN
+"""
+function nanmin(x::Array)
+    return minimum( x[.!isnan.(x)] )
+end
 
 
 
 
-###############################################################################
-#
-# nanstd
-#
-###############################################################################
 """
     nanstd(x::Array)
 
@@ -33,8 +49,7 @@ Return the std of array by ommiting the NaN, given
 - `x` Array of numbers, can be NaN
 """
 function nanstd(x::Array)
-    mask = .!isnan.(x);
-    return std( x[mask] )
+    return std( x[.!isnan.(x)] )
 end
 
 
@@ -46,7 +61,7 @@ end
 
 ###############################################################################
 #
-# Mean absolute error
+# Error measures
 #
 ###############################################################################
 """
@@ -63,15 +78,6 @@ end
 
 
 
-
-
-
-
-###############################################################################
-#
-# Mean absolute percentage error
-#
-###############################################################################
 """
     mape(y::Array, pred::Array)
 
@@ -83,4 +89,18 @@ function mape(y::Array, pred::Array)
     aver = abs( nanmean(y) );
     diff = abs.(y .- pred) ./ aver .* 100;
     return nanmean( diff )
+end
+
+
+
+
+"""
+    rsme(y::Array, pred::Array)
+
+Return the root mean square error by ommiting the NaN, given
+- `y` Array of numbers, can be NaN
+- `pred` Array of predictions, can be NaN
+"""
+function rsme(y::Array, pred::Array)
+    return sqrt( nanmean( (y .- pred) .^ 2 ) )
 end

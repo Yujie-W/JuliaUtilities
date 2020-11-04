@@ -49,8 +49,11 @@ export calculate_density,
        line_regress_test_slope,
        mae,
        mape,
+       nanmax,
        nanmean,
-       nanstd
+       nanmin,
+       nanstd,
+       rsme
 
 # utilities
 export latex_symbol,
@@ -80,7 +83,7 @@ include("shape/ellipse.jl")
 include("shape/stoma.jl"  )
 
 include("statistics/line_regress.jl")
-include("statistics/mae.jl"         )
+include("statistics/stats.jl"       )
 
 include("string/symbols.jl")
 include("string/units.jl"  )
