@@ -58,7 +58,14 @@ export calculate_density,
 # utilities
 export latex_symbol,
        latex_unit,
-       use_serif_tex
+       use_sans,
+       use_sans_tex,
+       use_sans_text,
+       use_serif,
+       use_serif_tex,
+       use_serif_text,
+       use_tex,
+       use_text
 
 
 

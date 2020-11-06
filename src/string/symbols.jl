@@ -4,11 +4,13 @@
 #
 ###############################################################################
 """
-    latex_symbol(mid::String;
-                 sub::String,
-                 sup::String,
-                 presub::String,
-                 presup::String)
+    latex_symbol(
+                mid::String;
+                sub::String = "",
+                sup::String = "",
+                presub::String = "",
+                presup::String = "",
+                option::String = "text")
 
 Return the latex symbol string, given
 - `mid` Center symbol, italic only when length>1
@@ -16,13 +18,15 @@ Return the latex symbol string, given
 - `sup` Optional: supscript after the `mid`
 - `presub` Optional: subscript before the `mid`
 - `presup` Optional: supscript before the `mid`
+- `option` Optional: choose from `text` and `mathrm`
 """
 function latex_symbol(
             mid::String;
             sub::String = "",
             sup::String = "",
             presub::String = "",
-            presup::String = ""
+            presup::String = "",
+            option::String = "text"
 )
     # initialize an empty string
     symbol_string  = "";
@@ -32,29 +36,29 @@ function latex_symbol(
 
     # add the pre-sub
     if length(presub) > 0
-        symbol_string *= "_\\text{" * presub * "} ";
+        symbol_string *= "_\\$(option){" * presub * "} ";
     end
 
     # add the pre-sup
     if length(presup) > 0
-        symbol_string *= "^\\text{" * presup * "} ";
+        symbol_string *= "^\\$(option){" * presup * "} ";
     end
 
     # add the mid
     if length(mid) == 1
         symbol_string *= mid * " ";
     elseif length(mid) > 1
-        symbol_string *= "\\text{" * mid * "} "
+        symbol_string *= "\\$(option){" * mid * "} "
     end
 
     # add the sub
     if length(sub) > 0
-        symbol_string *= "_\\text{" * sub * "} ";
+        symbol_string *= "_\\$(option){" * sub * "} ";
     end
 
     # add the sup
     if length(sup) > 0
-        symbol_string *= "^\\text{" * sup * "} ";
+        symbol_string *= "^\\$(option){" * sup * "} ";
     end
 
     # end with "$"
