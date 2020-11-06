@@ -18,7 +18,7 @@ Return the latex symbol string, given
 - `sup` Optional: supscript after the `mid`
 - `presub` Optional: subscript before the `mid`
 - `presup` Optional: supscript before the `mid`
-- `option` Optional: choose from `text` and `mathrm`
+- `option` Optional: choose from `text` and `mathrm` (default)
 """
 function latex_symbol(
             mid::String;
@@ -26,23 +26,14 @@ function latex_symbol(
             sup::String = "",
             presub::String = "",
             presup::String = "",
-            option::String = "text"
+            option::String = "mathrm"
 )
-    # initialize an empty string
-    symbol_string  = "";
+    # start with "\$ "
+    symbol_string = "\$ ";
 
-    # start with "$
-    symbol_string *= "\$ ";
-
-    # add the pre-sub
-    if length(presub) > 0
-        symbol_string *= "_\\$(option){" * presub * "} ";
-    end
-
-    # add the pre-sup
-    if length(presup) > 0
-        symbol_string *= "^\\$(option){" * presup * "} ";
-    end
+    # add the pre sub and sup
+    symbol_string *= subscript(presub, option) * " ";
+    symbol_string *= superscript(presup, option) * " ";
 
     # add the mid
     if length(mid) == 1
@@ -51,18 +42,12 @@ function latex_symbol(
         symbol_string *= "\\$(option){" * mid * "} "
     end
 
-    # add the sub
-    if length(sub) > 0
-        symbol_string *= "_\\$(option){" * sub * "} ";
-    end
+    # add the sub and sup
+    symbol_string *= subscript(sub, option) * " ";
+    symbol_string *= superscript(sup, option) * " ";
 
-    # add the sup
-    if length(sup) > 0
-        symbol_string *= "^\\$(option){" * sup * "} ";
-    end
-
-    # end with "$"
-    symbol_string *= "\$";
+    # end with " \$"
+    symbol_string *= " \$";
 
     return symbol_string
 end

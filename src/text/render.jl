@@ -4,21 +4,6 @@
 #
 ###############################################################################
 """
-    use_sans()
-
-Set default font to sans-serif
-"""
-function use_sans()
-    rc("font"    , family="sans-serif", serif=["Helvetica"]);
-    rc("mathtext", fontset="dejavusans");
-
-    return nothing
-end
-
-
-
-
-"""
     use_sans_tex()
 
 Set default font to sans and use latex wrapper for texts
@@ -41,21 +26,6 @@ Set default font to sans and use normal text wrapper for texts
 function use_sans_text()
     use_sans();
     use_text();
-
-    return nothing
-end
-
-
-
-
-"""
-    use_serif()
-
-Set default font to serif
-"""
-function use_serif()
-    rc("font"    , family="serif", serif=["Palatino"]);
-    rc("mathtext", fontset="dejavuserif");
 
     return nothing
 end

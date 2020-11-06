@@ -1,44 +1,5 @@
 ###############################################################################
 #
-# Struct for regression results
-#
-###############################################################################
-"""
-    mutable struct LinearRegressionResult
-
-# Fields
-$(DocStringExtensions.FIELDS)
-"""
-mutable struct LinearRegressionResult
-    "Regression result"
-    lm::Any
-
-    "Intercept of fitting"
-    inter::Number
-    "Slope of fitting"
-    slope::Number
-    "P value of intercept"
-    inter_p::Number
-    "P value of slopes"
-    slope_p::Number
-    "Confidence interval of intercept"
-    inter_ci::Array
-    "Confidence interval of slopes"
-    slope_ci::Array
-
-    "Predictions DataFrame"
-    df::DataFrame
-end
-
-
-
-
-
-
-
-
-###############################################################################
-#
 # Linear regression of Y~X
 #
 ###############################################################################
@@ -118,7 +79,7 @@ function line_regress(
     else
         mt = (df).X[:,:];
     end
-    pred = predict(lr, mt, interval=:confidence);
+    pred = predict(lr, mt; interval=:confidence);
     df[!,"predY" ] = pred.prediction;
     df[!,"lowerY"] = pred.lower[:,1];
     df[!,"upperY"] = pred.upper[:,1];
@@ -133,62 +94,4 @@ function line_regress(
                 _slope_ci,
                 df
     )
-end
-
-
-
-
-
-
-
-
-###############################################################################
-#
-# Linear regression of Y~X, test slope
-#
-###############################################################################
-"""
-    line_regress_test_slope(
-                list_x::Array,
-                list_y::Array;
-                slope::Number,
-                intercept::Bool)
-
-Make linear regression and return the p value of whether the regression slope
-    differs from the given slope, given
-- `list_x` Array of x, can be NaN
-- `list_y` Array of y, can be NaN
-- `slope` Slope to test
-- `intercept` Optional: if true use intercept in the fitting
-"""
-function line_regress_test_slope(
-            list_x::Array,
-            list_y::Array;
-            slope::Number = 0,
-            intercept::Bool = true
-)
-    # filter out NaN from the lists
-    new_x = Float64[];
-    new_y = Float64[];
-    for (x,y) in zip(list_x, list_y)
-        if ~isnan(x) && ~isnan(y)
-            push!(new_x, x);
-            push!(new_y, y - slope*x);
-        end
-    end
-
-    # put new_x and new_y into a DataFrame
-    df = DataFrame(X=new_x, Y=new_y);
-
-    # run the fitting
-    lr = linear_df_xy(df, intercept);
-
-    # calculate the p value
-    if intercept
-        _slope_p = coeftable(lr).cols[4][2];
-    else
-        _slope_p = coeftable(lr).cols[4][1];
-    end
-
-    return _slope_p
 end

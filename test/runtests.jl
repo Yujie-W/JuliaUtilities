@@ -63,8 +63,8 @@ println("\nTest the statistics functions...");
     @test lr_1.slope ≈ 0.8 atol=0.01;
 
     # linear regression test slope
-    ts_0 = line_regress_test_slope(xx, yy, slope=0.0);
-    ts_1 = line_regress_test_slope(xx, yy, slope=0.8);
+    ts_0 = test_slope(xx, yy, slope=0.0);
+    ts_1 = test_slope(xx, yy, slope=0.8);
     @test ts_0 < 0.05;
     @test !(ts_1 < 0.05);
 
