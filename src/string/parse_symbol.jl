@@ -100,7 +100,7 @@ function parse_symbol(id::String, unicode::Bool=false)
         letter = (unicode ? "ψ" : "\$\\uppsi\$");
     elseif id=="Psi" || id=="PSI" || id=="Ψ"
         letter = (unicode ? "Ψ" : "\$\\Uppsi\$");
-    elseif id=="ometa" || id=="ω"
+    elseif id=="omega" || id=="ω"
         letter = (unicode ? "ω" : "\$\\upomega\$");
     elseif id=="Omega" || id=="OMEGA" || id=="Ω"
         letter = (unicode ? "Ω" : "\$\\Upomega\$");

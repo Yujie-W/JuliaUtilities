@@ -54,7 +54,7 @@ export calculate_density,
        nanmean,
        nanmin,
        nanstd,
-       rsme,
+       rmse,
        test_slope
 
 # string related functions
