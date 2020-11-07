@@ -95,12 +95,12 @@ end
 
 
 """
-    rsme(y::Array, pred::Array)
+    rmse(y::Array, pred::Array)
 
 Return the root mean square error by ommiting the NaN, given
 - `y` Array of numbers, can be NaN
 - `pred` Array of predictions, can be NaN
 """
-function rsme(y::Array, pred::Array)
+function rmse(y::Array, pred::Array)
     return sqrt( nanmean( (y .- pred) .^ 2 ) )
 end

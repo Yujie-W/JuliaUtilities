@@ -20,13 +20,6 @@ export AbstractFormat,
        FormatNC,
        FormatTIFF
 
-# export functions related to plotting
-export plot_density,
-       plot_ellipse,
-       plot_line_regress,
-       plot_stoma,
-       preview_dataset
-
 # export canvas related functions
 export create_canvas,
        set_titles!,
@@ -43,28 +36,50 @@ export create_canvas,
        set_yticklabels!,
        set_yticks!
 
+# export functions related to plotting
+export plot_density,
+       plot_ellipse,
+       plot_line_regress,
+       plot_stoma,
+       preview_dataset
+
+# regression related functions
+export line_regress
+
 # statistics related function
 export calculate_density,
-       line_regress,
-       line_regress_test_slope,
        mae,
        mape,
        nanmax,
        nanmean,
        nanmin,
        nanstd,
-       rsme
+       rmse,
+       test_slope
 
-# utilities
+# string related functions
 export latex_symbol,
        latex_unit,
-       use_serif_tex
+       parse_symbol,
+       subscript,
+       superscript
+
+# text font and render functions
+export use_sans,
+       use_sans_tex,
+       use_sans_text,
+       use_serif,
+       use_serif_tex,
+       use_serif_text,
+       use_tex,
+       use_text
 
 
 
 
 # include the files
 include("types/file_format.jl")
+include("types/regression.jl" )
 
 include("canvas/create_canvas.jl")
 include("canvas/titles.jl"       )
@@ -72,21 +87,25 @@ include("canvas/xylabels.jl"     )
 include("canvas/xylims.jl"       )
 include("canvas/xyticks.jl"      )
 
-include("fitting/line_regress.jl")
+include("plots/density.jl"     )
+include("plots/ellipse.jl"     )
+include("plots/line_regress.jl")
+include("plots/preview.jl"     )
+include("plots/stoma.jl"       )
 
-include("font/serif_tex.jl")
+include("regression/linear.jl")
 
-include("plots/density.jl")
-include("plots/preview.jl")
+include("statistics/density.jl")
+include("statistics/slope.jl"  )
+include("statistics/stats.jl"  )
 
-include("shape/ellipse.jl")
-include("shape/stoma.jl"  )
+include("string/latex_symbol.jl")
+include("string/latex_unit.jl"  )
+include("string/parse_symbol.jl")
+include("string/sub_super.jl"   )
 
-include("statistics/line_regress.jl")
-include("statistics/stats.jl"       )
-
-include("string/symbols.jl")
-include("string/units.jl"  )
+include("text/font.jl"  )
+include("text/render.jl")
 
 
 
