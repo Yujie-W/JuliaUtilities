@@ -5,24 +5,23 @@
 ###############################################################################
 """
     set_xlabels!(
-                array_ax::Array,
-                labels::Array{String,1};
-                fontsize::Number
-    )
+                axs::Array,
+                xlabels::Array{String,1};
+                fontsize::Number = 16)
 
 Set X-axis labels for the axes, given
-- `array_ax` An array of axis
+- `axs` An array of axis
 - `labels` X-axis labels
 - `fontsize` Optional: fontsize of the label
 """
 function set_xlabels!(
-            array_ax::Array,
+            axs::Array,
             xlabels::Array{String,1};
             fontsize::Number = 16
 )
     # set X-axis label for each panel
-    for indx in eachindex(array_ax)
-        array_ax[indx].set_xlabel(xlabels[indx], fontsize=fontsize);
+    for indx in eachindex(axs)
+        axs[indx].set_xlabel(xlabels[indx], fontsize=fontsize);
     end
 
     return nothing
@@ -33,24 +32,23 @@ end
 
 """
     set_ylabels!(
-                array_ax::Array,
-                labels::Array{String,1};
-                fontsize::Number
-    )
+                axs::Array,
+                ylabels::Array{String,1};
+                fontsize::Number = 16)
 
 Set Y-axis labels for the axes, given
-- `array_ax` An array of axis
+- `axs` An array of axis
 - `labels` Y-axis labels
 - `fontsize` Optional: fontsize of the label
 """
 function set_ylabels!(
-            array_ax::Array,
+            axs::Array,
             ylabels::Array{String,1};
             fontsize::Number = 16
 )
     # set Y-axis label for each panel
-    for indx in eachindex(array_ax)
-        array_ax[indx].set_ylabel(ylabels[indx], fontsize=fontsize);
+    for indx in eachindex(axs)
+        axs[indx].set_ylabel(ylabels[indx], fontsize=fontsize);
     end
 
     return nothing
@@ -61,27 +59,26 @@ end
 
 """
     set_xylabels!(
-                array_ax::Array,
+                axs::Array,
                 xlabels::Array{String,1},
                 ylabels::Array{String,1};
-                fontsize::Number
-    )
+                fontsize::Number = 16)
 
 Set X-axis and Y-axis labels for the axes, given
-- `array_ax` An array of axis
+- `axs` An array of axis
 - `xlabels` X-axis labels
 - `ylabels` Y-axis labels
 - `fontsize` Optional: fontsize of the label
 """
 function set_xylabels!(
-            array_ax::Array,
+            axs::Array,
             xlabels::Array{String,1},
             ylabels::Array{String,1};
             fontsize::Number = 16
 )
     # set Y-axis label for each panel
-    set_xlabels!(array_ax, xlabels; fontsize=fontsize);
-    set_ylabels!(array_ax, ylabels; fontsize=fontsize);
+    set_xlabels!(axs, xlabels; fontsize=fontsize);
+    set_ylabels!(axs, ylabels; fontsize=fontsize);
 
     return nothing
 end
