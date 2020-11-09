@@ -76,7 +76,7 @@ function parse_symbol(id::String, unicode::Bool=false)
         letter = (unicode ? "ρ" : "\$\\uprho\$");
     elseif id=="Rho" || id=="RHO" || id=="Ρ"
         letter = (unicode ? "Ρ" : "\$\\Uprho\$");
-    elseif id=="simga" || id=="σ"
+    elseif id=="sigma" || id=="σ"
         letter = (unicode ? "σ" : "\$\\upsigma\$");
     elseif id=="Sigma" || id=="SIGMA" || id=="Σ"
         letter = (unicode ? "Σ" : "\$\\Upsigma\$");
