@@ -4,18 +4,15 @@
 #
 ###############################################################################
 """
-    set_xticks!(array_ax::Array, array_xtk::Array)
+    set_xticks!(axs::Array, xticks::Array)
 
 Set X-axis ticks for a given
-- `array_ax` Array of axis
-- `array_xtk` Array of X-axis ticks
+- `axs` Array of axis
+- `xticks` Array of X-axis ticks
 """
-function set_xticks!(
-            array_ax::Array,
-            array_xtk::Array
-)
-    for indx in eachindex(array_ax)
-        array_ax[indx].set_xticks(array_xtk[indx]);
+function set_xticks!(axs::Array, xticks::Array)
+    for indx in eachindex(axs)
+        axs[indx].set_xticks(xticks[indx]);
     end
 
     return nothing
@@ -25,18 +22,15 @@ end
 
 
 """
-    set_yticks!(array_ax::Array, array_ytk::Array)
+    set_yticks!(axs::Array, yticks::Array)
 
 Set Y-axis ticks for a given
-- `array_ax` Array of axis
-- `array_ytk` Array of Y-axis ticks
+- `axs` Array of axis
+- `yticks` Array of Y-axis ticks
 """
-function set_yticks!(
-            array_ax::Array,
-            array_ytk::Array
-)
-    for indx in eachindex(array_ax)
-        array_ax[indx].set_yticks(array_ytk[indx]);
+function set_yticks!(axs::Array, yticks::Array)
+    for indx in eachindex(axs)
+        axs[indx].set_yticks(yticks[indx]);
     end
 
     return nothing
@@ -46,20 +40,16 @@ end
 
 
 """
-    set_xyticks!(array_ax::Array, array_xtk::Array, array_ytk::Array)
+    set_xyticks!(axs::Array, xticks::Array, yticks::Array)
 
 Set Y-axis ticks for a given
-- `array_ax` Array of axis
-- `array_xtk` Array of X-axis ticks
-- `array_ytk` Array of Y-axis ticks
+- `axs` Array of axis
+- `xticks` Array of X-axis ticks
+- `yticks` Array of Y-axis ticks
 """
-function set_xyticks!(
-            array_ax::Array,
-            array_xtk::Array,
-            array_ytk::Array
-)
-    set_xticks!(array_ax, array_xtk);
-    set_yticks!(array_ax, array_ytk);
+function set_xyticks!(axs::Array, xticks::Array, yticks::Array)
+    set_xticks!(axs, xticks);
+    set_yticks!(axs, yticks);
 
     return nothing
 end
@@ -77,18 +67,15 @@ end
 #
 ###############################################################################
 """
-    set_xticklabels!(array_ax::Array, array_xtl::Array)
+    set_xticklabels!(axs::Array, xticklabs::Array)
 
 Set X-axis ticks for a given
-- `array_ax` Array of axis
-- `array_xtl` Array of X-axis tick labels
+- `axs` Array of axis
+- `xticklabs` Array of X-axis tick labels
 """
-function set_xticklabels!(
-            array_ax::Array,
-            array_xtl::Array
-)
-    for indx in eachindex(array_ax)
-        array_ax[indx].set_xticklabels(array_xtl[indx]);
+function set_xticklabels!(axs::Array, xticklabs::Array)
+    for indx in eachindex(axs)
+        axs[indx].set_xticklabels(xticklabs[indx]);
     end
 
     return nothing
@@ -98,18 +85,15 @@ end
 
 
 """
-    set_yticklabels!(array_ax::Array, array_ytl::Array)
+    set_yticklabels!(axs::Array, yticklabs::Array)
 
 Set Y-axis ticks for a given
-- `array_ax` Array of axis
-- `array_ytl` Array of Y-axis tick labels
+- `axs` Array of axis
+- `yticklabs` Array of Y-axis tick labels
 """
-function set_yticklabels!(
-            array_ax::Array,
-            array_ytl::Array
-)
-    for indx in eachindex(array_ax)
-        array_ax[indx].set_yticklabels(array_ytl[indx]);
+function set_yticklabels!(axs::Array, yticklabs::Array)
+    for indx in eachindex(axs)
+        axs[indx].set_yticklabels(yticklabs[indx]);
     end
 
     return nothing
@@ -119,20 +103,16 @@ end
 
 
 """
-    set_xyticklabels!(array_ax::Array, array_xtl::Array, array_ytl::Array)
+    set_xyticklabels!(axs::Array, xticklabs::Array, yticklabs::Array)
 
 Set X-axis and Y-axis ticks for a given
-- `array_ax` Array of axis
-- `array_xtl` Array of X-axis tick labels
-- `array_ytl` Array of Y-axis tick labels
+- `axs` Array of axis
+- `xticklabs` Array of X-axis tick labels
+- `yticklabs` Array of Y-axis tick labels
 """
-function set_xyticklabels!(
-            array_ax::Array,
-            array_xtl::Array,
-            array_ytl::Array
-)
-    set_xticklabels!(array_ax, array_xtl);
-    set_yticklabels!(array_ax, array_ytl);
+function set_xyticklabels!(axs::Array, xticklabs::Array, yticklabs::Array)
+    set_xticklabels!(axs, xticklabs);
+    set_yticklabels!(axs, yticklabs);
 
     return nothing
 end

@@ -15,6 +15,7 @@ println("");
 @testset "PlotPlants --- canvas related" begin
     _fig,_axes = create_canvas("New canvas", ncol=2, nrow=2);
     set_titles!(_axes);
+    set_titles!(_axes; usetex=false);
     set_xylabels!(_axes, ["X" for i in 1:4], ["Y" for i in 1:4]);
     set_xylims!(_axes, [[0,1] for i in 1:4], [[0,1] for i in 1:4]);
     set_xyticks!(_axes, [[0,1] for i in 1:4], [[0,1] for i in 1:4]);
@@ -36,7 +37,7 @@ println("");
     @test true;
 
     # linear regression
-    plot_line_regress(_ax0, rand(100), rand(100));
+    plot_line_regress(_ax0, rand(100), rand(100), interval=true);
     @test true;
 
     # preview data

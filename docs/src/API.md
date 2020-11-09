@@ -11,10 +11,18 @@ The PyPlot package of Julia uses sans font by default, by my favorite font is
     library, like the Times only have italic greek letters. To change the
     default font to serif and use normal greek letters, the PlotPlants package
     provides a [`use_serif_tex`](@ref) function, which use LaTeX amsmath and
-    upgreek packages.
+    upgreek packages. Also, sans-serif font and normal text render are also
+    supported.
 
 ```@docs
+use_sans
+use_sans_tex
+use_sans_text
+use_serif
 use_serif_tex
+use_serif_text
+use_tex
+use_text
 ```
 
 ## Symbols and units
@@ -31,6 +39,9 @@ To facilitate the use of LaTeX packages, functions [`latex_symbol`](@ref) and
 ```@docs
 latex_symbol
 latex_unit
+parse_symbol
+subscript
+superscript
 ```
 
 ## Create canvas
@@ -40,7 +51,7 @@ An customized funtion [`create_canvas`](@ref) is provided to genrate figure and
 
 - `create_canvas(fig_id)` returns a figure with one axis;
 - `create_canvas(fig_id, nrow=2, ncol=2)` returns a figure will four subplots;
-- `create_canvas(fig_id, nrow=2, ncol=2, ax_ind=[1,2,4])` returns a figure with
+- `create_canvas(fig_id, nrow=2, ncol=2, axs=[1,2,4])` returns a figure with
     three subplot (the left bottom panel is empty);
 
 ```@docs
@@ -110,7 +121,7 @@ Further, the PlotPlants module provides a quick tool to test whether the slope
     differs from a given value, see
 
 ```@docs
-line_regress_test_slope
+test_slope
 ```
 
 ## Statistical tools
@@ -122,8 +133,11 @@ In many cases, displaying mean absolute (precentage) error make the figure look
 ```@docs
 mae
 mape
+nanmax
 nanmean
+nanmin
 nanstd
+rmse
 ```
 
 ## Density plot

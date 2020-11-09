@@ -116,9 +116,9 @@ uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[Distributions]]
 deps = ["FillArrays", "LinearAlgebra", "PDMats", "Printf", "QuadGK", "Random", "SparseArrays", "SpecialFunctions", "StaticArrays", "Statistics", "StatsBase", "StatsFuns"]
-git-tree-sha1 = "3d7de87478311db793bd265fe988be2a9c774c9b"
+git-tree-sha1 = "4474f7b2d475fbdb028faab4fdbd88d8d7a50e62"
 uuid = "31c24e10-a181-5473-b8eb-7969acd0382f"
-version = "0.24.2"
+version = "0.24.3"
 
 [[DocStringExtensions]]
 deps = ["LibGit2", "Markdown", "Pkg", "Test"]
@@ -237,6 +237,12 @@ uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
 [[LinearAlgebra]]
 deps = ["Libdl"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+
+[[Literate]]
+deps = ["Base64", "JSON", "REPL"]
+git-tree-sha1 = "7f289e9db7a93d30b9a44af4a8ae9cf92af74683"
+uuid = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
+version = "2.7.0"
 
 [[Logging]]
 uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
