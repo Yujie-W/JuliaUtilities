@@ -6,8 +6,8 @@
 """
     plot_line_regress(
                 ax,
-                list_x::Array,
-                list_y::Array;
+                xs::Array,
+                ys::Array;
                 intercept::Bool = true,
                 interval::Bool = false,
                 color::String = "red",
@@ -15,8 +15,8 @@
 
 Plor linear regression and confidence interval on the axis, given
 - `ax` Given axis
-- `list_x` Array of x
-- `list_y` Array of y
+- `xs` Array of x
+- `ys` Array of y
 - `intercept` Optional: if true, fit the data with an intercept
 - `interval` Optional: if true, plot the confidence interval of fitted y
 - `color` Color the fitted curve
@@ -24,15 +24,15 @@ Plor linear regression and confidence interval on the axis, given
 """
 function plot_line_regress(
             ax,
-            list_x::Array,
-            list_y::Array;
+            xs::Array,
+            ys::Array;
             intercept::Bool = true,
             interval::Bool = false,
             color::String = "red",
             alpha::Number = 0.3
 )
     # make linear regression
-    lr = line_regress(list_x, list_y, intercept=intercept, sorting=true);
+    lr = line_regress(xs, ys, intercept=intercept, sorting=true);
 
     # plot the fittings
     ax.plot(lr.df.X, lr.df.predY, color=color);
