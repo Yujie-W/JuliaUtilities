@@ -18,7 +18,8 @@ using Statistics
 # export public types
 export AbstractFormat,
        FormatNC,
-       FormatTIFF
+       FormatTIFF,
+       LinearRegressionResult
 
 # export canvas related functions
 export create_canvas,

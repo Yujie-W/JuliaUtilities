@@ -25,24 +25,28 @@ end
 
 
 """
-    line_regress(list_x::Array, list_y::Array; intercept::Bool, sorting::Bool)
+    line_regress(
+                xs::Array,
+                ys::Array;
+                intercept::Bool = true,
+                sorting::Bool = true)
 
 Make linear regression and return the fitted results, given
-- `list_x` Array of x, can be NaN
-- `list_y` Array of y, can be NaN
+- `xs` Array of x, can be NaN
+- `ys` Array of y, can be NaN
 - `intercept` Optional: if true use intercept in the fitting
 - `sorting` Optional: if true, sort the values
 """
 function line_regress(
-            list_x::Array,
-            list_y::Array;
+            xs::Array,
+            ys::Array;
             intercept::Bool = true,
             sorting::Bool = true
 )
     # filter out NaN from the lists
     new_x = Float64[];
     new_y = Float64[];
-    for (x,y) in zip(list_x, list_y)
+    for (x,y) in zip(xs, ys)
         if ~isnan(x) && ~isnan(y)
             push!(new_x, x);
             push!(new_y, y);
