@@ -130,7 +130,9 @@ println("");
 
     # sub and superscripts
     subscript(-1);
+    subscript(-1; standalone=false);
     superscript(-1);
+    superscript(-1; standalone=false);
     @test true;
 end
 

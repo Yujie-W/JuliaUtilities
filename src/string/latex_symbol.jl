@@ -32,8 +32,8 @@ function latex_symbol(
     symbol_string = "\$ ";
 
     # add the pre sub and sup
-    symbol_string *= subscript(presub, option) * " ";
-    symbol_string *= superscript(presup, option) * " ";
+    symbol_string *= subscript(presub; option=option, standalone=false);
+    symbol_string *= superscript(presup; option=option, standalone=false);
 
     # add the mid
     if length(mid) == 1
@@ -43,11 +43,11 @@ function latex_symbol(
     end
 
     # add the sub and sup
-    symbol_string *= subscript(sub, option) * " ";
-    symbol_string *= superscript(sup, option) * " ";
+    symbol_string *= subscript(sub; option=option, standalone=false);
+    symbol_string *= superscript(sup; option=option, standalone=false);
 
-    # end with " \$"
-    symbol_string *= " \$";
+    # end with "\$"
+    symbol_string *= "\$";
 
     return symbol_string
 end
