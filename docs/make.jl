@@ -21,16 +21,18 @@ rm(gen_dir, force=true, recursive=true);
 mkpath(gen_dir);
 
 if gen_example
-    # Array of example pages
-    example_pages = Any[];
-    filename      = joinpath(@__DIR__, "src/examples/canvas.jl");
-    script        = Literate.script(filename, gen_dir);
-    code          = strip(read(script, String));
-    mdpost(str)   = replace(str, "@__CODE__" => code);
-    Literate.markdown(filename, gen_dir, postprocess=mdpost);
-    push!(example_pages, "Canvas" => "generated/canvas.md");
+    # array of example pages
+    ex_pages = Any[];
+    for _ex in ["canvas", "plots"]
+        filename    = joinpath(@__DIR__, "src/examples/$(_ex).jl");
+        script      = Literate.script(filename, gen_dir);
+        code        = strip(read(script, String));
+        mdpost(str) = replace(str, "@__CODE__" => code);
+        Literate.markdown(filename, gen_dir, postprocess=mdpost);
+        push!(ex_pages, "$(uppercasefirst(_ex))" => "generated/$(_ex).md");
+    end
     # add example pages to pages
-    push!(pages, "Examples" => example_pages);
+    push!(pages, "Examples" => ex_pages);
 end
 
 @show pages;
@@ -50,6 +52,7 @@ format = Documenter.HTML(
     prettyurls = get(ENV, "CI", nothing) == "true",
     mathengine = mathengine,
     collapselevel = 1,
+    assets = ["assets/favicon.ico"]
 )
 
 

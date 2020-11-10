@@ -6,10 +6,10 @@
 """
     plot_stoma(ax,
                xy::Tuple{Number,Number};
-               width::Number,
-               height::Number,
-               stoma::Number,
-               angle::Number)
+               width::Number = 10,
+               height::Number = 10,
+               stoma::Number = 0.2,
+               angle::Number = 0)
 
 Plot a stoma on the axis, given
 - `ax` Axis to plot on

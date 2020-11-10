@@ -29,27 +29,27 @@ end
 
 println("");
 @testset "PlotPlants --- plots related" begin
-    _fig,_axes = create_canvas("New canvas");
-    _ax0 = _axes[1];
+    _fig,_axes = create_canvas("New canvas"; ncol=2, nrow=2);
+    _ax1,_ax2,_ax3,_ax4 = _axes;
 
     # density plot
-    plot_density(_ax0, rand(100), rand(100));
+    plot_density(_ax1, rand(100), rand(100));
     @test true;
 
     # linear regression
-    plot_line_regress(_ax0, rand(100), rand(100), interval=true);
+    plot_line_regress(_ax2, rand(100), rand(100), interval=true);
     @test true;
 
     # preview data
-    preview_dataset(artifact"leaf_area_index_4X_1M" * "/leaf_area_index_4X_1M.nc", "LAI");
-    preview_dataset(artifact"canopy_height_20X_1Y" * "/canopy_height_20X_1Y.nc", "Band1");
+    preview_dataset(_ax3, artifact"leaf_area_index_4X_1M" * "/leaf_area_index_4X_1M.nc", "LAI");
+    preview_dataset(_ax3, artifact"canopy_height_20X_1Y" * "/canopy_height_20X_1Y.nc", "Band1");
     println("Expecting a warning here!")
-    preview_dataset(artifact"canopy_height_20X_1Y" * "/canopy_height_20X_1Y.nc", 1);
+    preview_dataset(_ax3, artifact"canopy_height_20X_1Y" * "/canopy_height_20X_1Y.nc", 1);
     @test true;
 
     # artists
-    plot_ellipse(_ax0, (0,0));
-    plot_stoma(_ax0, (0,0));
+    plot_ellipse(_ax4, (0,0));
+    plot_stoma(_ax4, (0,0));
     @test true;
     close("all");
 end

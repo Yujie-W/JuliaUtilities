@@ -8,15 +8,15 @@
                 ax,
                 xs::Array,
                 ys::Array;
-                cmap::String,
-                markersize::Number,
-                dmax::Number)
+                cmap::String = "viridis",
+                markersize::Number = 8,
+                dmax::Number = NaN)
     plot_density(
                 ax,
                 df::DataFrame;
-                cmap::String,
-                markersize::Number
-                dmax::Number)
+                cmap::String = "viridis",
+                markersize::Number = 8,
+                dmax::Number = NaN)
 
 Plot density plot on axis, given
 - `ax` Axis to plot on
@@ -31,9 +31,9 @@ function plot_density(
             ax,
             xs::Array,
             ys::Array;
-            cmap::String="viridis",
-            markersize::Number=8,
-            dmax::Number=NaN
+            cmap::String = "viridis",
+            markersize::Number = 8,
+            dmax::Number = NaN
 )
     df = calculate_density(xs, ys);
     plot_density(ax, df; cmap=cmap, markersize=markersize, dmax=dmax);
@@ -47,9 +47,9 @@ end
 function plot_density(
             ax,
             df::DataFrame;
-            cmap::String="viridis",
-            markersize::Number=8,
-            dmax::Number=NaN
+            cmap::String = "viridis",
+            markersize::Number = 8,
+            dmax::Number = NaN
 )
     # plot the scatter on axis, if cmax is not NaN, use cmax
     cc = (isnan(dmax) ? (df).C : min.((df).C, dmax));
