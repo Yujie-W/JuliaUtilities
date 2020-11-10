@@ -79,7 +79,7 @@ function line_regress(
     else
         mt = (df).X[:,:];
     end
-    pred = predict(lr, mt; interval=:confidence);
+    pred = (GLM).predict(lr, mt; interval=:confidence);
     df[!,"predY" ] = pred.prediction;
     df[!,"lowerY"] = pred.lower[:,1];
     df[!,"upperY"] = pred.upper[:,1];

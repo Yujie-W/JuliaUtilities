@@ -7,13 +7,13 @@
     plot_ellipse(
                 ax,
                 xy::Tuple{Number,Number};
-                width::Number,
-                height::Number,
-                angle::Number,
-                color::String,
-                edgecolor::String,
-                facecolor::String,
-                alpha::Number)
+                width::Number = 10,
+                height::Number = 10,
+                angle::Number = 0,
+                color::String = "black",
+                edgecolor::String = color,
+                facecolor::String = color,
+                alpha::Number = 0.5)
 
 Plot an ellipse on axis, given
 - `ax` Axis to plot on
