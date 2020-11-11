@@ -1,9 +1,6 @@
 # # Canvas
 
-
-
-
-# ## Initialization
+## load packages
 using PlotPlants
 #------------------------------------------------------------------------------
 

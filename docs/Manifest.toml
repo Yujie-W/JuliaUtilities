@@ -315,7 +315,7 @@ uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 deps = ["DataFrames", "Distributed", "DocStringExtensions", "GLM", "KernelDensity", "NetCDF", "Pkg", "ProgressMeter", "PyCall", "PyPlot", "SharedArrays", "Statistics", "Test"]
 path = ".."
 uuid = "62700b34-1872-4917-b6af-4f42ae699f38"
-version = "0.1.5"
+version = "0.1.6"
 
 [[PooledArrays]]
 deps = ["DataAPI"]

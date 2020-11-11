@@ -1,9 +1,6 @@
 # # Strings
 
-
-
-
-# ## Initialization
+## load packages
 using PlotPlants
 #------------------------------------------------------------------------------
 

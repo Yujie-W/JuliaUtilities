@@ -1,9 +1,6 @@
 # # Statistics
 
-
-
-
-# ## Initialization
+## load packages
 using PlotPlants
 #------------------------------------------------------------------------------
 
