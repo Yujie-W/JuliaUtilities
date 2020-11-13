@@ -5,10 +5,18 @@
 ###############################################################################
 """
     if_break_uni(
-                tol::AbstractTolerance{FT},
+                tol::ResidualTolerance{FT},
                 x1::FT,
                 x2::FT,
-                y::FT
+                y::FT,
+                n::Int
+    ) where {FT<:AbstractFloat}
+    if_break_uni(
+                tol::SolutionTolerance{FT},
+                x1::FT,
+                x2::FT,
+                y::FT,
+                n::Int
     ) where {FT<:AbstractFloat}
 
 Determine whether to break, given
@@ -20,24 +28,24 @@ Determine whether to break, given
 - `n` Current iteration
 """
 function if_break_uni(
-            tol::SolutionTolerance{FT},
+            tol::ResidualTolerance{FT},
             x1::FT,
             x2::FT,
             y::FT,
             n::Int
-            ) where {FT<:AbstractFloat}
-    return (abs(x1-x2) < tol.tol) || (n > tol.n_limit)
+) where {FT<:AbstractFloat}
+    return (abs(y) < tol.tol) || (n > tol.n_limit)
 end
 
 
 
 
 function if_break_uni(
-            tol::ResidualTolerance{FT},
+            tol::SolutionTolerance{FT},
             x1::FT,
             x2::FT,
             y::FT,
             n::Int
-            ) where {FT<:AbstractFloat}
-    return (abs(y) < tol.tol) || (n > tol.n_limit)
+) where {FT<:AbstractFloat}
+    return (abs(x1-x2) < tol.tol) || (n > tol.n_limit)
 end
