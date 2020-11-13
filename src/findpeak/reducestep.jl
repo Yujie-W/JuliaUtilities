@@ -33,7 +33,7 @@ function find_peak(
             new_x = tar_x + Δx;
             new_x > x_max ? break : nothing;
             new_y = f(new_x);
-            new_y >  tar_y ? (tar_x=new_x; tar_y=new_y;) : break;
+            new_y > tar_y ? (tar_x=new_x; tar_y=new_y;) : break;
             count_inc += 1;
             count_all += 1;
         end

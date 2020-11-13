@@ -5,6 +5,11 @@ using Test
 
 
 
+include("recursive.jl")
+
+
+
+
 @testset "ConstrainedRootSolvers --- find_peak" begin
     # segmented function with solution 1
     # segmented function with solution 1
