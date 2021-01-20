@@ -9,16 +9,18 @@ on:
 
 jobs:
   linux-test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Set up Actions
         uses: actions/checkout@v1
-      - name: Install matplotlib
-        run: sudo apt install python3-matplotlib
       - name: Set up Julia
         uses: julia-actions/setup-julia@v1
         with:
           version: "1.5"
+      - name: Force update registry
+        run: julia -e 'using Pkg; Pkg.Registry.rm("General"); Pkg.Registry.add(RegistrySpec(url="https://github.com/JuliaRegistries/General"))'
+      - name: Install Dependencies
+        run: julia --project -e 'ENV["PYTHON"]=""; using Pkg; Pkg.instantiate();'
       - name: Test package
         run: julia --project -e 'using Pkg; Pkg.test(coverage=true);'
       - name: Upload code coverage
@@ -26,7 +28,7 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   macos-test:
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
       - name: Set up Actions
         uses: actions/checkout@v1
@@ -34,6 +36,10 @@ jobs:
         uses: julia-actions/setup-julia@v1
         with:
           version: "1.5"
+      - name: Force update registry
+        run: julia -e 'using Pkg; Pkg.Registry.rm("General"); Pkg.Registry.add(RegistrySpec(url="https://github.com/JuliaRegistries/General"))'
+      - name: Install Dependencies
+        run: julia --project -e 'ENV["PYTHON"]=""; using Pkg; Pkg.instantiate();'
       - name: Test package
         run: julia --project -e 'using Pkg; Pkg.test();'
   windows-test:
@@ -45,5 +51,9 @@ jobs:
         uses: julia-actions/setup-julia@v1
         with:
           version: "1.5"
+      - name: Force update registry
+        run: julia -e 'using Pkg; Pkg.Registry.rm(\"General\"); Pkg.Registry.add(RegistrySpec(url=\"https://github.com/JuliaRegistries/General\"))'
+      - name: Install Dependencies
+        run: julia --project -e 'ENV[\"PYTHON\"]=\"\"; using Pkg; Pkg.instantiate();'
       - name: Test package
         run: julia --project -e 'using Pkg; Pkg.test();'
