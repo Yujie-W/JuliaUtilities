@@ -8,6 +8,10 @@
                 axs::Array,
                 xlabels::Array{String,1};
                 fontsize::Number = 16)
+    set_xlabels!(
+                axs::Array,
+                xlabels::String;
+                fontsize::Number = 16)
 
 Set X-axis labels for the axes, given
 - `axs` An array of axis
@@ -30,10 +34,30 @@ end
 
 
 
+function set_xlabels!(
+            axs::Array,
+            xlabels::String;
+            fontsize::Number = 16
+)
+    # set X-axis label for each panel
+    for indx in eachindex(axs)
+        axs[indx].set_xlabel(xlabels, fontsize=fontsize);
+    end
+
+    return nothing
+end
+
+
+
+
 """
     set_ylabels!(
                 axs::Array,
                 ylabels::Array{String,1};
+                fontsize::Number = 16)
+    set_ylabels!(
+                axs::Array,
+                ylabels::String;
                 fontsize::Number = 16)
 
 Set Y-axis labels for the axes, given
@@ -57,11 +81,27 @@ end
 
 
 
+function set_ylabels!(
+            axs::Array,
+            ylabels::String;
+            fontsize::Number = 16
+)
+    # set Y-axis label for each panel
+    for indx in eachindex(axs)
+        axs[indx].set_ylabel(ylabels, fontsize=fontsize);
+    end
+
+    return nothing
+end
+
+
+
+
 """
     set_xylabels!(
                 axs::Array,
-                xlabels::Array{String,1},
-                ylabels::Array{String,1};
+                xlabels::Union{Array{String,1},String},
+                ylabels::Union{Array{String,1},String};
                 fontsize::Number = 16)
 
 Set X-axis and Y-axis labels for the axes, given
@@ -72,8 +112,8 @@ Set X-axis and Y-axis labels for the axes, given
 """
 function set_xylabels!(
             axs::Array,
-            xlabels::Array{String,1},
-            ylabels::Array{String,1};
+            xlabels::Union{Array{String,1},String},
+            ylabels::Union{Array{String,1},String};
             fontsize::Number = 16
 )
     # set Y-axis label for each panel
