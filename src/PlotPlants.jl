@@ -23,6 +23,7 @@ export AbstractFormat,
 
 # export canvas related functions
 export create_canvas,
+       save_canvas!,
        set_titles!,
        set_xlabels!,
        set_xlims!,
@@ -82,11 +83,11 @@ export use_sans,
 include("types/file_format.jl")
 include("types/regression.jl" )
 
-include("canvas/create_canvas.jl")
-include("canvas/titles.jl"       )
-include("canvas/xylabels.jl"     )
-include("canvas/xylims.jl"       )
-include("canvas/xyticks.jl"      )
+include("canvas/canvas.jl"  )
+include("canvas/titles.jl"  )
+include("canvas/xylabels.jl")
+include("canvas/xylims.jl"  )
+include("canvas/xyticks.jl" )
 
 include("plots/density.jl"     )
 include("plots/ellipse.jl"     )

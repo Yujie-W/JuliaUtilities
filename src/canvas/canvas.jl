@@ -45,3 +45,32 @@ function create_canvas(
 
     return fig,axs
 end
+
+
+
+
+
+
+
+
+###############################################################################
+#
+# Save canvas
+#
+###############################################################################
+"""
+    save_canvas!(fig, path::String, saving::Bool=false)
+
+Save a canvas, given
+- `fig` Canvas to save
+- `path` Path to save the figure
+- `saving` Optional. If true, save the figure
+"""
+function save_canvas!(fig, path::String, saving::Bool=false)
+    fig.set_tight_layout(true);
+    if saving
+        fig.savefig(path, bbox_inches="tight");
+    end
+
+    return nothing
+end
