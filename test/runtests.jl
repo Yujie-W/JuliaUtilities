@@ -6,20 +6,21 @@ using Test
 
 
 
-include("recursive.jl")
-
-
-
-
 println("");
 @testset "PlotPlants --- canvas related" begin
     _fig,_axes = create_canvas("New canvas", ncol=2, nrow=2);
     set_titles!(_axes);
     set_titles!(_axes; usetex=false);
     set_xylabels!(_axes, ["X" for i in 1:4], ["Y" for i in 1:4]);
+    set_xylabels!(_axes, "X", "Y");
     set_xylims!(_axes, [[0,1] for i in 1:4], [[0,1] for i in 1:4]);
+    set_xylims!(_axes, [0,1], [0,1]);
     set_xyticks!(_axes, [[0,1] for i in 1:4], [[0,1] for i in 1:4]);
+    set_xyticks!(_axes, [0,1], [0,1]);
     set_xyticklabels!(_axes, [["",""] for i in 1:4], [["",""] for i in 1:4]);
+    set_xyticklabels!(_axes, ["",""], ["",""]);
+    save_canvas!(_fig, "_test.pdf", true);
+    rm("_test.pdf");
     @test true;
     close("all");
 end

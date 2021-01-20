@@ -44,7 +44,7 @@ subscript
 superscript
 ```
 
-## Create canvas
+## Create and save canvas
 
 An customized funtion [`create_canvas`](@ref) is provided to genrate figure and
     an array of axis from a few keywords. For example,
@@ -56,6 +56,7 @@ An customized funtion [`create_canvas`](@ref) is provided to genrate figure and
 
 ```@docs
 create_canvas
+save_canvas!
 ```
 
 ## Shapes
