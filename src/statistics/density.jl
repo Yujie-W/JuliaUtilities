@@ -25,7 +25,7 @@ function calculate_density(xs::Array, ys::Array)
         cc .= pdf.([ik], xx, yy);
     end
     df = DataFrame(X=xx, Y=yy, C=cc);
-    sort!(df, [:C]);
+    Base.sort!(df, [:C]);
 
     return df
 end
@@ -63,7 +63,7 @@ function calculate_density(xs::Array, ys::Array, nthread::Number)
 
     # create and sort dataframe
     df = DataFrame(X=xx, Y=yy, C=cc);
-    sort!(df, [:C]);
+    Base.sort!(df, [:C]);
 
     return df
 end
