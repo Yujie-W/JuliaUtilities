@@ -42,10 +42,10 @@ println("");
     @test true;
 
     # preview data
-    preview_dataset(_ax3, artifact"leaf_area_index_4X_1M" * "/leaf_area_index_4X_1M.nc", "LAI");
-    preview_dataset(_ax3, artifact"canopy_height_20X_1Y" * "/canopy_height_20X_1Y.nc", "Band1");
+    preview_dataset(_ax3, artifact"LAI_4X_1M_V1" * "/LAI_4X_1M_V1.nc", "LAI");
+    preview_dataset(_ax3, artifact"CH_20X_1Y_V1" * "/CH_20X_1Y_V1.nc", "Band1");
     println("Expecting a warning here!")
-    preview_dataset(_ax3, artifact"canopy_height_20X_1Y" * "/canopy_height_20X_1Y.nc", 1);
+    preview_dataset(_ax3, artifact"CH_20X_1Y_V1" * "/CH_20X_1Y_V1.nc", 1);
     @test true;
 
     # artists
