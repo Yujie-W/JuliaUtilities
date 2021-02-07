@@ -14,13 +14,15 @@ mutable struct LinearRegressionResult
     lm::Any
 
     "Intercept of fitting"
-    inter::Number
+    inter   ::Number
     "Slope of fitting"
-    slope::Number
+    slope   ::Number
+    "Adjusted R square"
+    r2      ::Number
     "P value of intercept"
-    inter_p::Number
+    inter_p ::Number
     "P value of slopes"
-    slope_p::Number
+    slope_p ::Number
     "Confidence interval of intercept"
     inter_ci::Array
     "Confidence interval of slopes"

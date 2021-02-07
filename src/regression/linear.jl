@@ -58,7 +58,8 @@ function line_regress(
     sorting ? sort!(df) : nothing;
 
     # run the fitting
-    lr = linear_df_xy(df, intercept);
+    lr  = linear_df_xy(df, intercept);
+    _r2 = adjr2(lr);
 
     # create items for the struct
     if intercept
@@ -90,6 +91,7 @@ function line_regress(
 
     return LinearRegressionResult(
                 lr,
+                _r2,
                 _inter,
                 _slope,
                 _inter_p,
