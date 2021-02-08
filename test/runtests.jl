@@ -147,12 +147,7 @@ println("");
     use_serif();
     @test true;
 
-    # renders
-    use_tex();
-    use_text();
-    @test true;
-
-    # both
+    # fonts and renders
     use_sans_tex();
     use_sans_text();
     use_serif_tex();

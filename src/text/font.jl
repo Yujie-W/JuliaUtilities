@@ -10,7 +10,7 @@
 Set default font to sans-serif
 """
 function use_sans()
-    rc("font"    , family="sans-serif", serif=["Helvetica"]);
+    rc("font"    , family="sans-serif", serif=["sans-serif"]);
     rc("mathtext", fontset="dejavusans");
 
     return nothing

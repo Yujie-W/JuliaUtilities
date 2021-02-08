@@ -72,9 +72,7 @@ export use_sans,
        use_sans_text,
        use_serif,
        use_serif_tex,
-       use_serif_text,
-       use_tex,
-       use_text
+       use_serif_text
 
 
 
