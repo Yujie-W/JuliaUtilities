@@ -4,8 +4,8 @@
 #
 ###############################################################################
 """
-    preview_dataset(ax, filename::String, label)
-    preview_dataset(ax, filename::String, label::String, format::FormatNC)
+    preview_dataset!(ax, filename::String, label)
+    preview_dataset!(ax, filename::String, label::String, format::FormatNC)
 
 Preview dataset, given
 - `filename` Dataset file to preview
@@ -13,9 +13,9 @@ Preview dataset, given
     TIFF files
 - `format` [`AbstractFormat`](@ref) type file format
 """
-function preview_dataset(ax, filename::String, label)
+function preview_dataset!(ax, filename::String, label)
     if filename[end-2:end]==".nc" && typeof(label)==String
-        preview_dataset(ax, filename, label, FormatNC());
+        preview_dataset!(ax, filename, label, FormatNC());
     else
         @warn "File format and label type is not supported!"
     end
@@ -26,7 +26,12 @@ end
 
 
 
-function preview_dataset(ax, filename::String, label::String, format::FormatNC)
+function preview_dataset!(
+            ax,
+            filename::String,
+            label::String,
+            format::FormatNC
+)
     data = ncread(filename, label);
     dims = size(data);
 

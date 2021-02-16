@@ -4,7 +4,8 @@
 #
 ###############################################################################
 """
-    plot_stoma(ax,
+    plot_stoma!(
+                ax,
                xy::Tuple{Number,Number};
                width::Number = 10,
                height::Number = 10,
@@ -19,7 +20,7 @@ Plot a stoma on the axis, given
 - `stoma` Stomatal pore width ratio
 - `angle` Rotation angle of the stoma
 """
-function plot_stoma(
+function plot_stoma!(
             ax,
             xy::Tuple{Number,Number};
             width::Number = 10,

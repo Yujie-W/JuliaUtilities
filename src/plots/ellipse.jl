@@ -4,7 +4,7 @@
 #
 ###############################################################################
 """
-    plot_ellipse(
+    plot_ellipse!(
                 ax,
                 xy::Tuple{Number,Number};
                 width::Number = 10,
@@ -26,7 +26,7 @@ Plot an ellipse on axis, given
 - `facecolor` Face color of the ellipse
 - `alpha` Transparency of the ellipse
 """
-function plot_ellipse(
+function plot_ellipse!(
             ax,
             xy::Tuple{Number,Number};
             width::Number = 10,

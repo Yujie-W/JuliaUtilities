@@ -431,7 +431,7 @@ version = "0.1.2"
 deps = ["DataFrames", "Distributed", "DocStringExtensions", "FileIO", "GLM", "ImageIO", "ImageMagick", "KernelDensity", "NetCDF", "Pkg", "PkgUtility", "ProgressMeter", "PyCall", "PyPlot", "SharedArrays", "Statistics", "Test"]
 path = ".."
 uuid = "62700b34-1872-4917-b6af-4f42ae699f38"
-version = "0.1.10"
+version = "0.1.11"
 
 [[PooledArrays]]
 deps = ["DataAPI"]

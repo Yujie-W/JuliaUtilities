@@ -4,14 +4,14 @@
 #
 ###############################################################################
 """
-    plot_density(
+    plot_density!(
                 ax,
                 xs::Array,
                 ys::Array;
                 cmap::String = "viridis",
                 markersize::Number = 8,
                 dmax::Number = NaN)
-    plot_density(
+    plot_density!(
                 ax,
                 df::DataFrame;
                 cmap::String = "viridis",
@@ -27,7 +27,7 @@ Plot density plot on axis, given
 - `dmax` Maximal density. If `dmax` is not NaN, use dmax as maximum density
 - `df` A dataframe with column names of ("X","Y","C")
 """
-function plot_density(
+function plot_density!(
             ax,
             xs::Array,
             ys::Array;
@@ -36,7 +36,7 @@ function plot_density(
             dmax::Number = NaN
 )
     df = calculate_density(xs, ys);
-    plot_density(ax, df; cmap=cmap, markersize=markersize, dmax=dmax);
+    plot_density!(ax, df; cmap=cmap, markersize=markersize, dmax=dmax);
 
     return nothing
 end
@@ -44,7 +44,7 @@ end
 
 
 
-function plot_density(
+function plot_density!(
             ax,
             df::DataFrame;
             cmap::String = "viridis",

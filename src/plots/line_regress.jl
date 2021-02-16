@@ -4,7 +4,7 @@
 #
 ###############################################################################
 """
-    plot_line_regress(
+    plot_line_regress!(
                 ax,
                 xs::Array,
                 ys::Array;
@@ -22,7 +22,7 @@ Plor linear regression and confidence interval on the axis, given
 - `color` Color the fitted curve
 - `alpha` Transparency of the confidence interval (same color as curve)
 """
-function plot_line_regress(
+function plot_line_regress!(
             ax,
             xs::Array,
             ys::Array;

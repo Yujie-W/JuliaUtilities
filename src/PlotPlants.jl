@@ -43,11 +43,12 @@ export create_canvas,
        set_yticks!
 
 # export functions related to plotting
-export plot_density,
-       plot_ellipse,
-       plot_line_regress,
-       plot_stoma,
-       preview_dataset
+export plot_density!,
+       plot_ellipse!,
+       plot_hexbin!,
+       plot_line_regress!,
+       plot_stoma!,
+       preview_dataset!
 
 # regression related functions
 export line_regress
@@ -94,6 +95,7 @@ include("canvas/xyticks.jl" )
 
 include("plots/density.jl"     )
 include("plots/ellipse.jl"     )
+include("plots/hexbin.jl"      )
 include("plots/line_regress.jl")
 include("plots/preview.jl"     )
 include("plots/stoma.jl"       )

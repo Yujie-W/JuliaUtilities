@@ -38,29 +38,33 @@ end
 
 println("");
 @testset "PlotPlants --- plots related" begin
-    _fig,_axes = create_canvas("New canvas"; ncol=2, nrow=2);
-    _ax1,_ax2,_ax3,_ax4 = _axes;
+    _fig,_axes = create_canvas("New canvas"; ncol=3, nrow=2);
+    _ax1,_ax2,_ax3,_ax4,_ax5,_ax6 = _axes;
 
     # density plot
-    plot_density(_ax1, rand(100), rand(100));
+    plot_density!(_ax1, rand(100), rand(100));
     @test true;
 
     # linear regression
-    plot_line_regress(_ax2, rand(100), rand(100), interval=true);
+    plot_line_regress!(_ax2, rand(100), rand(100), interval=true);
     @test true;
 
     # preview data
     predownload_artifact.(["CH_20X_1Y_V1","LAI_4X_1M_V1"], "../Artifacts.toml");
-    preview_dataset(_ax3, artifact"LAI_4X_1M_V1" * "/LAI_4X_1M_V1.nc", "LAI");
-    preview_dataset(_ax3, artifact"CH_20X_1Y_V1" * "/CH_20X_1Y_V1.nc", "Band1");
+    preview_dataset!(_ax3, artifact"LAI_4X_1M_V1" * "/LAI_4X_1M_V1.nc", "LAI");
+    preview_dataset!(_ax3, artifact"CH_20X_1Y_V1" * "/CH_20X_1Y_V1.nc", "Band1");
     @info "Expecting a warning here!";
-    preview_dataset(_ax3, artifact"CH_20X_1Y_V1" * "/CH_20X_1Y_V1.nc", 1);
+    preview_dataset!(_ax3, artifact"CH_20X_1Y_V1" * "/CH_20X_1Y_V1.nc", 1);
     @test true;
 
     # artists
-    plot_ellipse(_ax4, (0,0));
-    plot_stoma(_ax4, (0,0));
+    plot_ellipse!(_ax4, (0,0));
+    plot_stoma!(_ax4, (0,0));
     @test true;
+
+    # hexbin
+    plot_hexbin!(_ax5, rand(100), rand(100));
+    plot_hexbin!(_ax6, rand(100), rand(100), [-1,1], [-1,1]);
     close("all");
 end
 
