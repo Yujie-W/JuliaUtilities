@@ -1,8 +1,6 @@
 status = [
     "docs-build",
-    "linux-test",
-    "macos-test",
-    "version-test",
-    "windows-test"
+    "ubuntu-latest",
+    "version-test"
 ]
 timeout_sec = 7200
