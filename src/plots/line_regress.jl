@@ -8,6 +8,7 @@
                 ax,
                 xs::Array,
                 ys::Array;
+                linestyle::String = "-",
                 intercept::Bool = true,
                 interval::Bool = false,
                 color::String = "red",
@@ -26,6 +27,7 @@ function plot_line_regress!(
             ax,
             xs::Array,
             ys::Array;
+            linestyle::String = "-",
             intercept::Bool = true,
             interval::Bool = false,
             color::String = "red",
@@ -35,7 +37,7 @@ function plot_line_regress!(
     lr = line_regress(xs, ys, intercept=intercept, sorting=true);
 
     # plot the fittings
-    ax.plot(lr.df.X, lr.df.predY, color=color);
+    ax.plot(lr.df.X, lr.df.predY, linestyle=linestyle, color=color);
     if interval
         ax.fill_between(lr.df.X,
                         lr.df.lowerY,
