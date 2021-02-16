@@ -1,6 +1,8 @@
 using GLM
 using Pkg.Artifacts
+using PkgUtility
 using PlotPlants
+using PyPlot
 using Test
 
 
@@ -23,6 +25,12 @@ println("");
     rm("_test.pdf");
     @test true;
     close("all");
+    _figs = Figure[];
+    push!(_figs, deepcopy(_fig));
+    push!(_figs, deepcopy(_fig));
+    save_gif!(_figs, 1, "test.gif");
+    rm("test.gif");
+    @test true;
 end
 
 
@@ -42,9 +50,10 @@ println("");
     @test true;
 
     # preview data
+    predownload_artifact.(["CH_20X_1Y_V1","LAI_4X_1M_V1"], "../Artifacts.toml");
     preview_dataset(_ax3, artifact"LAI_4X_1M_V1" * "/LAI_4X_1M_V1.nc", "LAI");
     preview_dataset(_ax3, artifact"CH_20X_1Y_V1" * "/CH_20X_1Y_V1.nc", "Band1");
-    println("Expecting a warning here!")
+    @info "Expecting a warning here!";
     preview_dataset(_ax3, artifact"CH_20X_1Y_V1" * "/CH_20X_1Y_V1.nc", 1);
     @test true;
 

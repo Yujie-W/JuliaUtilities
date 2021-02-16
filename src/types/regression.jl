@@ -13,12 +13,12 @@ mutable struct LinearRegressionResult
     "Regression result"
     lm::Any
 
+    "Adjusted R square"
+    r2      ::Number
     "Intercept of fitting"
     inter   ::Number
     "Slope of fitting"
     slope   ::Number
-    "Adjusted R square"
-    r2      ::Number
     "P value of intercept"
     inter_p ::Number
     "P value of slopes"

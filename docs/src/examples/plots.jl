@@ -39,9 +39,9 @@ _fig
 ## load Artifacts.toml from PlotPlants
 ## leaf area index dataset, variable name: LAI
 artifact_toml = joinpath(@__DIR__, "../../../Artifacts.toml");
-data_hash     = artifact_hash("leaf_area_index_4X_1M", artifact_toml);
-data_path     = artifact_path(data_hash) * "/leaf_area_index_4X_1M.nc";
-ensure_artifact_installed("leaf_area_index_4X_1M", artifact_toml);
+data_hash     = artifact_hash("LAI_4X_1M_V1", artifact_toml);
+data_path     = artifact_path(data_hash) * "/LAI_4X_1M_V1.nc";
+ensure_artifact_installed("LAI_4X_1M_V1", artifact_toml);
 
 _fig,_axes = create_canvas("Preview 3D dataset");
 _ax1 = _axes[1];
@@ -52,9 +52,9 @@ _fig
 # ### lon×lat dimension
 ## canopy height dataset, variable name: Band1
 artifact_toml = joinpath(@__DIR__, "../../../Artifacts.toml");
-data_hash     = artifact_hash("canopy_height_20X_1Y", artifact_toml);
-data_path     = artifact_path(data_hash) * "/canopy_height_20X_1Y.nc";
-ensure_artifact_installed("canopy_height_20X_1Y", artifact_toml);
+data_hash     = artifact_hash("CH_20X_1Y_V1", artifact_toml);
+data_path     = artifact_path(data_hash) * "/CH_20X_1Y_V1.nc";
+ensure_artifact_installed("CH_20X_1Y_V1", artifact_toml);
 
 _fig,_axes = create_canvas("Preview 2D dataset");
 _ax1 = _axes[1];
@@ -64,10 +64,11 @@ _fig
 
 # ### Non-supported case
 artifact_toml = joinpath(@__DIR__, "../../../Artifacts.toml");
-data_hash     = artifact_hash("canopy_height_20X_1Y", artifact_toml);
-data_path     = artifact_path(data_hash) * "/canopy_height_20X_1Y.nc";
+data_hash     = artifact_hash("CH_20X_1Y_V1", artifact_toml);
+data_path     = artifact_path(data_hash) * "/CH_20X_1Y_V1.nc";
+ensure_artifact_installed("CH_20X_1Y_V1", artifact_toml);
 
-println("Expecting a warning and thus a blank figure here!");
+@info "Expecting a warning and thus a blank figure here!";
 _fig,_axes = create_canvas("Expecting a warning");
 _ax1 = _axes[1];
 preview_dataset(_ax1, data_path, 1);

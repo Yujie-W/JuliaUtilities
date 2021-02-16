@@ -65,12 +65,6 @@ use_serif();
 
 # ### Text render
 # Currently, `PlotPlants` supports Latex and normal text renders.
-use_tex();
-use_text();
-#------------------------------------------------------------------------------
-
-# ### Change both text font and render
-# Currently, `PlotPlants` supports Latex and normal text renders.
 use_sans_tex();
 use_sans_text();
 use_serif_tex();
