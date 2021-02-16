@@ -55,6 +55,7 @@ An customized funtion [`create_canvas`](@ref) is provided to genrate figure and
 ```@docs
 create_canvas
 save_canvas!
+save_gif!
 ```
 
 ## Shapes

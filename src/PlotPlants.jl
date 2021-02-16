@@ -3,7 +3,10 @@ module PlotPlants
 using DataFrames
 using Distributed
 using DocStringExtensions
+using FileIO
 using GLM
+using ImageIO
+using ImageMagick
 using KernelDensity
 using NetCDF
 using ProgressMeter
@@ -24,6 +27,7 @@ export AbstractFormat,
 # export canvas related functions
 export create_canvas,
        save_canvas!,
+       save_gif!,
        set_titles!,
        set_xlabels!,
        set_xlims!,
@@ -82,6 +86,7 @@ include("types/file_format.jl")
 include("types/regression.jl" )
 
 include("canvas/canvas.jl"  )
+include("canvas/gif.jl"     )
 include("canvas/titles.jl"  )
 include("canvas/xylabels.jl")
 include("canvas/xylims.jl"  )

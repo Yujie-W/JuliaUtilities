@@ -32,10 +32,10 @@ function preview_dataset(ax, filename::String, label::String, format::FormatNC)
 
     # plot figure
     if length(dims)==2
-        println("Dataset is 2D, plotting it using imshow...");
+        @info "Dataset is 2D, plotting it using imshow...";
         ax.imshow(data', origin="lower");
     elseif length(dims)==3
-        println("Dataset is 3D, plotting the 1st layer using imshow...");
+        @info "Dataset is 3D, plotting the 1st layer using imshow...";
         ax.imshow(data[:,:,1]', origin="lower");
     end
 
