@@ -5,7 +5,7 @@
 ###############################################################################
 """
     plot_ellipse!(
-                ax,
+                ax::PyObject,
                 xy::Tuple{Number,Number};
                 width::Number = 10,
                 height::Number = 10,
@@ -13,7 +13,8 @@
                 color::String = "black",
                 edgecolor::String = color,
                 facecolor::String = color,
-                alpha::Number = 0.5)
+                alpha::Number = 0.5
+    )
 
 Plot an ellipse on axis, given
 - `ax` Axis to plot on
@@ -27,7 +28,7 @@ Plot an ellipse on axis, given
 - `alpha` Transparency of the ellipse
 """
 function plot_ellipse!(
-            ax,
+            ax::PyObject,
             xy::Tuple{Number,Number};
             width::Number = 10,
             height::Number = 10,

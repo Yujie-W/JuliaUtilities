@@ -10,7 +10,8 @@
                 sup::String = "",
                 presub::String = "",
                 presup::String = "",
-                option::String = "mathrm")
+                option::String = "mathrm"
+    )
 
 Return the latex symbol string, given
 - `mid` Center symbol, italic only when length>1

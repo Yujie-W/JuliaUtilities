@@ -6,7 +6,8 @@
 """
     set_xticks!(axs::Array, xticks::Array)
     set_xticks!(axs::Array,
-                xticks::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}})
+                xticks::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}}
+    )
 
 Set X-axis ticks for a given
 - `axs` Array of axis
@@ -25,7 +26,8 @@ end
 
 function set_xticks!(
             axs::Array,
-            xticks::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}})
+            xticks::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}}
+)
     for indx in eachindex(axs)
         axs[indx].set_xticks(xticks);
     end
@@ -39,7 +41,8 @@ end
 """
     set_yticks!(axs::Array, yticks::Array)
     set_yticks!(axs::Array,
-                yticks::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}})
+                yticks::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}}
+    )
 
 Set Y-axis ticks for a given
 - `axs` Array of axis
@@ -58,7 +61,8 @@ end
 
 function set_yticks!(
             axs::Array,
-            yticks::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}})
+            yticks::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}}
+)
     for indx in eachindex(axs)
         axs[indx].set_yticks(yticks);
     end

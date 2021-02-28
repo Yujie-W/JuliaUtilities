@@ -8,7 +8,8 @@
                paren::Bool = true,
                squared::Bool = false,
                space::Bool = true,
-               unicode::Bool = false)
+               unicode::Bool = false
+    )
 
 Return the unit, given
 - `id` Identifier of the unit (if not in libary, use id as unit)

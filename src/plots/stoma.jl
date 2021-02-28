@@ -5,12 +5,13 @@
 ###############################################################################
 """
     plot_stoma!(
-                ax,
+               ax::PyObject,
                xy::Tuple{Number,Number};
                width::Number = 10,
                height::Number = 10,
                stoma::Number = 0.2,
-               angle::Number = 0)
+               angle::Number = 0
+    )
 
 Plot a stoma on the axis, given
 - `ax` Axis to plot on
@@ -21,7 +22,7 @@ Plot a stoma on the axis, given
 - `angle` Rotation angle of the stoma
 """
 function plot_stoma!(
-            ax,
+            ax::PyObject,
             xy::Tuple{Number,Number};
             width::Number = 10,
             height::Number = 10,

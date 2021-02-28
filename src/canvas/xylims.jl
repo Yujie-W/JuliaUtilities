@@ -6,7 +6,8 @@
 """
     set_xlims!(axs::Array, xlims::Array)
     set_xlims!(axs::Array,
-               xlims::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}})
+               xlims::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}}
+    )
 
 Set the X-axis limits, given
 - `axs` Array of axis
@@ -26,7 +27,8 @@ end
 
 function set_xlims!(
             axs::Array,
-            xlims::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}})
+            xlims::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}}
+)
     # set X-axis limit for each panel
     for indx in eachindex(axs)
         axs[indx].set_xlim(xlims);
@@ -41,7 +43,8 @@ end
 """
     set_ylims!(axs::Array, ylims::Array)
     set_ylims!(axs::Array,
-               ylims::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}})
+               ylims::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}}
+    )
 
 Set the Y-axis limits, given
 - `axs` Array of axis
@@ -61,7 +64,8 @@ end
 
 function set_ylims!(
             axs::Array,
-            ylims::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}})
+            ylims::Union{Array{Int,1},Array{Float32,1},Array{Float64,1}}
+)
     # set X-axis limit for each panel
     for indx in eachindex(axs)
         axs[indx].set_ylim(ylims);

@@ -7,7 +7,8 @@
     test_slope(xs::Array,
                ys::Array;
                slope::Number = 0,
-               intercept::Bool = true)
+               intercept::Bool = true
+    )
 
 Make linear regression and return the p value of whether the regression slope
     differs from the given slope, given

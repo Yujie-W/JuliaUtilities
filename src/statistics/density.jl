@@ -5,10 +5,12 @@
 ###############################################################################
 """
     calculate_density(xs::Array, ys::Array)
+    calculate_density(xs::Array, ys::Array, nthread::Int)
 
 Plot density plot on axis, given
 - `xs` Array of X
 - `ys` Array of Y
+- `nthread` Number of threads to run in parallel
 """
 function calculate_density(xs::Array, ys::Array)
     mask = (.!isnan.(xs)) .* (.!isnan.(ys));
@@ -33,7 +35,7 @@ end
 
 
 
-function calculate_density(xs::Array, ys::Array, nthread::Number)
+function calculate_density(xs::Array, ys::Array, nthread::Int)
     # add workers
     if length(workers()) < nthread
         addprocs(nthread - length(workers()), exeflags="--project");

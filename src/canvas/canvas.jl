@@ -5,12 +5,13 @@
 ###############################################################################
 """
     create_canvas(
-                id;
+                id::Union{Int,String};
                 ncol::Int = 1,
                 nrow::Int = 1,
                 axids::Array{Int,1} = Int[],
                 figsize::Tuple{Number,Number} = (0.5+ncol*3, 0.5+nrow*3),
-                dpi::Number = 100)
+                dpi::Number = 100
+    )
 
 Create a canvas, given
 - `id` ID of the figure
@@ -21,12 +22,13 @@ Create a canvas, given
 - `dpi` Given pixels per inch
 """
 function create_canvas(
-            id;
+            id::Union{Int,String};
             ncol::Int = 1,
             nrow::Int = 1,
             axids::Array{Int,1} = Int[],
             figsize::Tuple{Number,Number} = (0.5+ncol*3, 0.5+nrow*3),
-            dpi::Number = 100)
+            dpi::Number = 100
+)
     # create a clean figure
     fig = figure(id, figsize=figsize, dpi=dpi);
     clf();
@@ -59,14 +61,14 @@ end
 #
 ###############################################################################
 """
-    save_canvas!(fig, path::String, saving::Bool=false)
+    save_canvas!(fig::Figure, path::String, saving::Bool = false)
 
 Save a canvas, given
 - `fig` Canvas to save
 - `path` Path to save the figure
 - `saving` Optional. If true, save the figure
 """
-function save_canvas!(fig, path::String, saving::Bool=false)
+function save_canvas!(fig::Figure, path::String, saving::Bool = false)
     fig.set_tight_layout(true);
     if saving
         fig.savefig(path, bbox_inches="tight");

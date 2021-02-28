@@ -5,18 +5,20 @@
 ###############################################################################
 """
     plot_density!(
-                ax,
+                ax::PyObject,
                 xs::Array,
                 ys::Array;
                 cmap::String = "viridis",
                 markersize::Number = 8,
-                dmax::Number = NaN)
+                dmax::Number = NaN
+    )
     plot_density!(
-                ax,
+                ax::PyObject,
                 df::DataFrame;
                 cmap::String = "viridis",
                 markersize::Number = 8,
-                dmax::Number = NaN)
+                dmax::Number = NaN
+    )
 
 Plot density plot on axis, given
 - `ax` Axis to plot on
@@ -28,7 +30,7 @@ Plot density plot on axis, given
 - `df` A dataframe with column names of ("X","Y","C")
 """
 function plot_density!(
-            ax,
+            ax::PyObject,
             xs::Array,
             ys::Array;
             cmap::String = "viridis",
@@ -45,7 +47,7 @@ end
 
 
 function plot_density!(
-            ax,
+            ax::PyObject,
             df::DataFrame;
             cmap::String = "viridis",
             markersize::Number = 8,

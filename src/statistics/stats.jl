@@ -88,6 +88,24 @@ Return the mean absolute percentage error by ommiting the NaN, given
 function mape(y::Array, pred::Array)
     aver = abs( nanmean(y) );
     diff = abs.(y .- pred) ./ aver .* 100;
+
+    return nanmean( diff )
+end
+
+
+
+
+"""
+    mase(y::Array, pred::Array)
+
+Return the mean absolute standardized error by ommiting the NaN, given
+- `y` Array of numbers, can be NaN
+- `pred` Array of predictions, can be NaN
+"""
+function mase(y::Array, pred::Array)
+    nstd = nanstd(y);
+    diff = abs.(y .- pred) ./ nstd .* 100;
+
     return nanmean( diff )
 end
 

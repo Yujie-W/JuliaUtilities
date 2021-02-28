@@ -5,21 +5,23 @@
 ###############################################################################
 """
     plot_hexbin!(
-                ax,
+                ax::PyObject,
                 xs::Array,
                 ys::Array;
                 cmap::String = "Greys",
                 logbins::Bool = false,
-                gridsize::Number = 25)
+                gridsize::Number = 25
+    )
     plot_hexbin!(
-                ax,
+                ax::PyObject,
                 xs::Array,
                 ys::Array,
                 xlims::Array,
                 ylims::Array;
                 cmap::String = "Greys",
                 logbins::Bool = false,
-                gridsize::Number = 25)
+                gridsize::Number = 25
+    )
 
 Plot density plot on axis, given
 - `ax` Axis to plot on
@@ -32,7 +34,7 @@ Plot density plot on axis, given
 - `ylim` Limits of y axis. Used to make plot region equal among subplots
 """
 function plot_hexbin!(
-            ax,
+            ax::PyObject,
             xs::Array,
             ys::Array;
             cmap::String = "Greys",
@@ -52,7 +54,7 @@ end
 
 
 function plot_hexbin!(
-            ax,
+            ax::PyObject,
             xs::Array,
             ys::Array,
             xlims::Array,

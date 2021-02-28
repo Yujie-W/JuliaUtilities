@@ -151,6 +151,7 @@ plot_hexbin!
 ## Preview dataset
 
 ```@docs
+preview_data
 preview_dataset!
 AbstractFormat
 FormatNC
