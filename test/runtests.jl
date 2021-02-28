@@ -65,6 +65,7 @@ println("");
 
     # hexbin
     plot_hexbin!(_ax5, rand(100), rand(100));
+    plot_hexbin!(_ax5, rand(100), rand(100); logbins=true);
     plot_hexbin!(_ax6, rand(100), rand(100), [-1,1], [-1,1]);
     close("all");
 end
