@@ -7,11 +7,13 @@
     set_xlabels!(
                 axs::Array,
                 xlabels::Array{String,1};
-                fontsize::Number = 16)
+                fontsize::Number = 16
+    )
     set_xlabels!(
                 axs::Array,
                 xlabels::String;
-                fontsize::Number = 16)
+                fontsize::Number = 16
+    )
 
 Set X-axis labels for the axes, given
 - `axs` An array of axis
@@ -54,11 +56,13 @@ end
     set_ylabels!(
                 axs::Array,
                 ylabels::Array{String,1};
-                fontsize::Number = 16)
+                fontsize::Number = 16
+    )
     set_ylabels!(
                 axs::Array,
                 ylabels::String;
-                fontsize::Number = 16)
+                fontsize::Number = 16
+    )
 
 Set Y-axis labels for the axes, given
 - `axs` An array of axis
@@ -102,7 +106,8 @@ end
                 axs::Array,
                 xlabels::Union{Array{String,1},String},
                 ylabels::Union{Array{String,1},String};
-                fontsize::Number = 16)
+                fontsize::Number = 16
+    )
 
 Set X-axis and Y-axis labels for the axes, given
 - `axs` An array of axis

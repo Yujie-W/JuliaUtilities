@@ -11,7 +11,8 @@
                 dotsep::Bool = false,
                 fontsize::Number = 16,
                 loc::String = "center",
-                usetex::Bool = true)
+                usetex::Bool = true
+    )
 
 Set titles for the axes, given
 - `axs` An array of axis

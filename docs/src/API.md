@@ -64,8 +64,8 @@ A few customized shapes can be added to the canvas very conveniently, for
     example, stoma and ellipse. These shortcut functions include
 
 ```@docs
-plot_ellipse
-plot_stoma
+plot_ellipse!
+plot_stoma!
 ```
 
 ## Set titles, lims, ticks, and ticklabels
@@ -101,7 +101,7 @@ set_xyticklabels!
 To quickly plot the regression lines, users may use
 
 ```@docs
-plot_line_regress
+plot_line_regress!
 ```
 
 The function will filter out the NaN from the given data, make linear
@@ -133,6 +133,7 @@ In many cases, displaying mean absolute (precentage) error make the figure look
 ```@docs
 mae
 mape
+mase
 nanmax
 nanmean
 nanmin
@@ -144,13 +145,15 @@ rmse
 
 ```@docs
 calculate_density
-plot_density
+plot_density!
+plot_hexbin!
 ```
 
 ## Preview dataset
 
 ```@docs
-preview_dataset
+preview_data
+preview_dataset!
 AbstractFormat
 FormatNC
 FormatTIFF

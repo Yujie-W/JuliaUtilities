@@ -29,7 +29,8 @@ end
                 xs::Array,
                 ys::Array;
                 intercept::Bool = true,
-                sorting::Bool = true)
+                sorting::Bool = true
+    )
 
 Make linear regression and return the fitted results, given
 - `xs` Array of x, can be NaN

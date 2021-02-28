@@ -16,7 +16,7 @@ using PlotPlants
 #     (slope confidence interval), and `df` (dataframe for plotting purpose).
 #     By default, `df` was sorted from low X to high X. The `lowerY` and
 #     `upperY` are useful to plot the confidence intervals as in
-#     [`plot_line_regress`](@ref).
+#     [`plot_line_regress!`](@ref).
 xs = rand(10) .* 10;
 ys = xs .* 0.05 .+ rand(10) .+ 1;
 lf = line_regress(xs, ys);
@@ -52,7 +52,7 @@ lf = line_regress(xs, ys; intercept=false);
 #     [`calculate_density`](@ref) calculates the density and returns a
 #     dataframe that store the density information (sorted from low to high).
 #     If total number of values exceeds 1000, a progress bar will be shown. Use
-#     this function with [`plot_density`](@ref).
+#     this function with [`plot_density!`](@ref).
 N  = 100;
 xs = [rand(N); rand(N).* 0.5; rand(N).* 0.2; rand(N).* 0.1];
 ys = [rand(N); rand(N).* 0.5; rand(N).* 0.2; rand(N).* 0.1];
