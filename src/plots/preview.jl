@@ -1,11 +1,75 @@
 ###############################################################################
 #
+# Preview data
+#
+###############################################################################
+"""
+    preview_data(
+                xs::Array,
+                ys::Array;
+                title = randstring(10),
+                figsize::Tuple{Number,Number} = (4,3),
+                xlab::String = "X label",
+                ylab::String = "Y label",
+                marker::String = "",
+                linestyle::String = "-",
+                label_fontsize::Int = 12
+    )
+
+Preview data, given
+- `xs` Array of x
+- `ys` Array of y
+- `title` Axis titile
+- `figsize` Canvas size
+- `xlab` X axis label
+- `ylab` Y axis label
+- `marker` Marker style
+- `linestyle` Line style
+- `label_fontsize` X and Y axes label font size
+"""
+function preview_data(
+            xs::Array,
+            ys::Array;
+            title = randstring(10),
+            figsize::Tuple{Number,Number} = (4,3),
+            xlab::String = "X label",
+            ylab::String = "Y label",
+            marker::String = "",
+            linestyle::String = "-",
+            label_fontsize::Int = 12
+)
+    # create canvas and axis
+    fig,axs = create_canvas(title; figsize=figsize);
+    ax0     = axs[1];
+
+    # plot the data
+    ax0.plot(xs, ys; marker=marker, linestyle=linestyle);
+    set_xylabels!(axs, xlab, ylab, fontsize=label_fontsize);
+    fig.set_tight_layout(true);
+
+    return fig
+end
+
+
+
+
+
+
+
+
+###############################################################################
+#
 # Preview NC and TIFF files
 #
 ###############################################################################
 """
-    preview_dataset!(ax, filename::String, label)
-    preview_dataset!(ax, filename::String, label::String, format::FormatNC)
+    preview_dataset!(ax::PyObject, filename::String, label)
+    preview_dataset!(
+                ax::PyObject,
+                filename::String,
+                label::String,
+                format::FormatNC
+    )
 
 Preview dataset, given
 - `filename` Dataset file to preview
@@ -13,7 +77,7 @@ Preview dataset, given
     TIFF files
 - `format` [`AbstractFormat`](@ref) type file format
 """
-function preview_dataset!(ax, filename::String, label)
+function preview_dataset!(ax::PyObject, filename::String, label)
     if filename[end-2:end]==".nc" && typeof(label)==String
         preview_dataset!(ax, filename, label, FormatNC());
     else
@@ -27,7 +91,7 @@ end
 
 
 function preview_dataset!(
-            ax,
+            ax::PyObject,
             filename::String,
             label::String,
             format::FormatNC

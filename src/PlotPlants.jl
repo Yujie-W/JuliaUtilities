@@ -12,6 +12,7 @@ using NetCDF
 using ProgressMeter
 using PyCall
 using PyPlot
+using Random
 using SharedArrays
 using Statistics
 
@@ -48,6 +49,7 @@ export plot_density!,
        plot_hexbin!,
        plot_line_regress!,
        plot_stoma!,
+       preview_data,
        preview_dataset!
 
 # regression related functions
@@ -57,6 +59,7 @@ export line_regress
 export calculate_density,
        mae,
        mape,
+       mase,
        nanmax,
        nanmean,
        nanmin,

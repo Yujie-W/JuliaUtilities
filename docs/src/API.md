@@ -133,6 +133,7 @@ In many cases, displaying mean absolute (precentage) error make the figure look
 ```@docs
 mae
 mape
+mase
 nanmax
 nanmean
 nanmin
