@@ -105,6 +105,7 @@ println("");
     nanstd(xx);
     mae(xx, yy);
     mape(xx, yy);
+    mase(xx, yy);
     rmse(xx, yy);
     @test true;
 end
