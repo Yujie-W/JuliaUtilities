@@ -57,14 +57,6 @@ export line_regress
 
 # statistics related function
 export calculate_density,
-       mae,
-       mape,
-       mase,
-       nanmax,
-       nanmean,
-       nanmin,
-       nanstd,
-       rmse,
        test_slope
 
 # string related functions
@@ -107,7 +99,6 @@ include("regression/linear.jl")
 
 include("statistics/density.jl")
 include("statistics/slope.jl"  )
-include("statistics/stats.jl"  )
 
 include("string/latex_symbol.jl")
 include("string/latex_unit.jl"  )
