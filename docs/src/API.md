@@ -124,23 +124,6 @@ Further, the PlotPlants module provides a quick tool to test whether the slope
 test_slope
 ```
 
-## Statistical tools
-
-In many cases, displaying mean absolute (precentage) error make the figure look
-    much better. Thus, the PlotPlants function provides these convenient
-    functions.
-
-```@docs
-mae
-mape
-mase
-nanmax
-nanmean
-nanmin
-nanstd
-rmse
-```
-
 ## Density plot
 
 ```@docs

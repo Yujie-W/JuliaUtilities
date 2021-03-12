@@ -67,24 +67,3 @@ calculate_density(xs,ys);
 ## the density will be calculated using 4 threads
 calculate_density(xs,ys,4);
 #------------------------------------------------------------------------------
-
-
-
-
-# ## Mean, SD, max, and min
-@show nanmean(xs);
-@show nanstd(xs);
-@show nanmax(xs);
-@show nanmin(xs);
-#------------------------------------------------------------------------------
-
-
-
-
-# ## Errors
-obsd = rand(100);
-pred = rand(100);
-@show mae(obsd, pred);
-@show mape(obsd, pred);
-@show rmse(obsd, pred);
-#------------------------------------------------------------------------------

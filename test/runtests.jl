@@ -96,19 +96,6 @@ println("");
     test_slope(rand(100), rand(100); intercept=false);
     test_slope(rand(100), rand(100); intercept=true);
     @test true;
-
-    # test statistics
-    xx = rand(10); xx[1]=NaN;
-    yy = rand(10);
-    nanmax(xx);
-    nanmean(xx);
-    nanmin(xx);
-    nanstd(xx);
-    mae(xx, yy);
-    mape(xx, yy);
-    mase(xx, yy);
-    rmse(xx, yy);
-    @test true;
 end
 
 
