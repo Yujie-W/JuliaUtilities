@@ -9,7 +9,7 @@ on:
   pull_request:
 
 jobs:
-  build:
+  docs-build:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Actions
@@ -17,9 +17,9 @@ jobs:
       - name: Set up Julia
         uses: julia-actions/setup-julia@v1
         with:
-          version: "1.5"
+          version: "1"
       - name: Install Dependencies
-        run: julia --project=docs/ -e 'using Pkg; Pkg.instantiate();'
+        run: julia --project=docs/ -e 'ENV["PYTHON"]=""; using Pkg; Pkg.instantiate();'
       - name: Build and deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

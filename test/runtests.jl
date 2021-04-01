@@ -5,6 +5,11 @@ using Test
 
 
 
+include("recursive.jl")
+
+
+
+
 @testset "ConstrainedRootSolvers --- find_peak" begin
     # segmented function with solution 1
     # segmented function with solution 1
@@ -109,9 +114,9 @@ end
         for ms in [ms_bis, ms_nbs, ms_ntr, ms_rst]
             for tol in [rt, st]
                 for f in [_r_func, _s_func]
-                    sol = find_zero(f, ms, tol);
-                    @test !isnan(sol);
-                    @test typeof(sol) == FT;
+                    sol = find_zero(f, ms, tol; stepping=true);
+                    @test NaN_test(sol);
+                    @test FT_test(sol, FT);
                 end
             end
         end

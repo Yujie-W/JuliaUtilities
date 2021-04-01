@@ -6,10 +6,16 @@
 function find_zero(
             f::F,
             ms::NewtonBisectionMethod{FT},
-            tol::AbstractTolerance{FT}
+            tol::AbstractTolerance{FT};
+            stepping::Bool = false
 ) where {F<:Function, FT<:AbstractFloat}
+    # create variable to store steps
+    if stepping
+        steps = Array{FT,1}[];
+    end
+
     # count for iterations
-    count::Int = 0
+    count::Int = 0;
 
     # calculate the values for x_min and x_max first
     x_dif = tol.tol ;
@@ -18,23 +24,34 @@ function find_zero(
     y_min = f(x_min);
     y_max = f(x_max);
 
+    # record the history
+    if stepping
+        push!(steps, [x_min, y_min]);
+        push!(steps, [x_max, y_max]);
+    end
+
     # if y_min and y_max are on the same side
     if y_min * y_max > 0
         if abs(y_max) < abs(y_min)
-            return x_max
+            solution = x_max;
         else
-            return x_min
+            solution = x_min;
         end
 
     # if y_min is 0
     elseif y_min==0
-        return x_min
+        solution = x_min;
 
     # if y_min and y_max are on different side, or one of them is 0
     else
         x_ntr = ms.x_ini;
         while true
             y_ntr = f(x_ntr);
+
+            # record the history
+            if stepping
+                push!(steps, [x_ntr, y_ntr]);
+            end
 
             # if difference is lower than the tolerance
             if if_break_uni(tol, x_min, x_max, y_ntr, count)
@@ -78,6 +95,13 @@ function find_zero(
             count += 1;
         end
 
-        return x_ntr
+        solution = x_ntr;
+    end
+
+    # return results
+    if stepping
+        return solution, steps
+    else
+        return solution
     end
 end

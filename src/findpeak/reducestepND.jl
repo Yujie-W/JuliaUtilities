@@ -44,16 +44,16 @@ function find_peak(
             x_temp .= x_targ;
         end
 
-        # 3. judge whether to break
-        all( Δjd ) ? break : nothing;
-
-        # 4. if no update, then 10% the Δx
+        # 3. if no update, then 10% the Δx
         if count_all==0
             for ith in 1:Nxs
                 Δ_oper[ith] > tol.tol[ith] ?
                               (Δ_oper[ith] /= 10) : (Δjd[ith] = true);
             end
         end
+
+        # 4. judge whether to break
+        all( Δjd ) ? break : nothing;
     end
 
     return x_targ

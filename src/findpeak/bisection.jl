@@ -5,7 +5,7 @@
 #
 ###############################################################################
 """
-    next_xy!(f::F, xy::Array{FT,2})
+    next_xy!(f::F, xy::Array{FT,2}) where {F<:Function, FT<:AbstractFloat}
 
 Determine the next points to, given
 - `f` Function to find peak
@@ -14,7 +14,7 @@ Determine the next points to, given
 function next_xy!(
             f::F,
             xy::Array{FT,2}
-            ) where {F<:Function, FT<:AbstractFloat}
+) where {F<:Function, FT<:AbstractFloat}
     x1,x2,x3,y1,y2,y3 = xy;
     # if the curve if flat, do nothing
     if y1==y2==y3
@@ -76,10 +76,9 @@ end
 
 
 """
-    find_peak(
-                f::F,
-                ms::AbstractCRSMethod{FT},
-                tol::AbstractTolerance{FT}
+    find_peak(f::F,
+              ms::AbstractCRSMethod{FT},
+              tol::AbstractTolerance{FT}
     ) where {F<:Function, FT<:AbstractFloat}
 
 Find the solution, given
