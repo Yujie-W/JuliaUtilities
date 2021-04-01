@@ -49,13 +49,13 @@ function find_peak(
             count_all += 1;
         end
 
-        # 3. if break
-        Δx <= tol.tol ? break : nothing;
-
-        # 4. if no update, then 10% the Δx
+        # 3. if no update, then 10% the Δx
         if count_inc + count_dec == 0
             Δx /= 10;
         end
+
+        # 4. if break
+        Δx <= tol.tol ? break : nothing;
     end
 
     return tar_x
