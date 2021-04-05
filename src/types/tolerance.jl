@@ -20,7 +20,7 @@ abstract type AbstractTolerance{FT} end
     struct ResidualTolerance{FT}
 
 # Fields
-$(FIELDS)
+$(TYPEDFIELDS)
 """
 struct ResidualTolerance{FT} <: AbstractTolerance{FT}
     "Tolerance for residual"
@@ -36,7 +36,7 @@ end
     struct SolutionTolerance{FT}
 
 # Fields
-$(FIELDS)
+$(TYPEDFIELDS)
 """
 struct SolutionTolerance{FT} <: AbstractTolerance{FT}
     "Tolerance for solution"
@@ -52,7 +52,7 @@ end
     struct SolutionToleranceND{FT}
 
 # Fields
-$(FIELDS)
+$(TYPEDFIELDS)
 """
 struct SolutionToleranceND{FT} <: AbstractTolerance{FT}
     "Tolerance for solution"

@@ -122,7 +122,7 @@ function find_peak(
         count += 1;
 
         # judge whether to break
-        if if_break_uni(tol, xy[1,1], xy[3,1], FT(1), count)
+        if if_break(tol, xy[1,1], xy[3,1], FT(1), count)
             break
         end
     end

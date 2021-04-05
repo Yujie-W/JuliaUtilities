@@ -1,16 +1,23 @@
 using ConstrainedRootSolvers
 using Documenter
+using PkgUtility
 
-generated_dir = joinpath(@__DIR__, "src", "generated") # generated files directory
-rm(generated_dir, force = true, recursive = true)
-mkpath(generated_dir)
 
-pages = Any[
+
+
+# define default docs pages
+pages = Pair{Any,Any}[
     "Home" => "index.md",
     "API"  => "API.md"
-    ]
+]
+
+@info "Pages to generate:"
+pretty_display!(pages);
 
 
+
+
+# format the docs
 mathengine = MathJax(Dict(
     :TeX => Dict(
         :equationNumbers => Dict(:autoNumber => "AMS"),
@@ -24,6 +31,10 @@ format = Documenter.HTML(
     collapselevel = 1,
 )
 
+
+
+
+# build the docs
 makedocs(
     sitename = "ConstrainedRootSolvers.jl",
     format = format,
@@ -32,6 +43,10 @@ makedocs(
     pages = pages,
 )
 
+
+
+
+# deploy the docs to Github gh-pages
 deploydocs(
     repo = "github.com/Yujie-W/ConstrainedRootSolvers.jl.git",
     target = "build",

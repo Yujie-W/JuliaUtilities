@@ -4,14 +4,21 @@
 #
 ###############################################################################
 """
-    if_break_uni(
+"""
+function if_break end
+
+
+
+
+"""
+    if_break(
                 tol::ResidualTolerance{FT},
                 x1::FT,
                 x2::FT,
                 y::FT,
                 n::Int
     ) where {FT<:AbstractFloat}
-    if_break_uni(
+    if_break(
                 tol::SolutionTolerance{FT},
                 x1::FT,
                 x2::FT,
@@ -27,7 +34,7 @@ Determine whether to break, given
 - `y` Residual of y
 - `n` Current iteration
 """
-function if_break_uni(
+function if_break(
             tol::ResidualTolerance{FT},
             x1::FT,
             x2::FT,
@@ -40,7 +47,7 @@ end
 
 
 
-function if_break_uni(
+function if_break(
             tol::SolutionTolerance{FT},
             x1::FT,
             x2::FT,

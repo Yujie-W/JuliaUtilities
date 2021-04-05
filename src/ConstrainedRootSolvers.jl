@@ -1,28 +1,18 @@
 module ConstrainedRootSolvers
 
-using DocStringExtensions
-using Parameters
+using DocStringExtensions: METHODLIST, TYPEDEF, TYPEDFIELDS
+using UnPack: @unpack
 
 
 
 
 # export public Types
-export BisectionMethod,
-       NelderMeadMethod,
-       NewtonBisectionMethod,
-       NewtonRaphsonMethod,
-       ReduceStepMethod,
-       ReduceStepMethodND,
-       ResidualTolerance,
-       SolutionTolerance,
-       SolutionToleranceND
-
-
-
+export BisectionMethod, NelderMeadMethod, NewtonBisectionMethod,
+            NewtonRaphsonMethod, ReduceStepMethod, ReduceStepMethodND,
+            ResidualTolerance, SolutionTolerance, SolutionToleranceND
 
 # export public functions
-export find_peak,
-       find_zero
+export find_peak, find_zero
 
 
 
