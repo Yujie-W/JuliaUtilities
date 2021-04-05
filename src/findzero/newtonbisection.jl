@@ -54,7 +54,7 @@ function find_zero(
             end
 
             # if difference is lower than the tolerance
-            if if_break_uni(tol, x_min, x_max, y_ntr, count)
+            if if_break(tol, x_min, x_max, y_ntr, count)
                 break
             end
 

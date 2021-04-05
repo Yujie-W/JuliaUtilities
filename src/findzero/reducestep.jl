@@ -86,7 +86,7 @@ function find_zero(
         end
 
         # 3. if break
-        if if_break_uni(tol, FT(0), Δx, tar_y, count)
+        if if_break(tol, FT(0), Δx, tar_y, count)
             # record the history
             if stepping
                 push!(steps, [tar_x, tar_y]);

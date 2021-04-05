@@ -1,3 +1,4 @@
+#=
 using BenchmarkTools
 using ConstrainedRootSolvers
 
@@ -121,3 +122,4 @@ end
 
 benchmark_ConstrainedRootSolvers(Float32);
 benchmark_ConstrainedRootSolvers(Float64);
+=#

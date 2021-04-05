@@ -23,7 +23,7 @@ abstract type AbstractCRSMethod{FT} end
     mutable struct BisectionMethod{FT}
 
 # Fields
-$(FIELDS)
+$(TYPEDFIELDS)
 """
 Base.@kwdef mutable struct BisectionMethod{FT} <: AbstractCRSMethod{FT}
     "lower bound"
@@ -41,7 +41,7 @@ end
     mutable struct NelderMeadMethod{FT}
 
 # Fields
-$(FIELDS)
+$(TYPEDFIELDS)
 """
 Base.@kwdef mutable struct NelderMeadMethod{FT} <: AbstractCRSMethod{FT}
     "Number of parameters to optimize"
@@ -69,7 +69,7 @@ end
     struct NewtonBisectionMethod{FT}
 
 # Fields
-$(FIELDS)
+$(TYPEDFIELDS)
 """
 struct NewtonBisectionMethod{FT} <: AbstractCRSMethod{FT}
     "Lower bound"
@@ -87,7 +87,7 @@ end
     struct NewtonRaphsonMethod{FT}
 
 # Fields
-$(FIELDS)
+$(TYPEDFIELDS)
 """
 struct NewtonRaphsonMethod{FT} <: AbstractCRSMethod{FT}
     "Initial guess"
@@ -101,7 +101,7 @@ end
     struct ReduceStepMethod{FT}
 
 # Fields
-$(FIELDS)
+$(TYPEDFIELDS)
 """
 struct ReduceStepMethod{FT} <: AbstractCRSMethod{FT}
     "Lower bound"
@@ -121,7 +121,7 @@ end
     mutable struct ReduceStepMethodND{FT}
 
 # Fields
-$(FIELDS)
+$(TYPEDFIELDS)
 """
 Base.@kwdef mutable struct ReduceStepMethodND{FT} <: AbstractCRSMethod{FT}
     "Lower bound"
