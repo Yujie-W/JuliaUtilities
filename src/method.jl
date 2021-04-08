@@ -4,32 +4,32 @@
 #
 ###############################################################################
 """
-    abstract type AbstractCRSMethod{FT}
+Abstract type of the ConstrainedRootSolvers methods
 
-Hierachy of AbstractCRSMethod:
-- BisectionMethod
-- NelderMeadMethod
-- NewtonBisectionMethod
-- NewtonRaphsonMethod
-- ReduceStepMethod
-- ReduceStepMethodND
+$(TYPEDEF)
+
 """
-abstract type AbstractCRSMethod{FT} end
+abstract type AbstractCRSMethod{FT<:AbstractFloat} end
 
 
 
 
 """
-    mutable struct BisectionMethod{FT}
+Bisection method for 1D root solvers
+
+$(TYPEDEF)
 
 # Fields
+
 $(TYPEDFIELDS)
+
 """
-Base.@kwdef mutable struct BisectionMethod{FT} <: AbstractCRSMethod{FT}
+Base.@kwdef mutable struct BisectionMethod{FT<:AbstractFloat} <:
+                           AbstractCRSMethod{FT}
     "lower bound"
-    x_min::FT = FT(0)
+    x_min::FT = 0
     "upper bound"
-    x_max::FT = FT(1)
+    x_max::FT = 0
     "matrix that stores x and y"
     xy::Array{FT,2} = FT[x_min 0; (x_min+x_max)/2 0; x_max 0]
 end
@@ -38,12 +38,17 @@ end
 
 
 """
-    mutable struct NelderMeadMethod{FT}
+Nelder-Mead method for 2D and above solvers
+
+$(TYPEDEF)
 
 # Fields
+
 $(TYPEDFIELDS)
+
 """
-Base.@kwdef mutable struct NelderMeadMethod{FT} <: AbstractCRSMethod{FT}
+Base.@kwdef mutable struct NelderMeadMethod{FT<:AbstractFloat} <:
+                           AbstractCRSMethod{FT}
     "Number of parameters to optimize"
     N::Int = 2
     "Initial values"
@@ -66,12 +71,16 @@ end
 
 
 """
-    struct NewtonBisectionMethod{FT}
+Newton's method constrained by mininum and maximum ranges for 1D root solver
+
+$(TYPEDEF)
 
 # Fields
+
 $(TYPEDFIELDS)
+
 """
-struct NewtonBisectionMethod{FT} <: AbstractCRSMethod{FT}
+struct NewtonBisectionMethod{FT<:AbstractFloat} <: AbstractCRSMethod{FT}
     "Lower bound"
     x_min::FT
     "Upper bound"
@@ -84,12 +93,16 @@ end
 
 
 """
-    struct NewtonRaphsonMethod{FT}
+Newton raphson method for 1D root solver
+
+$(TYPEDEF)
 
 # Fields
+
 $(TYPEDFIELDS)
+
 """
-struct NewtonRaphsonMethod{FT} <: AbstractCRSMethod{FT}
+struct NewtonRaphsonMethod{FT<:AbstractFloat} <: AbstractCRSMethod{FT}
     "Initial guess"
     x_ini::FT
 end
@@ -98,12 +111,18 @@ end
 
 
 """
-    struct ReduceStepMethod{FT}
+Reduce step method for 1D root solver. This method increases or decreases from
+    initial guess until no improvement is found. Then the incremantal step
+    decreases, and then the root solver continues.
+
+$(TYPEDEF)
 
 # Fields
+
 $(TYPEDFIELDS)
+
 """
-struct ReduceStepMethod{FT} <: AbstractCRSMethod{FT}
+struct ReduceStepMethod{FT<:AbstractFloat} <: AbstractCRSMethod{FT}
     "Lower bound"
     x_min::FT
     "Upper bound"
@@ -118,12 +137,19 @@ end
 
 
 """
-    mutable struct ReduceStepMethodND{FT}
+Reduce step method for 2D and above root solver. This method increases or
+    decreases each variable in the initial guess until no improvement is found.
+    Then the incremental steps decreases, and then the root solver continues.
+
+$(TYPEDEF)
 
 # Fields
+
 $(TYPEDFIELDS)
+
 """
-Base.@kwdef mutable struct ReduceStepMethodND{FT} <: AbstractCRSMethod{FT}
+Base.@kwdef mutable struct ReduceStepMethodND{FT<:AbstractFloat} <:
+                           AbstractCRSMethod{FT}
     "Lower bound"
     x_mins::Array{FT,1} = zeros(FT,2)
     "Upper bound"

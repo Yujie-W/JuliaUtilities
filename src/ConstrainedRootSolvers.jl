@@ -8,8 +8,8 @@ using UnPack: @unpack
 
 # export public Types
 export BisectionMethod, NelderMeadMethod, NewtonBisectionMethod,
-            NewtonRaphsonMethod, ReduceStepMethod, ReduceStepMethodND,
-            ResidualTolerance, SolutionTolerance, SolutionToleranceND
+       NewtonRaphsonMethod, ReduceStepMethod, ReduceStepMethodND,
+       ResidualTolerance, SolutionTolerance, SolutionToleranceND
 
 # export public functions
 export find_peak, find_zero
@@ -17,10 +17,8 @@ export find_peak, find_zero
 
 
 
-include("types/method.jl"   )
-include("types/tolerance.jl")
-
-include("break/ifbreak.jl")
+include("method.jl"   )
+include("tolerance.jl")
 
 include("findpeak/bisection.jl"   )
 include("findpeak/neldermead.jl"  )

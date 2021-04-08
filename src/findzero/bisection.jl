@@ -1,8 +1,21 @@
 ###############################################################################
 #
-# Bi-section method for find first zero
+# Function to find zero in the target function
 #
 ###############################################################################
+"""
+Function to find the first root that gives a target function result of zero. If
+    the root does not exist, the function returns the point where the target
+    function is most close to zero.
+
+$(METHODLIST)
+
+"""
+function find_zero end
+
+
+
+
 """
     find_zero(f::F,
               ms::AbstractCRSMethod{FT},
