@@ -31,7 +31,11 @@ Base.@kwdef mutable struct BisectionMethod{FT<:AbstractFloat} <:
     "upper bound"
     x_max::FT = 0
     "matrix that stores x and y"
-    xy::Array{FT,2} = FT[x_min 0; (x_min+x_max)/2 0; x_max 0]
+    xy::Matrix{FT} = FT[x_min 0; (x_min+x_max)/2 0; x_max 0]
+
+    # history Vector
+    "history of all simulations"
+    history::Vector = Vector{FT}[]
 end
 
 
