@@ -103,7 +103,7 @@ end
         # ReduceStep method
         ms_bis = BisectionMethod{FT}(x_min=0, x_max=5);
         ms_nbs = NewtonBisectionMethod{FT}(x_min=0, x_max=5);
-        ms_ntr = NewtonRaphsonMethod{FT}(2);
+        ms_ntr = NewtonRaphsonMethod{FT}(x_ini=2);
         ms_rst = ReduceStepMethod{FT}(0, 5, 1+rand(FT), 1);
 
         for ms in [ms_bis, ms_nbs, ms_ntr, ms_rst]

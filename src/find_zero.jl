@@ -131,7 +131,7 @@ This method uses [`NewtonBisectionMethod`](@ref) method:
 
 Returns the solution where target function is zero, given
 - `f` Function to solve
-- `ms` [`BisectionMethod`](@ref) type method struct
+- `ms` [`NewtonBisectionMethod`](@ref) type method struct
 - `tol` [`ResidualTolerance`](@ref) or [`SolutionTolerance`](@ref) type
     tolerance struct
 - `stepping` Optional. If true, save the optimization steps to the history
@@ -229,4 +229,68 @@ find_zero(f::Function,
 
     # return results
     return _solution
+)
+
+
+
+
+"""
+This method uses [`NewtonRaphsonMethod`](@ref) method:
+
+    find_zero(f::Function,
+              ms::NewtonRaphsonMethod{FT},
+              tol::Union{ResidualTolerance{FT}, SolutionTolerance{FT}};
+              stepping::Bool = false
+    ) where {FT<:AbstractFloat}
+
+Returns the solution where target function is zero, given
+- `f` Function to solve
+- `ms` [`NewtonRaphsonMethod`](@ref) type method struct
+- `tol` [`ResidualTolerance`](@ref) or [`SolutionTolerance`](@ref) type
+    tolerance struct
+- `stepping` Optional. If true, save the optimization steps to the history
+    field in method struct.
+"""
+find_zero(f::Function,
+          ms::NewtonRaphsonMethod{FT},
+          tol::Union{ResidualTolerance{FT}, SolutionTolerance{FT}};
+          stepping::Bool = false
+) where {FT<:AbstractFloat} =
+(
+    # _count for iterations
+    _count::Int = 0;
+
+    # calculate the values for x_min and x_max first
+    _x_dif = tol.tol;
+
+    # find the solution
+    _x_lst = FT(Inf);
+    _x_ntr = ms.x_ini;
+    while true
+        _y_ntr = f(_x_ntr);
+
+        # record the history
+        if stepping
+            push!(ms.history, [_x_ntr, _y_ntr]);
+        end;
+
+        # if difference is lower than the tolerance
+        if if_break(tol, _x_lst, _x_ntr, _y_ntr, _count)
+            break
+        end;
+
+        # update x_ntr using Newton Raphson
+        _x_dx   = _x_ntr + _x_dif;
+        _y_dx   = f(_x_dx);
+        _slope  = (_y_dx - _y_ntr) / (_x_dx - _x_ntr);
+        _x_lst  = _x_ntr;
+        _x_ntr -= _y_ntr / _slope;
+        _x_dif  = tol.tol / abs(_slope);
+
+        # _count ++
+        _count += 1;
+    end;
+
+    # return results
+    return _x_ntr
 )

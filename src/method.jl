@@ -111,9 +111,14 @@ $(TYPEDEF)
 $(TYPEDFIELDS)
 
 """
-struct NewtonRaphsonMethod{FT<:AbstractFloat} <: AbstractCRSMethod{FT}
+Base.@kwdef mutable struct NewtonRaphsonMethod{FT<:AbstractFloat} <:
+                           AbstractCRSMethod{FT}
     "Initial guess"
     x_ini::FT
+
+    # history Vector
+    "history of all simulations"
+    history::Vector = Vector{FT}[]
 end
 
 
