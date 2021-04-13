@@ -11,7 +11,7 @@ pages = Pair{Any,Any}[
     "API"  => "API.md"
 ]
 
-@info "Pages to generate:"
+@info tinfo("Pages to generate:");
 pretty_display!(pages);
 
 

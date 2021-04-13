@@ -84,13 +84,18 @@ $(TYPEDEF)
 $(TYPEDFIELDS)
 
 """
-struct NewtonBisectionMethod{FT<:AbstractFloat} <: AbstractCRSMethod{FT}
+Base.@kwdef mutable struct NewtonBisectionMethod{FT<:AbstractFloat} <:
+                           AbstractCRSMethod{FT}
     "Lower bound"
-    x_min::FT
+    x_min::FT = 0
     "Upper bound"
-    x_max::FT
+    x_max::FT = 1
     "Initial guess"
-    x_ini::FT
+    x_ini::FT = (x_min + x_max) / 2
+
+    # history Vector
+    "history of all simulations"
+    history::Vector = Vector{FT}[]
 end
 
 
