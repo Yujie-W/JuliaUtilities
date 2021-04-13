@@ -40,8 +40,8 @@ using Test
     # testing the BisectionMethod and ReduceStepMethod
     for FT in [Float32, Float64]
         ms_bis = BisectionMethod{FT}(x_min=0, x_max=5);
-        ms_rst = ReduceStepMethod{FT}(0, 5, 1+rand(FT), 1);
-        st = SolutionTolerance{FT}(1e-3, 50);
+        ms_rst = ReduceStepMethod{FT}(x_min=0, x_max=5, x_ini=1.1, Δ_ini=1);
+        st = SolutionTolerance{FT}(1e-4, 50);
         for ms in [ms_bis, ms_rst]
             for i in 1:6
                 sol = find_peak(lf[i], ms, st);
@@ -102,9 +102,9 @@ end
         # NewtonRaphson method
         # ReduceStep method
         ms_bis = BisectionMethod{FT}(x_min=0, x_max=5);
-        ms_nbs = NewtonBisectionMethod{FT}(0, 5, 1+rand(FT));
-        ms_ntr = NewtonRaphsonMethod{FT}(2);
-        ms_rst = ReduceStepMethod{FT}(0, 5, 1+rand(FT), 1);
+        ms_nbs = NewtonBisectionMethod{FT}(x_min=0, x_max=5);
+        ms_ntr = NewtonRaphsonMethod{FT}(x_ini=2);
+        ms_rst = ReduceStepMethod{FT}(x_min=0, x_max=5, x_ini=1.1, Δ_ini=1);
 
         for ms in [ms_bis, ms_nbs, ms_ntr, ms_rst]
             for tol in [rt, st]
