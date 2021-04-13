@@ -136,15 +136,20 @@ $(TYPEDEF)
 $(TYPEDFIELDS)
 
 """
-struct ReduceStepMethod{FT<:AbstractFloat} <: AbstractCRSMethod{FT}
+Base.@kwdef mutable struct ReduceStepMethod{FT<:AbstractFloat} <:
+                           AbstractCRSMethod{FT}
     "Lower bound"
-    x_min::FT
+    x_min::FT = 0
     "Upper bound"
-    x_max::FT
+    x_max::FT = 1
     "Initial guess"
-    x_ini::FT
+    x_ini::FT = (x_min + x_max) / 2
     "Initial step"
-    Δ_ini::FT
+    Δ_ini::FT = (x_min + x_max) / 10
+
+    # history Vector
+    "history of all simulations"
+    history::Vector = Vector{FT}[]
 end
 
 

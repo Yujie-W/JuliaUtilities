@@ -26,8 +26,6 @@ include("findpeak/neldermead.jl"  )
 include("findpeak/reducestep.jl"  )
 include("findpeak/reducestepND.jl")
 
-include("findzero/reducestep.jl")
-
 
 
 

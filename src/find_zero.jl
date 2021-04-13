@@ -294,3 +294,118 @@ find_zero(f::Function,
     # return results
     return _x_ntr
 )
+
+
+
+
+"""
+This method uses [`ReduceStepMethod`](@ref) method:
+
+    find_zero(f::Function,
+              ms::ReduceStepMethod{FT},
+              tol::Union{ResidualTolerance{FT}, SolutionTolerance{FT}};
+              stepping::Bool = false
+    ) where {FT<:AbstractFloat}
+
+Returns the solution where target function is zero, given
+- `f` Function to solve
+- `ms` [`ReduceStepMethod`](@ref) type method struct
+- `tol` [`ResidualTolerance`](@ref) or [`SolutionTolerance`](@ref) type
+    tolerance struct
+- `stepping` Optional. If true, save the optimization steps to the history
+    field in method struct.
+"""
+find_zero(f::Function,
+          ms::ReduceStepMethod{FT},
+          tol::Union{ResidualTolerance{FT}, SolutionTolerance{FT}};
+          stepping::Bool = false
+) where {FT<:AbstractFloat} =
+(
+    # _count iterations
+    _count = 0;
+
+    # define the initial step
+    @unpack x_ini, x_max, x_min, Δ_ini = ms;
+
+    # initialize the y
+    _tar_x = x_ini;
+    _tar_y = abs( f(_tar_x) );
+
+    # record the history
+    if stepping
+        push!(ms.history, [_tar_x, _tar_y]);
+    end;
+
+    _new_x = x_min;
+    _new_y = abs( f(x_min) );
+    _new_y < _tar_y ? (_tar_x=_new_x; _tar_y=_new_y;) : nothing;
+
+    # record the history
+    if stepping
+        push!(ms.history, [_new_x, _new_y]);
+    end;
+
+    _new_x = x_max;
+    _new_y = abs( f(x_max) );
+    _new_y < _tar_y ? (_tar_x=_new_x; _tar_y=_new_y;) : nothing;
+
+    # record the history
+    if stepping
+        push!(ms.history, [_new_x, _new_y]);
+    end;
+
+    # find the solution
+    _Δx::FT = Δ_ini;
+    while true
+        # 1. increase the x by Δx till tar_y is bigger
+        _count_inc = 0
+        while true
+            _new_x = _tar_x + _Δx;
+            _new_x > x_max ? break : nothing;
+            _new_y = abs( f(_new_x) );
+            _new_y <  _tar_y ? (_tar_x=_new_x; _tar_y=_new_y;) : break;
+
+            # record the history
+            if stepping
+                push!(ms.history, [_new_x, _new_y]);
+            end;
+
+            _count_inc += 1;
+            _count += 1;
+        end;
+
+        # 2. decrease the x by Δx till tar_y is bigger
+        _count_dec = 0
+        while _count_inc == 0
+            _new_x = _tar_x - _Δx;
+            _new_x < x_min ? break : nothing;
+            _new_y = abs( f(_new_x) );
+            _new_y <= _tar_y ? (_tar_x=_new_x; _tar_y=_new_y;) : break;
+
+            # record the history
+            if stepping
+                push!(ms.history, [_new_x, _new_y]);
+            end;
+
+            _count_dec += 1;
+            _count += 1;
+        end;
+
+        # 3. if break
+        if if_break(tol, FT(0), _Δx, _tar_y, _count)
+            # record the history
+            if stepping
+                push!(ms.history, [_tar_x, _tar_y]);
+            end;
+
+            break
+        end;
+
+        # 4. if no update, then 10% the Δx
+        if _count_inc + _count_dec == 0
+            _Δx /= 10;
+        end;
+    end;
+
+    return _tar_x
+)
