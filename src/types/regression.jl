@@ -7,7 +7,7 @@
     mutable struct LinearRegressionResult
 
 # Fields
-$(DocStringExtensions.FIELDS)
+$(TYPEDFIELDS)
 """
 mutable struct LinearRegressionResult
     "Regression result"

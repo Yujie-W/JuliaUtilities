@@ -96,7 +96,7 @@ function preview_dataset!(
             label::String,
             format::FormatNC
 )
-    data = ncread(filename, label);
+    data = read_nc(filename, label);
     dims = size(data);
 
     # plot figure
