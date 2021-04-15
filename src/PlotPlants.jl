@@ -1,77 +1,46 @@
 module PlotPlants
 
-using DataFrames
-using Distributed
-using DocStringExtensions
-using FileIO
-using GLM
-using ImageIO
-using ImageMagick
-using KernelDensity
-using NetCDF
-using ProgressMeter
-using PyCall
-using PyPlot
-using Random
-using SharedArrays
-using Statistics
+using DataFrames: DataFrame, sort!
+using Distributed: @everywhere, addprocs, pmap, workers
+using DocStringExtensions: TYPEDFIELDS
+using FileIO: load, save
+using GLM: @formula, adjr2, coef, coeftable, confint, lm, predict
+using ImageIO: load, save
+using ImageMagick: load, save
+using KernelDensity: kde, pdf
+using PkgUtility: read_nc
+using ProgressMeter: @showprogress
+using PyCall: PyObject, pyimport
+using PyPlot: Figure, clf, figure, rc, subplot
+using Random: randstring
 
 
 
 
 # export public types
-export AbstractFormat,
-       FormatNC,
-       FormatTIFF,
-       LinearRegressionResult
+export FormatNC, FormatTIFF, LinearRegressionResult
 
 # export canvas related functions
-export create_canvas,
-       save_canvas!,
-       save_gif!,
-       set_titles!,
-       set_xlabels!,
-       set_xlims!,
-       set_xticklabels!,
-       set_xticks!,
-       set_xylabels!,
-       set_xylims!,
-       set_xyticklabels!,
-       set_xyticks!,
-       set_ylabels!,
-       set_ylims!,
-       set_yticklabels!,
-       set_yticks!
+export create_canvas, save_canvas!, save_gif!, set_titles!, set_xlabels!,
+       set_xlims!, set_xticklabels!, set_xticks!, set_xylabels!, set_xylims!,
+       set_xyticklabels!, set_xyticks!, set_ylabels!, set_ylims!,
+       set_yticklabels!, set_yticks!
 
 # export functions related to plotting
-export plot_density!,
-       plot_ellipse!,
-       plot_hexbin!,
-       plot_line_regress!,
-       plot_stoma!,
-       preview_data,
-       preview_dataset!
+export plot_density!, plot_ellipse!, plot_hexbin!, plot_line_regress!,
+       plot_stoma!, preview_data, preview_dataset!
 
 # regression related functions
 export line_regress
 
 # statistics related function
-export calculate_density,
-       test_slope
+export calculate_density, test_slope
 
 # string related functions
-export latex_symbol,
-       latex_unit,
-       parse_symbol,
-       subscript,
-       superscript
+export latex_symbol, latex_unit, parse_symbol, subscript, superscript
 
 # text font and render functions
-export use_sans,
-       use_sans_tex,
-       use_sans_text,
-       use_serif,
-       use_serif_tex,
+export use_sans, use_sans_tex, use_sans_text, use_serif, use_serif_tex,
        use_serif_text
 
 
