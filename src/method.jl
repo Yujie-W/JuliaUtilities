@@ -30,7 +30,7 @@ Base.@kwdef mutable struct BisectionMethod{FT<:AbstractFloat} <:
     x_min::FT = 0
     "upper bound"
     x_max::FT = 0
-    "matrix that stores x and y"
+    "matrix that stores x and y, used in find_peak"
     xy::Matrix{FT} = FT[x_min 0; (x_min+x_max)/2 0; x_max 0]
 
     # history Vector

@@ -31,7 +31,7 @@ using Test
     @inline function _f5(x::FT) where {FT<:AbstractFloat}
         return x>1 ? FT(0.5) : x
     end
-    @inline function _surf_func(x::Array{FT,1}) where {FT<:AbstractFloat}
+    @inline function _surf_func(x::Vector{FT}) where {FT<:AbstractFloat}
         return -(x[1]-2)^2 - (x[2]-3)^2
     end
     lr = [1, 1, 5, 1, 0, 1];
