@@ -42,12 +42,10 @@ function plot_hexbin!(
             gridsize::Number = 25
 )
     if logbins
-        ax.hexbin(xs, ys; cmap=cmap, bins="log", gridsize=gridsize);
-    else
-        ax.hexbin(xs, ys; cmap=cmap, gridsize=gridsize);
+        return ax.hexbin(xs, ys; cmap=cmap, bins="log", gridsize=gridsize)
     end
 
-    return nothing
+    return ax.hexbin(xs, ys; cmap=cmap, gridsize=gridsize)
 end
 
 
@@ -69,8 +67,6 @@ function plot_hexbin!(
     newys = [collect(ys);
              ylims[1] - (ylims[2]-ylims[1]) / 10;
              ylims[2] + (ylims[2]-ylims[1]) / 10];
-    plot_hexbin!(ax, newxs, newys; cmap=cmap, logbins=logbins,
-                 gridsize=gridsize);
-
-    return nothing
+    return plot_hexbin!(ax, newxs, newys; cmap=cmap, logbins=logbins,
+                        gridsize=gridsize)
 end
