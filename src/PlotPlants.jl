@@ -1,12 +1,13 @@
 module PlotPlants
 
+import FileIO: load, save
+import ImageIO: load, save
+import ImageMagick: load, save
+
 using DataFrames: DataFrame, sort!
 using Distributed: @everywhere, addprocs, pmap, workers
 using DocStringExtensions: TYPEDFIELDS
-using FileIO: load, save
 using GLM: @formula, adjr2, coef, coeftable, confint, lm, predict
-using ImageIO: load, save
-using ImageMagick: load, save
 using KernelDensity: kde, pdf
 using PkgUtility: read_nc
 using ProgressMeter: @showprogress
