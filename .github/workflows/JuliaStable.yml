@@ -28,8 +28,11 @@ jobs:
       - name: Install Dependencies for Linux
         if: runner.os == 'Linux'
         run: julia --project -e 'ENV["PYTHON"]=""; using Pkg; Pkg.instantiate();'
-      - name: Install Dependencies for Windows and Mac-OS
-        if: runner.os != 'Linux'
+      - name: Install Dependencies for Mac-OS
+        if: runner.os == 'macOS'
+        run: julia --project -e 'ENV["PYTHON"]=""; using Pkg; Pkg.instantiate();'
+      - name: Install Dependencies for Windows
+        if: runner.os == 'Windows'
         run: julia --project -e 'using Pkg; Pkg.instantiate();'
       - name: Run Tests
         uses: julia-actions/julia-runtest@latest
