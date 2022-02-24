@@ -21,13 +21,11 @@
 
 ## About
 
-[`PlotPlants.jl`][pp-url] includes a collection of customized plotting utilities to aid the plotting using PyPlot package. This package only supports Julia 1.3 and above.
+[`PlotPlants.jl`][pp-url] includes a collection of customized plotting utilities to aid the plotting using PyPlot package. This package only supports Julia 1.6 and above.
 
 | Documentation                                   | CI Status             | Compatibility           | Code Coverage           |
 |:-----------------------------------------------:|:---------------------:|:------------------------|:------------------------|
 | [![][dev-img]][dev-url] [![][rel-img]][rel-url] | [![][st-img]][st-url] | [![][min-img]][min-url] | [![][cov-img]][cov-url] |
-
-
 
 
 ## Installation
@@ -35,8 +33,6 @@
 julia> using Pkg;
 julia> Pkg.add("PlotPlants");
 ```
-
-
 
 
 ## API
