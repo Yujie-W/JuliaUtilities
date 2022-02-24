@@ -30,7 +30,14 @@ jobs:
         run: julia --project -e 'ENV["PYTHON"]=""; using Pkg; Pkg.instantiate();'
       - name: Install Dependencies for Mac-OS
         if: runner.os == 'macOS'
-        run: julia --project -e 'ENV["PYTHON"]=""; using Pkg; Pkg.instantiate();'
+        run: |
+          julia -e 'using Pkg; Pkg.add("Conda"); using Conda; Conda.add("matplotlib"); Conda.add("nomkl");'
+          brew install libpng
+          ls /usr/local/Cellar/freetype/
+          ls /usr/local/Cellar/freetype/*/lib/
+          ls /usr/local/Cellar/freetype/*/lib/
+          cp /usr/local/Cellar/freetype/*/lib/libfreetype.dylib /Users/runner/.julia/conda/3/lib/
+          julia --project -e 'using Pkg; Pkg.instantiate();'
       - name: Install Dependencies for Windows
         if: runner.os == 'Windows'
         run: julia --project -e 'using Pkg; Pkg.instantiate();'
