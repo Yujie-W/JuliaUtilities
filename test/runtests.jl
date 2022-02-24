@@ -1,5 +1,4 @@
 using LazyArtifacts
-using PkgUtility
 using PlotPlants
 using PyPlot
 using Test
@@ -50,7 +49,6 @@ println("");
 
     # preview data
     preview_data(rand(5), rand(5));
-    predownload_artifact!.(["CH_20X_1Y_V1","LAI_4X_1M_V1"], "../Artifacts.toml");
     preview_dataset!(_ax3, artifact"LAI_4X_1M_V1" * "/LAI_4X_1M_V1.nc", "LAI");
     preview_dataset!(_ax3, artifact"CH_20X_1Y_V1" * "/CH_20X_1Y_V1.nc", "Band1");
     @info "Expecting a warning here!";
