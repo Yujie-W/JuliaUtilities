@@ -44,7 +44,7 @@ function benchmark_ConstrainedRootSolvers(FT)
     end
 
     # surface function
-    @inline function _surf_func(x::Array{FT,1}) where {FT<:AbstractFloat}
+    @inline function _surf_func(x::Vector{FT}) where {FT<:AbstractFloat}
         return -(x[1]-2)^2 - (x[2]-3)^2
     end
 

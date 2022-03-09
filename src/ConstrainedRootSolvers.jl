@@ -19,9 +19,9 @@ export find_peak, find_zero
 
 include("method.jl"   )
 include("tolerance.jl")
+include("find_peak.jl")
 include("find_zero.jl")
 
-include("findpeak/bisection.jl"   )
 include("findpeak/neldermead.jl"  )
 include("findpeak/reducestep.jl"  )
 include("findpeak/reducestepND.jl")

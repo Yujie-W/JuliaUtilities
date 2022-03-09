@@ -66,7 +66,7 @@ $(TYPEDFIELDS)
 """
 struct SolutionToleranceND{FT} <: AbstractTolerance{FT}
     "Tolerance for solution"
-    tol::Array{FT,1}
+    tol::Vector{FT}
     "limit of iterations"
     n_limit::Int
 end

@@ -338,7 +338,7 @@ find_zero(f::Function,
 
     _new_x = x_min;
     _new_y = abs( f(x_min) );
-    _new_y < _tar_y ? (_tar_x=_new_x; _tar_y=_new_y;) : nothing;
+    _new_y <= _tar_y ? (_tar_x=_new_x; _tar_y=_new_y;) : nothing;
 
     # record the history
     if stepping
