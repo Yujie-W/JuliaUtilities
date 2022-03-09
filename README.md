@@ -13,8 +13,8 @@
 [st-img]: https://github.com/Yujie-W/ConstrainedRootSolvers.jl/workflows/JuliaStable/badge.svg?branch=main
 [st-url]: https://github.com/Yujie-W/ConstrainedRootSolvers.jl/actions?query=branch%3A"main"++workflow%3A"JuliaStable"
 
-[min-img]: https://github.com/Yujie-W/ConstrainedRootSolvers.jl/workflows/Julia-1.3/badge.svg?branch=main
-[min-url]: https://github.com/Yujie-W/ConstrainedRootSolvers.jl/actions?query=branch%3A"main"++workflow%3A"Julia-1.3"
+[min-img]: https://github.com/Yujie-W/ConstrainedRootSolvers.jl/workflows/Julia-1.6/badge.svg?branch=main
+[min-url]: https://github.com/Yujie-W/ConstrainedRootSolvers.jl/actions?query=branch%3A"main"++workflow%3A"Julia-1.6"
 
 [bm-img]: https://github.com/Yujie-W/ConstrainedRootSolvers.jl/workflows/Benchmarks/badge.svg?branch=main
 [bm-url]: https://github.com/Yujie-W/ConstrainedRootSolvers.jl/actions?query=branch%3A"main"++workflow%3A"Benchmarks"
@@ -24,7 +24,7 @@
 
 # About
 
-Typical algorithms for root finding often do not work for plants because of the wierd shape of curves. In many cases, chosing a good initial guess works. But in many case, the initial guess may result in error. Here, customized root finding algorithms are presented with constaints. Due to the dependency on `Base.@kwdef`, [`ConstrainedRootSolvers.jl`][rs-url] only spports Julia 1.3 and above.
+Typical algorithms for root finding often do not work for plants because of the wierd shape of curves. In many cases, chosing a good initial guess works. But in many case, the initial guess may result in error. Here, customized root finding algorithms are presented with constaints. Due to the dependency on `PkgUtility`, [`ConstrainedRootSolvers.jl`][rs-url] only spports Julia 1.6 and above.
 
 | Documentation                                   | CI Status             | Benchmarks            | Compatibility           | Code Coverage           |
 |:------------------------------------------------|:----------------------|:----------------------|:------------------------|:------------------------|
@@ -40,7 +40,7 @@ Typical algorithms for root finding often do not work for plants because of the 
 | BenchmarkTools         | 0.5.0 +  | Julia 1.0 +  |
 | DocStringExtensions    | 0.8.3 +  | Julia 0.7 +  |
 | Parameters             | 0.12.1 + | Julia 1.0 +  |
-| ConstrainedRootSolvers |          | Julia 1.3 +  |
+| ConstrainedRootSolvers |          | Julia 1.6 +  |
 
 
 
