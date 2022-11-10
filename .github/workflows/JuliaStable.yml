@@ -25,10 +25,21 @@ jobs:
         uses: julia-actions/setup-julia@v1
         with:
           version: "1"
-      - name: Use Github Registry for Linux and Mac-OS
-        if: runner.os != 'Windows'
+      - name: Use Github Registry for Linux
+        if: runner.os == 'Linux'
         run: |
           julia -e 'using Pkg; Pkg.Registry.rm("General"); Pkg.Registry.add(RegistrySpec(url="https://github.com/JuliaRegistries/General"))'
+          julia --project -e 'ENV["PYTHON"]=""; using Pkg; Pkg.update();'
+      - name: Use Github Registry for Mac-OS
+        if: runner.os == 'macOS'
+        run: |
+          julia -e 'using Pkg; Pkg.Registry.rm("General"); Pkg.Registry.add(RegistrySpec(url="https://github.com/JuliaRegistries/General"))'
+          julia -e 'using Pkg; Pkg.add("Conda"); using Conda; Conda.add("matplotlib"); Conda.add("nomkl");'
+          brew install libpng
+          ls /usr/local/Cellar/freetype/
+          ls /usr/local/Cellar/freetype/*/lib/
+          ls /usr/local/Cellar/freetype/*/lib/
+          cp /usr/local/Cellar/freetype/*/lib/libfreetype.dylib /Users/runner/.julia/conda/3/lib/
           julia --project -e 'ENV["PYTHON"]=""; using Pkg; Pkg.update();'
       - name: Use Github Registry for Windows
         if: runner.os == 'Windows'
