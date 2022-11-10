@@ -4,6 +4,18 @@
 CurrentModule = PlotPlants
 ```
 
+
+## Usage
+```julia
+using PlotPlants
+
+# use all the functions in the project
+use_serif_tex();
+fig,axs = create_canvas("1"; ncol=2, nrow=2, axids=[1,3,4]);
+set_titles!(axs);
+```
+
+
 ## Set global font
 
 The PyPlot package of Julia uses sans font by default, by my favorite font is
