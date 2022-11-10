@@ -1,0 +1,6 @@
+status = [
+    "docs-build",
+    "ubuntu-latest",
+    "version-test"
+]
+timeout_sec = 7200

@@ -1,0 +1,15 @@
+[CH_20X_1Y_V1]
+git-tree-sha1 = "7b8f5c16cb50eb02a93b874badab9c3416c6b374"
+lazy = true
+
+    [[CH_20X_1Y_V1.download]]
+    sha256 = "43866b56681c183794ecde9e154446065acea6d842fe8b494a758750129faada"
+    url = "ftp://fluo.gps.caltech.edu/XYZT_CLIMA_LUT/CH_20X_1Y_V1.tar.gz"
+
+[LAI_4X_1M_V1]
+git-tree-sha1 = "84cc4c9fae047a91cb1d265e55a19795e9de1091"
+lazy = true
+
+    [[LAI_4X_1M_V1.download]]
+    sha256 = "1175cf5a7b51e667da7f5ab100d1de36b4263b93864505b8df62a899132ea235"
+    url = "ftp://fluo.gps.caltech.edu/XYZT_CLIMA_LUT/LAI_4X_1M_V1.tar.gz"
