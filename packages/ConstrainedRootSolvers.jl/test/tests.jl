@@ -32,28 +32,28 @@
         lf = [_f0, _f1, _f2, _f3, _f4, _f5];
 
         for FT in [Float32, Float64]
-            ms_bis = BisectionMethod{FT}(x_min=0, x_max=5);
-            ms_rst = ReduceStepMethod{FT}(x_min=0, x_max=5, x_ini=1.1, Δ_ini=1);
-            st = SolutionTolerance{FT}(1e-4, 50);
+            ms_bis = ConstrainedRootSolvers.BisectionMethod{FT}(x_min=0, x_max=5);
+            ms_rst = ConstrainedRootSolvers.ReduceStepMethod{FT}(x_min=0, x_max=5, x_ini=1.1, Δ_ini=1);
+            st = ConstrainedRootSolvers.SolutionTolerance{FT}(1e-4, 50);
             for ms in [ms_bis, ms_rst]
                 for i in 1:6
-                    sol = find_peak(lf[i], ms, st);
+                    sol = ConstrainedRootSolvers.find_peak(lf[i], ms, st);
                     @test !isnan(sol);
                     @test typeof(sol) == FT;
                     @test sol ≈ lr[i] atol=0.01;
                 end;
             end;
 
-            ms_nm1 = NelderMeadMethod{FT}(N = 2, x_inis = FT[rand(FT)+1, rand(FT)+2, 0]);
-            ms_nm2 = NelderMeadMethod{FT}(N = 2, x_inis = FT[0.1, 0.1, 0]);
-            ms_rst = ReduceStepMethodND{FT}(x_mins = FT[0,0], x_maxs = FT[5,5], x_inis = [1+rand(FT), 2+rand(FT)], Δ_inis = FT[1,1]);
-            rt = ResidualTolerance{FT}(1e-5, 50);
-            st = SolutionToleranceND{FT}(FT[1e-3, 1e-3], 50);
-            for sol in [ find_peak(_surf_func, ms_nm1, rt),
-                         find_peak(_surf_func, ms_nm1, st),
-                         find_peak(_surf_func, ms_nm2, rt),
-                         find_peak(_surf_func, ms_nm2, st),
-                         find_peak(_surf_func, ms_rst, st) ]
+            ms_nm1 = ConstrainedRootSolvers.NelderMeadMethod{FT}(N = 2, x_inis = FT[rand(FT)+1, rand(FT)+2, 0]);
+            ms_nm2 = ConstrainedRootSolvers.NelderMeadMethod{FT}(N = 2, x_inis = FT[0.1, 0.1, 0]);
+            ms_rst = ConstrainedRootSolvers.ReduceStepMethodND{FT}(x_mins = FT[0,0], x_maxs = FT[5,5], x_inis = [1+rand(FT), 2+rand(FT)], Δ_inis = FT[1,1]);
+            rt = ConstrainedRootSolvers.ResidualTolerance{FT}(1e-5, 50);
+            st = ConstrainedRootSolvers.SolutionToleranceND{FT}(FT[1e-3, 1e-3], 50);
+            for sol in [ ConstrainedRootSolvers.find_peak(_surf_func, ms_nm1, rt),
+                         ConstrainedRootSolvers.find_peak(_surf_func, ms_nm1, st),
+                         ConstrainedRootSolvers.find_peak(_surf_func, ms_nm2, rt),
+                         ConstrainedRootSolvers.find_peak(_surf_func, ms_nm2, st),
+                         ConstrainedRootSolvers.find_peak(_surf_func, ms_rst, st) ]
                 @test all( .!isnan.(sol) );
                 @test eltype(sol) == FT;
                 @test sol[1] ≈ 2 atol=0.01;
@@ -73,22 +73,22 @@
         end;
 
         for FT in [Float32, Float64]
-            rt = ResidualTolerance{FT}(1e-3, 50);
-            st = SolutionTolerance{FT}(1e-3, 50);
+            rt = ConstrainedRootSolvers.ResidualTolerance{FT}(1e-3, 50);
+            st = ConstrainedRootSolvers.SolutionTolerance{FT}(1e-3, 50);
 
             # Bisection method
             # NewtonBisection method
             # NewtonRaphson method
             # ReduceStep method
-            ms_bis = BisectionMethod{FT}(x_min=0, x_max=5);
-            ms_nbs = NewtonBisectionMethod{FT}(x_min=0, x_max=5);
-            ms_ntr = NewtonRaphsonMethod{FT}(x_ini=2);
-            ms_rst = ReduceStepMethod{FT}(x_min=0, x_max=5, x_ini=1.1, Δ_ini=1);
+            ms_bis = ConstrainedRootSolvers.BisectionMethod{FT}(x_min=0, x_max=5);
+            ms_nbs = ConstrainedRootSolvers.NewtonBisectionMethod{FT}(x_min=0, x_max=5);
+            ms_ntr = ConstrainedRootSolvers.NewtonRaphsonMethod{FT}(x_ini=2);
+            ms_rst = ConstrainedRootSolvers.ReduceStepMethod{FT}(x_min=0, x_max=5, x_ini=1.1, Δ_ini=1);
 
             for ms in [ms_bis, ms_nbs, ms_ntr, ms_rst]
                 for tol in [rt, st]
                     for f in [_r_func, _s_func]
-                        sol = find_zero(f, ms, tol; stepping=true);
+                        sol = ConstrainedRootSolvers.find_zero(f, ms, tol; stepping=true);
                         @test PkgUtility.NaN_test(sol);
                         @test PkgUtility.FT_test(sol, FT);
                     end;

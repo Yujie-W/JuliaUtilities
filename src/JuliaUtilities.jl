@@ -11,8 +11,8 @@ export TextIO
 include("ConstrainedRootSolvers.jl")
 include("NetcdfIO.jl"              )
 include("PkgUtility.jl"            )
-include("TextIO.jl"                )
 include("PlotPlants.jl"            )
+include("TextIO.jl"                )
 
 
 end # module
