@@ -5,7 +5,7 @@ using Documenter
 # define default docs pages
 pages = Any[
     "Home" => "index.md",
-    "API"  => [
+    "APIs" => [
         "ConstrainedRootSolvers" => "ConstrainedRootSolvers.md",
         "NetcdfIO"               => "NetcdfIO.md",
         "PkgUtility"             => "PkgUtility.md",
@@ -40,7 +40,7 @@ makedocs(
     sitename = "JuliaUtilities",
     format = format,
     clean = false,
-    modules = [JuliaUtilities, PkgUtility, ConstrainedRootSolvers, NetcdfIO, PlotPlants, TextIO],
+    modules = [JuliaUtilities],
     pages = pages
 );
 

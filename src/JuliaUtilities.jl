@@ -1,19 +1,18 @@
 module JuliaUtilities
 
-# import the modules
-import PkgUtility
-import ConstrainedRootSolvers
-import NetcdfIO
-import PlotPlants
-import TextIO
 
-
-# export the modules
 export PkgUtility
 export ConstrainedRootSolvers
 export NetcdfIO
 export PlotPlants
 export TextIO
+
+
+include("ConstrainedRootSolvers.jl")
+include("NetcdfIO.jl"              )
+include("PkgUtility.jl"            )
+include("TextIO.jl"                )
+include("PlotPlants.jl"            )
 
 
 end # module
