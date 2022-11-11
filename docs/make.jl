@@ -1,11 +1,17 @@
+using JuliaUtilities
 using Documenter
-using TextIO
 
 
 # define default docs pages
 pages = Any[
     "Home" => "index.md",
-    "API"  => "API.md"
+    "API"  => [
+        "ConstrainedRootSolvers" => "ConstrainedRootSolvers.md",
+        "NetcdfIO"               => "NetcdfIO.md",
+        "PkgUtility"             => "PkgUtility.md",
+        "PlotPlants"             => "PlotPlants.md",
+        "TextIO"                 => "TextIO.md"
+    ]
 ];
 
 @show pages;
@@ -31,17 +37,17 @@ format = Documenter.HTML(
 
 # build the docs
 makedocs(
-    sitename = "TextIO",
+    sitename = "JuliaUtilities",
     format = format,
     clean = false,
-    modules = [TextIO],
+    modules = [JuliaUtilities, PkgUtility, ConstrainedRootSolvers, NetcdfIO, PlotPlants, TextIO],
     pages = pages
 );
 
 
 # deploy the docs to Github gh-pages
 deploydocs(
-    repo = "github.com/Yujie-W/TextIO.jl.git",
+    repo = "github.com/Yujie-W/JuliaUtilities.git",
     target = "build",
     devbranch = "main",
     push_preview = true
