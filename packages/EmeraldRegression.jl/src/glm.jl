@@ -87,6 +87,7 @@ function linear_regress(xs::Tuple, y::Vector)
 
     # copy xs to _matx
     _matx = zeros(sum(_mask), length(xs));
+    _vecy = zeros(sum(_mask));
     for _i in eachindex(xs)
         if length(xs[_i]) > 1
             _matx[:,_i] .= xs[_i][_mask];
@@ -94,7 +95,7 @@ function linear_regress(xs::Tuple, y::Vector)
             _matx[:,_i] .= xs[_i];
         end;
     end;
-    _vecy = y[_mask];
+    _vecy .= y[_mask];
 
     # run the fitting using GLM
     return LinearRegressionResult(LM = lm(_matx, _vecy))
@@ -144,6 +145,7 @@ function test_slope(xs::Tuple, y::Vector; slope::Number = 0)
 
     # copy xs to _matx
     _matx = zeros(sum(_mask), length(xs));
+    _vecy = zeros(sum(_mask));
     for _i in eachindex(xs)
         if length(xs[_i]) > 1
             _matx[:,_i] .= xs[_i][_mask];
@@ -151,7 +153,7 @@ function test_slope(xs::Tuple, y::Vector; slope::Number = 0)
             _matx[:,_i] .= xs[_i];
         end;
     end;
-    _vecy = y[_mask] .- slope .* xs[1][_mask];
+    _vecy .= y[_mask] .- slope .* xs[1][_mask];
 
     # run the fitting using GLM
     _lr = lm(_matx, _vecy);

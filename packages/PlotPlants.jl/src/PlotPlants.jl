@@ -6,7 +6,6 @@ using ImageMagick
 
 using DataFrames: DataFrame, sort!
 using DocStringExtensions: TYPEDFIELDS
-using GLM: @formula, adjr2, coef, coeftable, confint, lm, predict
 using KernelDensity: kde, pdf
 using ProgressMeter: @showprogress
 using PyCall: PyObject, pyimport
