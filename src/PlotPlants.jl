@@ -13,6 +13,7 @@ using PyCall: PyObject, pyimport
 using PyPlot: Figure, clf, figure, rc, subplot
 using Random: randstring
 
+using ..EmeraldRegression: linear_regress
 using ..NetcdfIO: read_nc
 
 
@@ -34,10 +35,7 @@ include("../packages/PlotPlants.jl/src/plots/line_regress.jl")
 include("../packages/PlotPlants.jl/src/plots/preview.jl"     )
 include("../packages/PlotPlants.jl/src/plots/stoma.jl"       )
 
-include("../packages/PlotPlants.jl/src/regression/linear.jl")
-
 include("../packages/PlotPlants.jl/src/statistics/density.jl")
-include("../packages/PlotPlants.jl/src/statistics/slope.jl"  )
 
 include("../packages/PlotPlants.jl/src/string/latex_symbol.jl")
 include("../packages/PlotPlants.jl/src/string/latex_unit.jl"  )

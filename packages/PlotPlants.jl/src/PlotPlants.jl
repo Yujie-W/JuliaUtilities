@@ -8,11 +8,13 @@ using DataFrames: DataFrame, sort!
 using DocStringExtensions: TYPEDFIELDS
 using GLM: @formula, adjr2, coef, coeftable, confint, lm, predict
 using KernelDensity: kde, pdf
-using NetcdfIO: read_nc
 using ProgressMeter: @showprogress
 using PyCall: PyObject, pyimport
 using PyPlot: Figure, clf, figure, rc, subplot
 using Random: randstring
+
+#using EmeraldRegression: linear_regress
+#using NetcdfIO: read_nc
 
 
 # include the files
@@ -33,10 +35,7 @@ include("plots/line_regress.jl")
 include("plots/preview.jl"     )
 include("plots/stoma.jl"       )
 
-include("regression/linear.jl")
-
 include("statistics/density.jl")
-include("statistics/slope.jl"  )
 
 include("string/latex_symbol.jl")
 include("string/latex_unit.jl"  )

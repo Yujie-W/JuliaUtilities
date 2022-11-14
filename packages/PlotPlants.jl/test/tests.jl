@@ -55,21 +55,10 @@
         close("all");
     end;
 
-    @testset "Regression" begin
-        PlotPlants.line_regress(rand(100), rand(100); intercept=false);
-        PlotPlants.line_regress(rand(100), rand(100); intercept=true);
-        @test true;
-    end;
-
     @testset "Statistics" begin
         # calculate density
         PlotPlants.calculate_density(rand(100), rand(100));
         PlotPlants.calculate_density(rand(1001), rand(1001));
-        @test true;
-
-        # test slope
-        PlotPlants.test_slope(rand(100), rand(100); intercept=false);
-        PlotPlants.test_slope(rand(100), rand(100); intercept=true);
         @test true;
     end;
 
