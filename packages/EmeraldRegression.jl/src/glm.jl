@@ -98,3 +98,62 @@ function linear_regress(xs::Tuple, y::Vector)
     # run the fitting using GLM
     return LinearRegressionResult(LM = lm(_matx, _vecy))
 end
+
+
+#######################################################################################################################################################################################################
+#
+# Changes to this function
+# General
+#     2022-Nov-14: move function from PlotPlants
+#
+#######################################################################################################################################################################################################
+"""
+
+    test_slope(xs::Tuple, y::Vector; slope::Number = 0)
+
+Return the P value of whether linear regression is same as the provided slope, given
+- `xs` A tuple of x variables
+- `y` A vector of y
+- `slope` Target slope
+
+---
+# Example
+```julia
+x1 = rand(5);
+yy = rand(5);
+p1 = test_slope((x1,), yy; slope = 0);
+p2 = test_slope((x1,1), yy; slope = 1);
+```
+
+"""
+function test_slope(xs::Tuple, y::Vector; slope::Number = 0)
+    # make sure that the vectors match in dimensions
+    for _i in eachindex(xs)
+        @assert (length(xs[_i]) == 1) || (length(xs[_i]) == length(y) > 1) "X and Y must have the same dimension";
+    end;
+    @assert length(xs[1]) > 1 "First X cannot be 1";
+
+    # create a mask to mask out NaN values
+    _mask = .!isnan.(y);
+    for _i in eachindex(xs)
+        if length(xs[_i]) > 1
+            _mask .= _mask .&& .!isnan.(xs[_i]);
+        end;
+    end;
+
+    # copy xs to _matx
+    _matx = zeros(sum(_mask), length(xs));
+    for _i in eachindex(xs)
+        if length(xs[_i]) > 1
+            _matx[:,_i] .= xs[_i][_mask];
+        else
+            _matx[:,_i] .= xs[_i];
+        end;
+    end;
+    _vecy = y[_mask] .- slope .* xs[1][_mask];
+
+    # run the fitting using GLM
+    _lr = lm(_matx, _vecy);
+
+    return coeftable(_lr).cols[4][1]
+end
