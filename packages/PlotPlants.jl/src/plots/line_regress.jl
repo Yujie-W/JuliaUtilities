@@ -23,11 +23,12 @@ Plor linear regression and confidence interval on the axis, given
 function plot_line_regress!(ax::PyObject, xs::Tuple, ys::Array; linestyle::String = "-", interval::Bool = false, color::String = "red", alpha::Number = 0.3)
     # make linear regression
     lr = linear_regress(xs, ys);
+    df = sort(lr.XY);
 
     # plot the fittings
-    ax.plot(lr.df.X1, lr.df.predY; linestyle = linestyle, color = color);
+    ax.plot(df.X1, df.predY; linestyle = linestyle, color = color);
     if interval
-        ax.fill_between(lr.df.X1, lr.df.lowerY, lr.df.upperY; facecolor = color, alpha = alpha);
+        ax.fill_between(df.X1, df.lowerY, df.upperY; facecolor = color, alpha = alpha);
     end
 
     return nothing

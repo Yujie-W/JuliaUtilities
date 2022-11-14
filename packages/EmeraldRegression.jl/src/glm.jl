@@ -35,6 +35,7 @@ Base.@kwdef mutable struct LinearRegressionResult
         for _i in axes(LM.pp.X,2)
             _df[!,"X$(_i)"] = LM.pp.X[:,_i];
         end;
+        _df[!,"Y"     ] = LM.rr.y;
         _df[!,"predY" ] = _pred.prediction;
         _df[!,"lowerY"] = _pred.lower[:,1];
         _df[!,"upperY"] = _pred.upper[:,1];

@@ -32,7 +32,7 @@
         @test true;
 
         # linear regression
-        PlotPlants.plot_line_regress!(_ax2, rand(100), rand(100), interval=true);
+        PlotPlants.plot_line_regress!(_ax2, (rand(100),), rand(100), interval=true);
         @test true;
 
         # preview data
