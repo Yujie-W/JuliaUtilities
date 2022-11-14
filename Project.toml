@@ -32,4 +32,5 @@ TextIO = "52be8cd1-7bc6-40f3-9b52-aa7544d4b77d"
 UnPack = "3a884ed6-31ef-47d7-9d2a-63182c4928ed"
 
 [compat]
+DataFrames = "1"
 julia = "1.6"
