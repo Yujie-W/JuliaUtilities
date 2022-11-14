@@ -1,0 +1,16 @@
+name = "EmeraldRegression"
+uuid = "174b23be-c908-4175-b2bb-6ca4088a0957"
+authors = ["Yujie Wang <jesiner@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
+GLM = "38e38edf-8417-5370-95a0-9cbb8c7f171a"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+DataFrames = "1.4.2"
+DocStringExtensions = "0.9.2"
+GLM = "1.8.1"
+julia = "1.6"
