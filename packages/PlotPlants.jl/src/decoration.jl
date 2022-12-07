@@ -24,13 +24,24 @@ decorate!(axs::Vector;
           title_parentheses::Bool = true,
           use_latex::Bool = false,
           xaxis_lims::Union{Nothing, Tuple{Number,Number}, Vector},
-          yaxis_lims::Union{Nothing, Tuple{Number,Number}, Vector}) = (
+          xaxis_ticks::Union{Nothing,Vector},
+          yaxis_lims::Union{Nothing, Tuple{Number,Number}, Vector},
+          yaxis_ticks::Union{Nothing,Vector}) = (
     # make sure the dimenssions agree
     if !isnothing(title_labels)
         @assert length(axes) == length(title_labels) "Provided axes and title labels do not match in length!";
     end;
     if typeof(xaxis_lims) <: Vector
         @assert length(axes) == length(xaxis_lims) "Provided axes and x-axis limits do not match in length!";
+    end;
+    if eltype(xaxis_ticks) <: Vector
+        @assert length(axes) == length(xaxis_ticks) "Provided axes and x-axis ticks do not match in length!";
+    end;
+    if typeof(yaxis_lims) <: Vector
+        @assert length(axes) == length(yaxis_lims) "Provided axes and y-axis limits do not match in length!";
+    end;
+    if eltype(yaxis_ticks) <: Vector
+        @assert length(axes) == length(yaxis_ticks) "Provided axes and y-axis ticks do not match in length!";
     end;
 
     # decorate title for each panel
@@ -60,9 +71,19 @@ decorate!(axs::Vector;
             typeof(xaxis_lims) <: Vector ? decorate!(axs[_id]; xaxis_lims = xaxis_lims[_id]) : decorate!(axs[_id]; xaxis_lims = xaxis_lims);
         end;
     end;
+    if !isnothing(xaxis_ticks)
+        for _id in eachindex(axs)
+            eltype(xaxis_ticks) <: Vector ? decorate!(axs[_id]; xaxis_ticks = xaxis_ticks[_id]) : decorate!(axs[_id]; xaxis_ticks = xaxis_ticks);
+        end;
+    end;
     if !isnothing(yaxis_lims)
         for _id in eachindex(axs)
             typeof(yaxis_lims) <: Vector ? decorate!(axs[_id]; yaxis_lims = yaxis_lims[_id]) : decorate!(axs[_id]; yaxis_lims = yaxis_lims);
+        end;
+    end;
+    if !isnothing(yaxis_ticks)
+        for _id in eachindex(axs)
+            eltype(yaxis_ticks) <: Vector ? decorate!(axs[_id]; xaxis_ticks = xaxis_ticks[_id]) : decorate!(axs[_id]; xaxis_ticks = xaxis_ticks);
         end;
     end;
 
@@ -75,7 +96,9 @@ decorate!(ax;
           title_loc::String = "left",
           use_latex::Bool = false,
           xaxis_lims::Union{Nothing,Tuple{Number,Number}},
-          yaxis_lims::Union{Nothing,Tuple{Number,Number}}) = (
+          xaxis_ticks::Union{Nothing,Vector},
+          yaxis_lims::Union{Nothing,Tuple{Number,Number}},
+          yaxis_ticks::Union{Nothing,Vector}) = (
     # decorate title
     if !isnothing(title)
         if use_latex
@@ -88,6 +111,8 @@ decorate!(ax;
     # decorate x-axis and y-axis
     if !isnothing(xaxis_lims) ax.set_xlim(xaxis_lims); end;
     if !isnothing(yaxis_lims) ax.set_ylim(yaxis_lims); end;
+    if !isnothing(xaxis_ticks) ax.set_xticks(xaxis_ticks); end;
+    if !isnothing(yaxis_ticks) ax.set_yticks(yaxis_ticks); end;
 
     return nothing
 );
