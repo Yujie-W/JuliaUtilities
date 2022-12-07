@@ -26,7 +26,6 @@ include("../packages/PlotPlants.jl/src/types/regression.jl" )
 
 include("../packages/PlotPlants.jl/src/canvas/gif.jl"     )
 include("../packages/PlotPlants.jl/src/canvas/xylabels.jl")
-include("../packages/PlotPlants.jl/src/canvas/xyticks.jl" )
 
 include("../packages/PlotPlants.jl/src/plots/density.jl"     )
 include("../packages/PlotPlants.jl/src/plots/ellipse.jl"     )
