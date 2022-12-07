@@ -12,8 +12,8 @@ using PyCall: PyObject, pyimport
 using PyPlot: Figure, clf, figure, rc, subplot
 using Random: randstring
 
-using EmeraldRegression: linear_regress
-using NetcdfIO: read_nc
+#using EmeraldRegression: linear_regress
+#using NetcdfIO: read_nc
 
 
 # include the files

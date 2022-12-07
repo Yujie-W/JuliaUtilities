@@ -17,6 +17,9 @@ using ..NetcdfIO: read_nc
 
 
 # include the files
+include("../packages/PlotPlants.jl/src/canvas.jl")
+
+
 include("../packages/PlotPlants.jl/src/types/file_format.jl")
 include("../packages/PlotPlants.jl/src/types/regression.jl" )
 
