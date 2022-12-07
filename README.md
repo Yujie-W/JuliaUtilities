@@ -24,8 +24,8 @@ A repo to store my utility Julia packages
 [cis-img]: https://github.com/Yujie-W/JuliaUtilities/workflows/JuliaStable/badge.svg?branch=main
 [cis-url]: https://github.com/Yujie-W/JuliaUtilities/actions?query=branch%3A"main"++workflow%3A"JuliaStable"
 
-[pat-img]: https://github.com/Yujie-W/JuliaUtilities/workflows/Julia-1.6/badge.svg?branch=main
-[pat-url]: https://github.com/Yujie-W/JuliaUtilities/actions?query=branch%3A"main"++workflow%3A"Julia-1.6"
+[pat-img]: https://github.com/Yujie-W/JuliaUtilities/workflows/Julia-1.7/badge.svg?branch=main
+[pat-url]: https://github.com/Yujie-W/JuliaUtilities/actions?query=branch%3A"main"++workflow%3A"Julia-1.7"
 
 [cov-img]: https://codecov.io/gh/Yujie-W/JuliaUtilities/branch/main/graph/badge.svg
 [cov-url]: https://codecov.io/gh/Yujie-W/JuliaUtilities

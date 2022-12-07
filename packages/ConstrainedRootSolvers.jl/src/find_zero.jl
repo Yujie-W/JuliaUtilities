@@ -325,7 +325,7 @@ find_zero(f::Function,
     _count = 0;
 
     # define the initial step
-    @unpack x_ini, x_max, x_min, Δ_ini = ms;
+    (; x_ini, x_max, x_min, Δ_ini) = ms;
 
     # initialize the y
     _tar_x = x_ini;

@@ -1,7 +1,6 @@
 module ConstrainedRootSolvers
 
 using DocStringExtensions: METHODLIST, TYPEDEF, TYPEDFIELDS
-using UnPack: @unpack
 
 
 include("../packages/ConstrainedRootSolvers.jl/src/method.jl"   )

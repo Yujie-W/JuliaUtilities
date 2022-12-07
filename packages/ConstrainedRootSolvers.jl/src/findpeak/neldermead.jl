@@ -8,8 +8,7 @@ function find_peak(
             ms::NelderMeadMethod{FT},
             tol::SolutionToleranceND{FT}
 ) where {F<:Function, FT<:AbstractFloat}
-    # unpack values
-    @unpack cen_x, con_x, exp_x, ref_x, x_inis = ms;
+    (; cen_x, con_x, exp_x, ref_x, x_inis) = ms;
     nX = ms.N;
     nS = ms.N + 1;
 
