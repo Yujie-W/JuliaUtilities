@@ -1,19 +1,20 @@
 module JuliaUtilities
 
-# import the modules
-import PkgUtility
-import ConstrainedRootSolvers
-import NetcdfIO
-import PlotPlants
-import TextIO
 
-
-# export the modules
-export PkgUtility
 export ConstrainedRootSolvers
+export EmeraldRegression
 export NetcdfIO
+export PkgUtility
 export PlotPlants
 export TextIO
+
+
+include("ConstrainedRootSolvers.jl")
+include("EmeraldRegression.jl"     )
+include("NetcdfIO.jl"              )
+include("PkgUtility.jl"            )
+include("PlotPlants.jl"            )
+include("TextIO.jl"                )
 
 
 end # module

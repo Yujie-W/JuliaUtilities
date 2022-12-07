@@ -144,7 +144,7 @@ find_peak(f::Function,
 ) where {FT<:AbstractFloat} =
 (
     # create matrix to store data
-    @unpack history, x_max, x_min, xy = ms;
+    (; history, x_max, x_min, xy) = ms;
     xy[1,1] = x_min;
     xy[2,1] = (x_min + x_max) / 2;
     xy[3,1] = x_max;
@@ -196,8 +196,7 @@ find_peak(f::Function,
           stepping::Bool = false
 ) where {FT<:AbstractFloat} =
 (
-    # unpack values
-    @unpack N, cen_x, con_x, exp_x, history, ref_x, simplex, x_inis = ms;
+    (; N, cen_x, con_x, exp_x, history, ref_x, simplex, x_inis) = ms;
     _nX = N;
     _nS = N + 1;
 

@@ -2,7 +2,13 @@
 
 
 ## About
-A repo to store my utility Julia packages
+A repo to store my utility Julia packages. If you plan to use the included packages in a dynamic environment (e.g., a registered package), it is recommended to use the registered packages. If you
+    plan to use the included packages in a static environment (e.g., a research project), you may choose to use the entire repo for more features including the unregistered packages. Currently, the
+    registered packages include
+- ConstrainedRootSolvers
+- NetcdfIO
+- PkgUtility
+- PlotPlants
 
 |||
 |:-|:-|
@@ -24,8 +30,8 @@ A repo to store my utility Julia packages
 [cis-img]: https://github.com/Yujie-W/JuliaUtilities/workflows/JuliaStable/badge.svg?branch=main
 [cis-url]: https://github.com/Yujie-W/JuliaUtilities/actions?query=branch%3A"main"++workflow%3A"JuliaStable"
 
-[pat-img]: https://github.com/Yujie-W/JuliaUtilities/workflows/Julia-1.6/badge.svg?branch=main
-[pat-url]: https://github.com/Yujie-W/JuliaUtilities/actions?query=branch%3A"main"++workflow%3A"Julia-1.6"
+[pat-img]: https://github.com/Yujie-W/JuliaUtilities/workflows/Julia-1.7/badge.svg?branch=main
+[pat-url]: https://github.com/Yujie-W/JuliaUtilities/actions?query=branch%3A"main"++workflow%3A"Julia-1.7"
 
 [cov-img]: https://codecov.io/gh/Yujie-W/JuliaUtilities/branch/main/graph/badge.svg
 [cov-url]: https://codecov.io/gh/Yujie-W/JuliaUtilities
