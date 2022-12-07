@@ -23,7 +23,6 @@ include("../packages/PlotPlants.jl/src/canvas.jl")
 include("../packages/PlotPlants.jl/src/types/file_format.jl")
 include("../packages/PlotPlants.jl/src/types/regression.jl" )
 
-include("../packages/PlotPlants.jl/src/canvas/canvas.jl"  )
 include("../packages/PlotPlants.jl/src/canvas/gif.jl"     )
 include("../packages/PlotPlants.jl/src/canvas/titles.jl"  )
 include("../packages/PlotPlants.jl/src/canvas/xylabels.jl")
