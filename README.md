@@ -2,7 +2,13 @@
 
 
 ## About
-A repo to store my utility Julia packages
+A repo to store my utility Julia packages. If you plan to use the included packages in a dynamic environment (e.g., a registered package), it is recommended to use the registered packages. If you
+    plan to use the included packages in a static environment (e.g., a research project), you may choose to use the entire repo for more features including the unregistered packages. Currently, the
+    registered packages include
+- ConstrainedRootSolvers
+- NetcdfIO
+- PkgUtility
+- PlotPlants
 
 |||
 |:-|:-|
