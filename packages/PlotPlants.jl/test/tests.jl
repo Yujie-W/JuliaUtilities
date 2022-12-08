@@ -1,7 +1,9 @@
 @testset verbose = true "PlotPlants" begin
     @testset "Canvas" begin
         _fig = PlotPlants.canvas("New Canvas"; ncol = 2, nrow = 2);
+        @test true;
         PlotPlants.save_canvas!(_fig, "_test");
+        @test true;
         rm("_test.pdf");
     end;
 
@@ -18,6 +20,7 @@
                     yaxis_lims = [(1,2),(0,1),(1,3)],
                     yaxis_ticks = [[1,2],[0,1],[1,3]],
                     yaxis_ticklabels = [["A","B"],["A","B"],["A","B"]]);
+        @test true;
     end;
 
     #=

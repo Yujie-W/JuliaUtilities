@@ -1,3 +1,4 @@
+#=
 ###############################################################################
 #
 # Save figures as GIF
@@ -37,3 +38,4 @@ function save_gif!(imgs::Array{Array,1}, fps::Int, fn::String)
 
     return nothing
 end
+=#

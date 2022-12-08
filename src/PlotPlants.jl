@@ -1,9 +1,5 @@
 module PlotPlants
 
-using FileIO
-using ImageIO
-using ImageMagick
-
 using DataFrames: DataFrame, sort!
 using DocStringExtensions: TYPEDFIELDS
 using KernelDensity: kde, pdf
@@ -21,15 +17,10 @@ include("../packages/PlotPlants.jl/src/canvas.jl"    )
 include("../packages/PlotPlants.jl/src/decoration.jl")
 
 
-include("../packages/PlotPlants.jl/src/types/file_format.jl")
-
-include("../packages/PlotPlants.jl/src/canvas/gif.jl"     )
-
 include("../packages/PlotPlants.jl/src/plots/density.jl"     )
 include("../packages/PlotPlants.jl/src/plots/ellipse.jl"     )
 include("../packages/PlotPlants.jl/src/plots/hexbin.jl"      )
 include("../packages/PlotPlants.jl/src/plots/line_regress.jl")
-include("../packages/PlotPlants.jl/src/plots/preview.jl"     )
 include("../packages/PlotPlants.jl/src/plots/stoma.jl"       )
 
 include("../packages/PlotPlants.jl/src/statistics/density.jl")
