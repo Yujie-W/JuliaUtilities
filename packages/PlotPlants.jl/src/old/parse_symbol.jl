@@ -1,3 +1,4 @@
+#=
 ###############################################################################
 #
 # Parse string to unicode or latex strings
@@ -118,3 +119,4 @@ function parse_symbol(id::String, unicode::Bool=false)
 
     return letter
 end
+=#
