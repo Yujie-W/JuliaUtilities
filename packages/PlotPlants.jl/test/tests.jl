@@ -1,28 +1,26 @@
 @testset verbose = true "PlotPlants" begin
     @testset "Canvas" begin
-        _fig,_axes = PlotPlants.create_canvas("New canvas", ncol=2, nrow=2);
-        PlotPlants.set_titles!(_axes);
-        PlotPlants.set_titles!(_axes; usetex=false);
-        PlotPlants.set_xylabels!(_axes, ["X" for i in 1:4], ["Y" for i in 1:4]);
-        PlotPlants.set_xylabels!(_axes, "X", "Y");
-        PlotPlants.set_xylims!(_axes, [[0,1] for i in 1:4], [[0,1] for i in 1:4]);
-        PlotPlants.set_xylims!(_axes, [0,1], [0,1]);
-        PlotPlants.set_xyticks!(_axes, [[0,1] for i in 1:4], [[0,1] for i in 1:4]);
-        PlotPlants.set_xyticks!(_axes, [0,1], [0,1]);
-        PlotPlants.set_xyticklabels!(_axes, [["",""] for i in 1:4], [["",""] for i in 1:4]);
-        PlotPlants.set_xyticklabels!(_axes, ["",""], ["",""]);
-        PlotPlants.save_canvas!(_fig, "_test.pdf", true);
+        _fig = PlotPlants.canvas("New Canvas"; ncol = 2, nrow = 2);
+        PlotPlants.save_canvas!(_fig, "_test");
         rm("_test.pdf");
-        @test true;
-        close("all");
-        _figs = Figure[];
-        push!(_figs, deepcopy(_fig));
-        push!(_figs, deepcopy(_fig));
-        PlotPlants.save_gif!(_figs, 1, "test.gif");
-        rm("test.gif");
-        @test true;
     end;
 
+    @testset "Decoration" begin
+        _fig = PlotPlants.canvas("New Canvas"; axids = [1,2,3], ncol = 2, nrow = 2);
+        PlotPlants.decorate!(_fig.axes;
+                    add_title = true,
+                    title_labels = ["Y1", "Y2", ""],
+                    xaxis_labels = "X-axis",
+                    xaxis_lims = (1,2),
+                    xaxis_ticks = [1,2],
+                    xaxis_ticklabels = ["A","B"],
+                    yaxis_labels = ["Y1","Y2","Y3"],
+                    yaxis_lims = [(1,2),(0,1),(1,3)],
+                    yaxis_ticks = [[1,2],[0,1],[1,3]],
+                    yaxis_ticklabels = [["A","B"],["A","B"],["A","B"]]);
+    end;
+
+    #=
     @testset "Plots" begin
         _fig,_axes = PlotPlants.create_canvas("New canvas"; ncol=3, nrow=2);
         _ax1,_ax2,_ax3,_ax4,_ax5,_ax6 = _axes;
@@ -113,4 +111,5 @@
         PlotPlants.use_serif_text();
         @test true;
     end;
+    =#
 end;
