@@ -15,6 +15,7 @@ using ..NetcdfIO: read_nc
 # include the files
 include("../packages/PlotPlants.jl/src/canvas.jl"    )
 include("../packages/PlotPlants.jl/src/decoration.jl")
+include("../packages/PlotPlants.jl/src/latex.jl"     )
 
 
 include("../packages/PlotPlants.jl/src/plots/density.jl"     )
