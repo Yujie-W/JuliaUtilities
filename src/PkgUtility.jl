@@ -15,6 +15,8 @@ const TIME_FORMAT = ["YYYYMMDD", "YYYYMMDDhh", "YYYYMMDDhhmm", "YYYYMMDDhhmmss"]
 const TIME_OUTPUT = ["DATE", "DATETIME", "DOY", "FDOY"];
 
 
+include("../packages/PkgUtility.jl/src/macros.jl")
+
 include("../packages/PkgUtility.jl/src/artifacts.jl" )
 include("../packages/PkgUtility.jl/src/datetime.jl"  )
 include("../packages/PkgUtility.jl/src/display.jl"   )

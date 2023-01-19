@@ -56,9 +56,9 @@ end
         @test PkgUtility.month_ind(2020, 60) == 2;
 
         # some time labeled information
-        err_info = PkgUtility.terror("This is an error!");
-        err_info = PkgUtility.tinfo("This is an info!");
-        err_info = PkgUtility.twarn("This is a warning!");
+        # err_info = PkgUtility.@terror "This is an error!";
+        err_info = PkgUtility.@tinfo "This is an info!";
+        err_info = PkgUtility.@twarn "This is a warning!";
         @test true;
     end;
 
@@ -75,7 +75,7 @@ end
                                  ],
                       ],
         ];
-        @info PkgUtility.tinfo("Display the dict in a pretty way:");
+        PkgUtility.@tinfo "Display the dict in a pretty way:";
         PkgUtility.pretty_display!(xxx);
         @test true;
     end;
