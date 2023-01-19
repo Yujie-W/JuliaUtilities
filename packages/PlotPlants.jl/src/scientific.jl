@@ -49,6 +49,47 @@ end
 #
 # Changes to this function
 # General
+#     2023-Jan-19: refactor the function to plot_hexbin (because there is returned plot)
+#
+#######################################################################################################################################################################################################
+"""
+
+    plot_hexbin(ax::PyObject, xs::Array, ys::Array; cmap::String = "Greys", logbins::Bool = false, gridsize::Number = 25)
+    plot_hexbin(ax::PyObject, xs::Array, ys::Array, xlims::Vector, ylims::Vector; cmap::String = "Greys", logbins::Bool = false, gridsize::Number = 25)
+
+Return the density plot, given
+- `ax` Axis to plot on
+- `xs` Array of X
+- `ys` Array of Y
+- `cmap` Optional. Color map scheme
+- `logbins` Optional. If true, use log(count) to color the bins
+- `gridsize` Number of bins on both directions
+- `xlim` Limits of x axis. Used to make plot region equal among subplots
+- `ylim` Limits of y axis. Used to make plot region equal among subplots
+
+"""
+function plot_hexbin end
+
+plot_hexbin(ax::PyObject, xs::Array, ys::Array; cmap::String = "Greys", logbins::Bool = false, gridsize::Number = 25) = (
+    if logbins
+        return ax.hexbin(xs, ys; cmap=cmap, bins="log", gridsize=gridsize)
+    end;
+
+    return ax.hexbin(xs, ys; cmap=cmap, gridsize=gridsize)
+);
+
+plot_hexbin(ax::PyObject, xs::Array, ys::Array, xlims::Vector, ylims::Vector; cmap::String = "Greys", logbins::Bool = false, gridsize::Number = 25) = (
+    newxs = [collect(xs); xlims[1] - (xlims[2] - xlims[1]) / 10; xlims[2] + (xlims[2] - xlims[1]) / 10];
+    newys = [collect(ys); ylims[1] - (ylims[2] - ylims[1]) / 10; ylims[2] + (ylims[2] - ylims[1]) / 10];
+
+    return plot_hexbin(ax, newxs, newys; cmap=cmap, logbins=logbins, gridsize=gridsize)
+);
+
+
+#######################################################################################################################################################################################################
+#
+# Changes to this function
+# General
 #     2022-Nov-14: refactor the function
 #     2022-Nov-14: use EmeraldRegression function (and remove option intercept)
 #
