@@ -20,7 +20,6 @@ include("../packages/PlotPlants.jl/src/scientific.jl")
 
 
 include("../packages/PlotPlants.jl/src/plots/ellipse.jl")
-include("../packages/PlotPlants.jl/src/plots/hexbin.jl" )
 include("../packages/PlotPlants.jl/src/plots/stoma.jl"  )
 
 
