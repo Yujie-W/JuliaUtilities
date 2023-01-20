@@ -3,8 +3,10 @@
 
 ## Packages
 The utility packages are
-- PkgUtility
 - ConstrainedRootSolvers
+- EmeraldMath (not yet registered)
+- EmeraldRegression (not yet registered)
 - NetcdfIO
+- PkgUtility
 - PlotPlants
 - TextIO (not yet registered)
