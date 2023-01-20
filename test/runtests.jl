@@ -3,6 +3,7 @@ using Dates
 using JuliaUtilities
 using LazyArtifacts
 using NCDatasets
+using Plots
 using PyPlot
 using Test
 
