@@ -1,4 +1,5 @@
 using EmeraldVisualization
+using Plots
 using Test
 
 
