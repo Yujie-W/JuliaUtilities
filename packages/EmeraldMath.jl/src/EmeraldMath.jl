@@ -1,0 +1,4 @@
+module EmeraldMath
+
+
+end # module

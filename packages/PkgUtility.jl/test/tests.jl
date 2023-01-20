@@ -80,47 +80,6 @@ end
         @test true;
     end;
 
-    @testset "Numerics" begin
-        for FT in [Float32, Float64]
-            f(x) = x ^ 2;
-            xx = rand(FT, 5);
-            fx = f.(xx);
-            x  = FT(0.1);
-            for result in [
-                        PkgUtility.numerical∫(fx, xx),
-                        PkgUtility.numerical∫(fx, xx[1:4]),
-                        PkgUtility.numerical∫(fx, x),
-                        PkgUtility.numerical∫(f, FT(1), FT(3), 10),
-                        PkgUtility.numerical∫(f, FT(1), FT(3)),
-                        PkgUtility.lower_quadratic(FT(1), FT(3), FT(8)),
-                        PkgUtility.lower_quadratic(FT(-1), FT(3), FT(8)),
-                        PkgUtility.upper_quadratic(FT(1), FT(3), FT(8)),
-                        PkgUtility.upper_quadratic(FT(-1), FT(3), FT(8))]
-                @test true;
-            end;
-        end;
-    end;
-
-    @testset "Statistics" begin
-        for FT in [Float32, Float64]
-            xn = FT[1, 2, 3, 4, NaN];
-            yn = FT[2, 2, 3, 4, NaN];
-            for result in [
-                        PkgUtility.nanmax(xn),
-                        PkgUtility.nanmean(xn),
-                        PkgUtility.nanmedian(xn),
-                        PkgUtility.nanmin(xn),
-                        PkgUtility.nanpercentile(xn, 90),
-                        PkgUtility.nanstd(xn),
-                        PkgUtility.mae(xn, yn),
-                        PkgUtility.mape(xn, yn),
-                        PkgUtility.mase(xn, yn),
-                        PkgUtility.rmse(xn, yn)]
-                @test true;
-            end;
-        end;
-    end;
-
     @testset "NaN" begin
         for FT in [Float32, Float64]
             sa = TestStruct(ones(FT,5), 2);

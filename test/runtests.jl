@@ -8,7 +8,7 @@ using Test
 
 
 @testset verbose = true "JuliaUtilities" begin
-    for pkgname in ["ConstrainedRootSolvers", "EmeraldRegression", "NetcdfIO", "PkgUtility", "PlotPlants", "TextIO"]
+    for pkgname in ["ConstrainedRootSolvers", "EmeraldMath", "EmeraldRegression", "NetcdfIO", "PkgUtility", "PlotPlants", "TextIO"]
         @info "Testing $(pkgname)";
         include("../packages/$(pkgname).jl/test/tests.jl");
     end;

@@ -2,8 +2,6 @@ module PkgUtility
 
 using Dates: Date, DateTime, format, isleapyear, now
 using Pkg.Artifacts: archive_artifact, artifact_exists, artifact_hash, bind_artifact!, create_artifact
-using Statistics: mean, median, std
-using StatsBase: percentile
 
 
 # global constants
@@ -17,13 +15,11 @@ const TIME_OUTPUT = ["DATE", "DATETIME", "DOY", "FDOY"];
 
 include("../packages/PkgUtility.jl/src/macros.jl")
 
-include("../packages/PkgUtility.jl/src/artifacts.jl" )
-include("../packages/PkgUtility.jl/src/datetime.jl"  )
-include("../packages/PkgUtility.jl/src/display.jl"   )
-include("../packages/PkgUtility.jl/src/logs.jl"      )
-include("../packages/PkgUtility.jl/src/numerical.jl" )
-include("../packages/PkgUtility.jl/src/statistics.jl")
-include("../packages/PkgUtility.jl/src/testing.jl"   )
+include("../packages/PkgUtility.jl/src/artifacts.jl")
+include("../packages/PkgUtility.jl/src/datetime.jl" )
+include("../packages/PkgUtility.jl/src/display.jl"  )
+include("../packages/PkgUtility.jl/src/logs.jl"     )
+include("../packages/PkgUtility.jl/src/testing.jl"  )
 
 
 end # module
