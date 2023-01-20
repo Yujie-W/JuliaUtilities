@@ -1,0 +1,4 @@
+name = "EmeraldVisualization"
+uuid = "d641f44a-c7df-45a7-ba54-79566316b701"
+authors = ["Yujie Wang <jesiner@gmail.com>"]
+version = "0.1.0"
