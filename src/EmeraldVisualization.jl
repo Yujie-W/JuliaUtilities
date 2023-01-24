@@ -3,7 +3,7 @@ module EmeraldVisualization
 using Plots
 
 using DocStringExtensions: TYPEDEF, TYPEDFIELDS
-using Plots: Subplot
+using Plots: Plot, Subplot
 
 
 include("../packages/EmeraldVisualization.jl/src/animation.jl")
