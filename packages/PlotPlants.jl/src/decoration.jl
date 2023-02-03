@@ -135,13 +135,13 @@ decorate!(axs::Vector;
     # decorate x-axis and y-axis for each panel
     if !isnothing(xaxis_labels)
         for _id in eachindex(axs)
-            _axis_label = typeof(xaxis_lims) <: Vector ? xaxis_labels[_id] : xaxis_labels;
+            _axis_label = typeof(xaxis_labels) <: Vector ? xaxis_labels[_id] : xaxis_labels;
             decorate!(axs[_id]; xaxis_label = _axis_label, xaxis_label_fontsize = xaxis_label_fontsize);
         end;
     end;
     if !isnothing(yaxis_labels)
         for _id in eachindex(axs)
-            _axis_label = typeof(yaxis_lims) <: Vector ? yaxis_labels[_id] : yaxis_labels;
+            _axis_label = typeof(yaxis_labels) <: Vector ? yaxis_labels[_id] : yaxis_labels;
             decorate!(axs[_id]; yaxis_label = _axis_label, yaxis_label_fontsize = yaxis_label_fontsize);
         end;
     end;
