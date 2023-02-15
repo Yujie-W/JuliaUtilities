@@ -14,11 +14,12 @@ export TextIO
 include("ConstrainedRootSolvers.jl")
 include("EmeraldMath.jl"           )
 include("EmeraldRegression.jl"     )
-include("EmeraldVisualization.jl"  )
 include("NetcdfIO.jl"              )
 include("PkgUtility.jl"            )
 include("PlotPlants.jl"            )
 include("TextIO.jl"                )
 
+
+include("EmeraldVisualization.jl"  )
 
 end # module

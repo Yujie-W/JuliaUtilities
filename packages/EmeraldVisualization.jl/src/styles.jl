@@ -68,7 +68,7 @@ Set the figure or subplot style, given
 """
 function set_style! end
 
-set_style!(fig::Plot, style::GlobalMapStyle; latitude_360::Bool = false) = set_style!.(fig.subplots, style; latitude_360 = latitude_360);
+set_style!(fig::Plot, style::GlobalMapStyle; latitude_360::Bool = false) = set_style!.(fig.subplots, [style]; latitude_360 = latitude_360);
 
 set_style!(panel::Subplot, style::GlobalMapStyle; latitude_360::Bool = false) = (
     panel[:framestyle] = :box;
@@ -85,7 +85,7 @@ set_style!(panel::Subplot, style::GlobalMapStyle; latitude_360::Bool = false) = 
     return nothing
 );
 
-set_style!(fig::Plot, style::Union{RegularPlotStyle, RegularPlotStyleNoLegend}) = set_style!.(fig.subplots, style);
+set_style!(fig::Plot, style::Union{RegularPlotStyle, RegularPlotStyleNoLegend}) = set_style!.(fig.subplots, [style]);
 
 set_style!(panel::Subplot, style::Union{RegularPlotStyle, RegularPlotStyleNoLegend}) = (
     panel[:framestyle] = :box;
